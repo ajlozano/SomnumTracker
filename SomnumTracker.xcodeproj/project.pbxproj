@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6A829F049E4002B692F /* AppDelegate.swift */; };
+		AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AA29F049E4002B692F /* SceneDelegate.swift */; };
+		AD23F6AD29F049E4002B692F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AC29F049E4002B692F /* ViewController.swift */; };
+		AD23F6B029F049E4002B692F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* Main.storyboard */; };
+		AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B129F049E5002B692F /* Assets.xcassets */; };
+		AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */; };
+		AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */; };
+		AD23F6CA29F049E5002B692F /* SomnumTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */; };
+		AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD23F6BC29F049E5002B692F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD23F69D29F049E4002B692F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD23F6A429F049E4002B692F;
+			remoteInfo = SomnumTracker;
+		};
+		AD23F6C629F049E5002B692F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD23F69D29F049E4002B692F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD23F6A429F049E4002B692F;
+			remoteInfo = SomnumTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD23F6A529F049E4002B692F /* SomnumTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomnumTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD23F6A829F049E4002B692F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AD23F6AA29F049E4002B692F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AD23F6AC29F049E4002B692F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD23F6AF29F049E4002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD23F6B129F049E5002B692F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD23F6B429F049E5002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AD23F6B629F049E5002B692F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD23F6BB29F049E5002B692F /* SomnumTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerTests.swift; sourceTree = "<group>"; };
+		AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITests.swift; sourceTree = "<group>"; };
+		AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD23F6A229F049E4002B692F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6B829F049E5002B692F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6C229F049E5002B692F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD23F69C29F049E4002B692F = {
+			isa = PBXGroup;
+			children = (
+				AD23F6A729F049E4002B692F /* SomnumTracker */,
+				AD23F6BE29F049E5002B692F /* SomnumTrackerTests */,
+				AD23F6C829F049E5002B692F /* SomnumTrackerUITests */,
+				AD23F6A629F049E4002B692F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD23F6A629F049E4002B692F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6A529F049E4002B692F /* SomnumTracker.app */,
+				AD23F6BB29F049E5002B692F /* SomnumTrackerTests.xctest */,
+				AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD23F6A729F049E4002B692F /* SomnumTracker */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6A829F049E4002B692F /* AppDelegate.swift */,
+				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
+				AD23F6AC29F049E4002B692F /* ViewController.swift */,
+				AD23F6AE29F049E4002B692F /* Main.storyboard */,
+				AD23F6B129F049E5002B692F /* Assets.xcassets */,
+				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
+				AD23F6B629F049E5002B692F /* Info.plist */,
+			);
+			path = SomnumTracker;
+			sourceTree = "<group>";
+		};
+		AD23F6BE29F049E5002B692F /* SomnumTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */,
+			);
+			path = SomnumTrackerTests;
+			sourceTree = "<group>";
+		};
+		AD23F6C829F049E5002B692F /* SomnumTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */,
+				AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */,
+			);
+			path = SomnumTrackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD23F6A429F049E4002B692F /* SomnumTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD23F6CF29F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTracker" */;
+			buildPhases = (
+				AD23F6A129F049E4002B692F /* Sources */,
+				AD23F6A229F049E4002B692F /* Frameworks */,
+				AD23F6A329F049E4002B692F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SomnumTracker;
+			productName = SomnumTracker;
+			productReference = AD23F6A529F049E4002B692F /* SomnumTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD23F6BA29F049E5002B692F /* SomnumTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD23F6D229F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerTests" */;
+			buildPhases = (
+				AD23F6B729F049E5002B692F /* Sources */,
+				AD23F6B829F049E5002B692F /* Frameworks */,
+				AD23F6B929F049E5002B692F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD23F6BD29F049E5002B692F /* PBXTargetDependency */,
+			);
+			name = SomnumTrackerTests;
+			productName = SomnumTrackerTests;
+			productReference = AD23F6BB29F049E5002B692F /* SomnumTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AD23F6C429F049E5002B692F /* SomnumTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD23F6D529F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerUITests" */;
+			buildPhases = (
+				AD23F6C129F049E5002B692F /* Sources */,
+				AD23F6C229F049E5002B692F /* Frameworks */,
+				AD23F6C329F049E5002B692F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD23F6C729F049E5002B692F /* PBXTargetDependency */,
+			);
+			name = SomnumTrackerUITests;
+			productName = SomnumTrackerUITests;
+			productReference = AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD23F69D29F049E4002B692F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					AD23F6A429F049E4002B692F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					AD23F6BA29F049E5002B692F = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AD23F6A429F049E4002B692F;
+					};
+					AD23F6C429F049E5002B692F = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AD23F6A429F049E4002B692F;
+					};
+				};
+			};
+			buildConfigurationList = AD23F6A029F049E4002B692F /* Build configuration list for PBXProject "SomnumTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD23F69C29F049E4002B692F;
+			productRefGroup = AD23F6A629F049E4002B692F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD23F6A429F049E4002B692F /* SomnumTracker */,
+				AD23F6BA29F049E5002B692F /* SomnumTrackerTests */,
+				AD23F6C429F049E5002B692F /* SomnumTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD23F6A329F049E4002B692F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */,
+				AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */,
+				AD23F6B029F049E4002B692F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6B929F049E5002B692F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6C329F049E5002B692F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD23F6A129F049E4002B692F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD23F6AD29F049E4002B692F /* ViewController.swift in Sources */,
+				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
+				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6B729F049E5002B692F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD23F6C129F049E5002B692F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */,
+				AD23F6CA29F049E5002B692F /* SomnumTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD23F6BD29F049E5002B692F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD23F6A429F049E4002B692F /* SomnumTracker */;
+			targetProxy = AD23F6BC29F049E5002B692F /* PBXContainerItemProxy */;
+		};
+		AD23F6C729F049E5002B692F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD23F6A429F049E4002B692F /* SomnumTracker */;
+			targetProxy = AD23F6C629F049E5002B692F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD23F6AE29F049E4002B692F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD23F6AF29F049E4002B692F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD23F6B429F049E5002B692F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD23F6CD29F049E5002B692F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AD23F6CE29F049E5002B692F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD23F6D029F049E5002B692F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SomnumTracker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD23F6D129F049E5002B692F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SomnumTracker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AD23F6D329F049E5002B692F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SomnumTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SomnumTracker";
+			};
+			name = Debug;
+		};
+		AD23F6D429F049E5002B692F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SomnumTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SomnumTracker";
+			};
+			name = Release;
+		};
+		AD23F6D629F049E5002B692F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SomnumTracker;
+			};
+			name = Debug;
+		};
+		AD23F6D729F049E5002B692F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SomnumTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD23F6A029F049E4002B692F /* Build configuration list for PBXProject "SomnumTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD23F6CD29F049E5002B692F /* Debug */,
+				AD23F6CE29F049E5002B692F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD23F6CF29F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD23F6D029F049E5002B692F /* Debug */,
+				AD23F6D129F049E5002B692F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD23F6D229F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD23F6D329F049E5002B692F /* Debug */,
+				AD23F6D429F049E5002B692F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD23F6D529F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD23F6D629F049E5002B692F /* Debug */,
+				AD23F6D729F049E5002B692F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD23F69D29F049E4002B692F /* Project object */;
+}
