@@ -101,10 +101,12 @@
 			children = (
 				AD23F6A829F049E4002B692F /* AppDelegate.swift */,
 				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
-				AD23F6AC29F049E4002B692F /* ViewController.swift */,
-				AD23F6AE29F049E4002B692F /* Main.storyboard */,
+				AD7A446829F1382700547046 /* Helpers */,
+				AD7A446529F137EB00547046 /* Models */,
+				AD7A446729F1380C00547046 /* Views */,
+				AD7A446629F137F100547046 /* ViewModels */,
+				AD7A446429F137E500547046 /* Services */,
 				AD23F6B129F049E5002B692F /* Assets.xcassets */,
-				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 				AD23F6B629F049E5002B692F /* Info.plist */,
 			);
 			path = SomnumTracker;
@@ -125,6 +127,44 @@
 				AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */,
 			);
 			path = SomnumTrackerUITests;
+			sourceTree = "<group>";
+		};
+		AD7A446429F137E500547046 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AD7A446529F137EB00547046 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AD7A446629F137F100547046 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AD7A446729F1380C00547046 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6AC29F049E4002B692F /* ViewController.swift */,
+				AD23F6AE29F049E4002B692F /* Main.storyboard */,
+				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD7A446829F1382700547046 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,11 +480,14 @@
 				DEVELOPMENT_TEAM = UJ8245Z3MQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SomnumTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SomnumTracker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,11 +511,14 @@
 				DEVELOPMENT_TEAM = UJ8245Z3MQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SomnumTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SomnumTracker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
