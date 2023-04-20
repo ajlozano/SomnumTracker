@@ -16,6 +16,10 @@
 		AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */; };
 		AD23F6CA29F049E5002B692F /* SomnumTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */; };
 		AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */; };
+		AD3042DA29F19B060024517D /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042D929F19B060024517D /* CustomColors.swift */; };
+		AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */; };
+		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
+		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITests.swift; sourceTree = "<group>"; };
 		AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AD3042D929F19B060024517D /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Limerick-Serial Regular.ttf"; path = "SomnumTracker/Limerick-Serial Regular.ttf"; sourceTree = "<group>"; };
+		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
+		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 		AD23F69C29F049E4002B692F = {
 			isa = PBXGroup;
 			children = (
+				AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */,
 				AD23F6A729F049E4002B692F /* SomnumTracker */,
 				AD23F6BE29F049E5002B692F /* SomnumTrackerTests */,
 				AD23F6C829F049E5002B692F /* SomnumTrackerUITests */,
@@ -139,6 +148,7 @@
 		AD7A446529F137EB00547046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AD3042DF29F1C8570024517D /* SleepStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23F6AC29F049E4002B692F /* ViewController.swift */,
+				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
 				AD23F6AE29F049E4002B692F /* Main.storyboard */,
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
@@ -163,6 +174,7 @@
 		AD7A446829F1382700547046 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AD3042D929F19B060024517D /* CustomColors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +285,7 @@
 			files = (
 				AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */,
 				AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */,
+				AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */,
 				AD23F6B029F049E4002B692F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,8 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD23F6AD29F049E4002B692F /* ViewController.swift in Sources */,
+				AD3042E029F1C8570024517D /* SleepStats.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
+				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
+				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
