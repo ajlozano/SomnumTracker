@@ -20,6 +20,7 @@
 		AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */; };
 		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
 		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
+		AD5925C229F713A000A69BD2 /* WeekdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Limerick-Serial Regular.ttf"; path = "SomnumTracker/Limerick-Serial Regular.ttf"; sourceTree = "<group>"; };
 		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
 		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
+		AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				AD23F6AC29F049E4002B692F /* ViewController.swift */,
 				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
+				AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */,
 				AD23F6AE29F049E4002B692F /* Main.storyboard */,
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
@@ -317,6 +320,7 @@
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
 				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
+				AD5925C229F713A000A69BD2 /* WeekdayTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

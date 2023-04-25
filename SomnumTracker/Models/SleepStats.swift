@@ -8,6 +8,7 @@
 import Foundation
 
 struct SleepStats {
+    let weekDay: String
     let timeOfSleep: String
     let wakeupTime: String
     let sleepDuration: String
