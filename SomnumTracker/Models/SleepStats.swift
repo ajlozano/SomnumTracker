@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct SleepStats {
+struct SleepStats: Identifiable {
+    let id = UUID()
     let weekDay: String
     let timeOfSleep: String
     let wakeupTime: String
-    let sleepDuration: String
+    let sleepDuration: Float
+    let createAt: Date?
 }

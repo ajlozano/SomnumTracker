@@ -20,7 +20,8 @@
 		AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */; };
 		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
 		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
-		AD5925C229F713A000A69BD2 /* WeekdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */; };
+		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
+		ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Limerick-Serial Regular.ttf"; path = "SomnumTracker/Limerick-Serial Regular.ttf"; sourceTree = "<group>"; };
 		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
 		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
-		AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayTableViewCell.swift; sourceTree = "<group>"; };
+		ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +169,7 @@
 			children = (
 				AD23F6AC29F049E4002B692F /* ViewController.swift */,
 				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
-				AD5925C129F713A000A69BD2 /* WeekdayTableViewCell.swift */,
+				ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */,
 				AD23F6AE29F049E4002B692F /* Main.storyboard */,
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
@@ -198,6 +200,9 @@
 			dependencies = (
 			);
 			name = SomnumTracker;
+			packageProductDependencies = (
+				ADBE1DD729F928A500B0EB48 /* SnapKit */,
+			);
 			productName = SomnumTracker;
 			productReference = AD23F6A529F049E4002B692F /* SomnumTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -270,6 +275,9 @@
 				Base,
 			);
 			mainGroup = AD23F69C29F049E4002B692F;
+			packageReferences = (
+				ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = AD23F6A629F049E4002B692F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -317,10 +325,10 @@
 				AD23F6AD29F049E4002B692F /* ViewController.swift in Sources */,
 				AD3042E029F1C8570024517D /* SleepStats.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
+				ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */,
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
 				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
-				AD5925C229F713A000A69BD2 /* WeekdayTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +515,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +546,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ADBE1DD729F928A500B0EB48 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD23F69D29F049E4002B692F /* Project object */;
 }
