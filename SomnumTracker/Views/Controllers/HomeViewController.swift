@@ -9,20 +9,53 @@ import UIKit
 import Foundation
 import SwiftUI
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var sleepDurationSubview: UIView!
     @IBOutlet weak var sleepStatsTableView: UITableView!
     @IBOutlet weak var sleepStatsDataView: UIView!
     @IBOutlet weak var sleepEntryButton: UIButton!
     @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepStatsView: UIView!
- 
-    let sleepStatsHistory = SleepStatsHistory()
+    
+    private let homeViewModel = HomeViewModel()
+    
+    //let sleepStatsHistory = SleepStatsHistory()
+    var statList: [SleepStats] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupBinders()
+        homeViewModel.getSleepStatList()
+    }
+    
+    @IBAction func AddButtonPressed(_ sender: UIButton) {
+//        let alert = UIAlertController(title: "New Sleep Entry", message: "", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Submit", style: .default) { action in
+//            print("Sleep session added.")
+//        }
+//        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
+//        let action3 = UIAlertAction(title: "Reset", style: .default)
+//
+//        alert.addAction(action)
+//        alert.addAction(action2)
+//        alert.addAction(action3)
+//        present(alert, animated: true, completion: nil)
+        
+        let sleepEntryAlert = SleepEntryAlert()
+        sleepEntryAlert.showNewEntryAlert(on: self)
+        
+    }
+    
+    func setupBinders() {
+        homeViewModel.sleepStatList.bind { list in
+            guard let statList = list else {
+                print("Not found data in sleepStatList")
+                return
+            }
+            self.statList = statList
+        }
     }
     
     private func setupView() {
@@ -37,18 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         sleepStatsDataView.backgroundColor = .customBlueLight
         sleepStatsDataView.layer.cornerRadius = 10
         
+        sleepStatsTableView.dataSource = self
+        sleepStatsTableView.separatorColor = UIColor.clear
+        sleepStatsTableView.isScrollEnabled = false
+        sleepStatsTableView.delegate = self
+        
         sleepDurationView.layer.cornerRadius = 15
         sleepDurationView.layer.shadowColor = UIColor.black.cgColor
         sleepDurationView.layer.shadowOpacity = 0.8
         sleepDurationView.layer.shadowOffset = CGSize(width: 2, height: 2)
         sleepEntryButton.tintColor = .customBlue
-
-        sleepEntryButton.titleLabel?.isHidden = true
         
-        sleepStatsTableView.dataSource = self
-        sleepStatsTableView.separatorColor = UIColor.clear
-        sleepStatsTableView.isScrollEnabled = false
-        sleepStatsTableView.delegate = self
+        sleepEntryButton.titleLabel?.isHidden = true
         
         // Sleep duration graph view configuration
         let controller = UIHostingController(rootView: SleepStatsHistory())
@@ -59,35 +92,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //let newView = UIView()
         sleepDurationView.addSubview(sleepDurationGraphView)
-
+        
         sleepDurationGraphView.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 10)
-        let widthConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 231)
+        let widthConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 220)
         let heightConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 170)
         sleepDurationView.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sleepStatsHistory.list.count
+        statList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("sleep table view")
         let cell = tableView.dequeueReusableCell(withIdentifier: "SleepStatsCell") as! SleepStatsViewCell
         cell.backgroundColor = UIColor.clear
         //cell.frame.size = CGSize(width: cell.frame.width, height: 50)
-        cell.setup(timeOfSleep: sleepStatsHistory.list[indexPath.row].timeOfSleep,
-                   wakeupTIme: sleepStatsHistory.list[indexPath.row].wakeupTime,
-                   sleepDuration: sleepStatsHistory.list[indexPath.row].sleepDuration,
-                   weekday: sleepStatsHistory.list[indexPath.row].weekDay)
+        cell.setup(timeOfSleep: statList[indexPath.row].timeOfSleep,
+                   wakeupTIme: statList[indexPath.row].wakeupTime,
+                   sleepDuration: statList[indexPath.row].sleepDuration,
+                   weekday: statList[indexPath.row].weekDay)
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 7
     }
-    
 }
 

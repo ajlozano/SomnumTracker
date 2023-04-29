@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SomnumTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="SomnumTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,10 +52,10 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="218" height="39"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/7" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KA-tG-beu" userLabel="weekday">
-                                                                            <rect key="frame" x="0.0" y="14.666666666666668" width="20" height="9.6666666666666679"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/7" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KA-tG-beu" userLabel="weekday">
+                                                                            <rect key="frame" x="0.0" y="14.666666666666668" width="25" height="9.6666666666666679"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="20" id="0ct-JQ-6H9"/>
+                                                                                <constraint firstAttribute="width" constant="25" id="0ct-JQ-6H9"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                             <nil key="textColor"/>
@@ -148,13 +148,65 @@
                                             <constraint firstItem="H2P-bF-9KP" firstAttribute="leading" secondItem="Aat-wF-NpQ" secondAttribute="trailing" constant="15" id="wbt-xH-mse"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjY-QN-bjQ" userLabel="LastWeek">
+                                        <rect key="frame" x="20" y="111.66666666666669" width="29" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="6vP-uO-o1X"/>
+                                            <constraint firstAttribute="width" constant="29" id="Zi0-cQ-5HD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-wO-9A3" userLabel="NextWeekButton">
+                                        <rect key="frame" x="-3" y="109" width="30" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Yy8-iM-I5i"/>
+                                            <constraint firstAttribute="height" constant="34" id="sfJ-7F-T0X"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="arrow.left.circle.fill" catalog="system" symbolScale="small"/>
+                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUY-JT-WgA" userLabel="LastWeekButton">
+                                        <rect key="frame" x="299" y="111" width="34" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="N0Z-Z3-6Lz"/>
+                                            <constraint firstAttribute="height" constant="30" id="Pwu-eN-hVt"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="small"/>
+                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Week" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaD-MY-94b">
+                                        <rect key="frame" x="279" y="111.66666666666669" width="29" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="SUT-Za-1dm"/>
+                                            <constraint firstAttribute="width" constant="29" id="rZc-2l-vra"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="DOU-hY-jl4" firstAttribute="leading" secondItem="F01-Kj-fR2" secondAttribute="leading" constant="23" id="51B-RD-Ode"/>
+                                    <constraint firstItem="oxP-wO-9A3" firstAttribute="centerY" secondItem="F01-Kj-fR2" secondAttribute="centerY" id="7jp-G2-0sb"/>
                                     <constraint firstItem="uwI-rG-eQp" firstAttribute="centerX" secondItem="F01-Kj-fR2" secondAttribute="centerX" id="DZd-ws-2JL"/>
+                                    <constraint firstAttribute="trailing" secondItem="uaD-MY-94b" secondAttribute="trailing" constant="20" id="RQ2-gm-QMU"/>
+                                    <constraint firstItem="kjY-QN-bjQ" firstAttribute="leading" secondItem="F01-Kj-fR2" secondAttribute="leading" constant="20" id="UkZ-BU-eYG"/>
+                                    <constraint firstItem="iUY-JT-WgA" firstAttribute="centerY" secondItem="F01-Kj-fR2" secondAttribute="centerY" id="WMd-Fq-gji"/>
+                                    <constraint firstItem="uaD-MY-94b" firstAttribute="centerY" secondItem="F01-Kj-fR2" secondAttribute="centerY" id="bwg-TY-jts"/>
+                                    <constraint firstItem="oxP-wO-9A3" firstAttribute="leading" secondItem="F01-Kj-fR2" secondAttribute="leading" constant="-3" id="c2Z-r9-9Mk"/>
+                                    <constraint firstItem="kjY-QN-bjQ" firstAttribute="centerY" secondItem="F01-Kj-fR2" secondAttribute="centerY" id="hLi-gt-eNF"/>
                                     <constraint firstItem="DOU-hY-jl4" firstAttribute="top" secondItem="F01-Kj-fR2" secondAttribute="top" constant="8" id="qNn-OJ-VJ5"/>
                                     <constraint firstItem="uwI-rG-eQp" firstAttribute="centerY" secondItem="F01-Kj-fR2" secondAttribute="centerY" id="tcA-PD-zER"/>
+                                    <constraint firstAttribute="trailing" secondItem="iUY-JT-WgA" secondAttribute="trailing" constant="-5" id="yOg-fp-h9b"/>
                                     <constraint firstAttribute="height" constant="252" id="zwa-Uu-EYy"/>
                                 </constraints>
                             </view>
@@ -176,8 +228,8 @@
                                             <constraint firstAttribute="width" constant="231" id="mSn-nL-mx2"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-0u-uAU" userLabel="RightButton">
-                                        <rect key="frame" x="0.0" y="108" width="30" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-0u-uAU" userLabel="LastWeekButton">
+                                        <rect key="frame" x="-3" y="108" width="30" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="d4s-0V-tKp"/>
                                             <constraint firstAttribute="width" constant="30" id="ysw-vL-VAJ"/>
@@ -185,10 +237,11 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="arrow.left.circle.fill" catalog="system" symbolScale="small"/>
+                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcS-cq-Dcc" userLabel="LastWeek">
-                                        <rect key="frame" x="24" y="110.66666666666663" width="29" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcS-cq-Dcc" userLabel="LastWeek">
+                                        <rect key="frame" x="20" y="110.66666666666663" width="29" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="T2l-GF-pxe"/>
                                             <constraint firstAttribute="width" constant="29" id="y4C-eQ-v8I"/>
@@ -197,8 +250,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-iZ-oVp">
-                                        <rect key="frame" x="294" y="110" width="34" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-iZ-oVp" userLabel="NextWeekButton">
+                                        <rect key="frame" x="299" y="110" width="34" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="qrC-OM-S2E"/>
                                             <constraint firstAttribute="width" constant="34" id="wZX-u7-bjb"/>
@@ -206,10 +259,11 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="small"/>
+                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-Ye-JXp">
-                                        <rect key="frame" x="275" y="110.66666666666663" width="29" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Week" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-Ye-JXp">
+                                        <rect key="frame" x="279" y="110.66666666666663" width="29" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="fBy-EE-8yP"/>
                                             <constraint firstAttribute="width" constant="29" id="neW-U5-j3v"/>
@@ -221,16 +275,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="pcS-cq-Dcc" firstAttribute="leading" secondItem="qwO-9F-SQr" secondAttribute="leading" constant="24" id="8r1-LG-WEe"/>
+                                    <constraint firstItem="pcS-cq-Dcc" firstAttribute="leading" secondItem="qwO-9F-SQr" secondAttribute="leading" constant="20" id="8r1-LG-WEe"/>
                                     <constraint firstItem="2mE-97-GnH" firstAttribute="centerY" secondItem="qwO-9F-SQr" secondAttribute="centerY" constant="15" id="DLc-sH-CnB"/>
                                     <constraint firstItem="8M3-iZ-oVp" firstAttribute="centerY" secondItem="qwO-9F-SQr" secondAttribute="centerY" id="Ded-GQ-hHn"/>
                                     <constraint firstItem="YtN-Ye-JXp" firstAttribute="centerY" secondItem="qwO-9F-SQr" secondAttribute="centerY" id="Fx6-gd-MTX"/>
-                                    <constraint firstItem="hcc-0u-uAU" firstAttribute="leading" secondItem="qwO-9F-SQr" secondAttribute="leading" id="S42-gS-aPY"/>
-                                    <constraint firstAttribute="trailing" secondItem="YtN-Ye-JXp" secondAttribute="trailing" constant="24" id="XNb-wD-MQr"/>
+                                    <constraint firstItem="hcc-0u-uAU" firstAttribute="leading" secondItem="qwO-9F-SQr" secondAttribute="leading" constant="-3" id="S42-gS-aPY"/>
+                                    <constraint firstAttribute="trailing" secondItem="YtN-Ye-JXp" secondAttribute="trailing" constant="20" id="XNb-wD-MQr"/>
                                     <constraint firstAttribute="height" constant="250" id="acW-ma-Og6"/>
                                     <constraint firstItem="2mE-97-GnH" firstAttribute="centerX" secondItem="qwO-9F-SQr" secondAttribute="centerX" id="bOn-LM-U9N"/>
                                     <constraint firstItem="hcc-0u-uAU" firstAttribute="centerY" secondItem="qwO-9F-SQr" secondAttribute="centerY" id="dNd-5l-IHy"/>
-                                    <constraint firstAttribute="trailing" secondItem="8M3-iZ-oVp" secondAttribute="trailing" id="emQ-Aa-1Qp"/>
+                                    <constraint firstAttribute="trailing" secondItem="8M3-iZ-oVp" secondAttribute="trailing" constant="-5" id="emQ-Aa-1Qp"/>
                                     <constraint firstItem="pcS-cq-Dcc" firstAttribute="centerY" secondItem="qwO-9F-SQr" secondAttribute="centerY" id="sZy-LD-1b2"/>
                                 </constraints>
                             </view>
@@ -253,6 +307,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="53"/>
                                     <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="AddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hsd-t6-Ww4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
