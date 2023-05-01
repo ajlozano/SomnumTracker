@@ -33,162 +33,185 @@ class SleepEntryAlert {
         return alert
     }()
     
-    func showNewEntryAlert(on viewController: UIViewController) {
-        guard let targetView = viewController.view else {
-            return
+    var targetView: UIView
+    var dateEntry = UIDatePicker()
+    var timeOfSleepEntry = UIDatePicker()
+    var wakeUpTimeEntry = UIDatePicker()
+    
+    var sleepDurationValue = 8.5
+    
+    init(on viewController: UIViewController) {
+        guard let view = viewController.view else {
+            fatalError("Error setting view in Sleep entry Alert")
         }
+        targetView = view
+        return
+    }
+    
+    func showNewEntryAlert() {
         backgroundView.frame = targetView.bounds
         targetView.addSubview(backgroundView)
         
         targetView.addSubview(alertView)
         alertView.frame = CGRect(x: 40, y: -300, width: targetView.frame.size.width-80, height: 300)
         
-        createAlertAttributes(on: alertView)
+        createAlertAttributes()
         
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundView.alpha = 0.6
         }) { done in
             if done {
                 UIView.animate(withDuration: 0.25, animations: {
-                    self.alertView.center = targetView.center
+                    self.alertView.center = self.targetView.center
                 })
             }
         }
     }
     
-    @objc func dismissAlert() {
-        
+    private func resetValues() {
+        sleepDurationValue = 8.5
     }
     
-    func createAlertAttributes(on view: UIView) {
+    private func createAlertAttributes() {
+        // Ttitle label
+        createTextLabel(on: alertView, x: 0, y: 0, title: Constants.titleText, aligment: .center, widthLabel: alertView.frame.size.width, heightLabel: alertView.frame.height - 220, textSize: 25, isBold: true)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "HH:mm"
+        // Date entries
+        createDateEntry(on: alertView, on: dateEntry, x: 60, y: 70, title: Constants.dateText, dateMode: .date, dateModeWidth: 80)
+        createDateEntry(on: alertView, on: timeOfSleepEntry, x: 60, y: 100, title: Constants.timeOfSleepText, dateMode: .time, dateModeWidth: 95)
+        createDateEntry(on: alertView, on: wakeUpTimeEntry, x: 60, y: 130, title: Constants.wakeUpTimeText, dateMode: .time, dateModeWidth: 95)
         
-        // Text labels
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 80))
-        titleLabel.text = Constants.titleText
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        view.addSubview(titleLabel)
+        // Separator line
+        let separatorView = UIView(frame: CGRect(x: 40, y: 170, width: alertView.frame.width-80, height: 1))
+        separatorView.backgroundColor = .black
+        alertView.addSubview(separatorView)
+
+        // sleep duration View
+        let sleepDurationView = UIView(frame: CGRect(x: 60, y: 180, width: alertView.frame.width, height: alertView.frame.height - 275))
+        alertView.addSubview(sleepDurationView)
+        // Sleep duration labels
+        createTextLabel(on: sleepDurationView, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 20, isBold: true)
+        createTextLabel(on: sleepDurationView, x: alertView.frame.size.width - 185, y: 0, title: "\(sleepDurationValue)", aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
         
+        // Action Buttons View
+        let actionButtonsView = UIView(frame: CGRect(x: 0, y: alertView.frame.height - 70, width: alertView.frame.size.width, height: alertView.frame.height - 270))
+        alertView.addSubview(actionButtonsView)
+        // Button width is the same for all buttons.
+        let buttonWidth = actionButtonsView.frame.size.width/4
+        // Action buttons
+        createButton(on: actionButtonsView,
+                     x: alertView.center.x - buttonWidth/2,
+                     width: buttonWidth,
+                     title: "Reset",
+                     backgroundColor: .customBlueLight,
+                     titleColor: .black)
+        createButton(on: actionButtonsView,
+                     x: alertView.frame.size.width/3 - buttonWidth/2,
+                     width: buttonWidth,
+                     title: "Cancel",
+                     backgroundColor: .customBlueLight,
+                     titleColor: .black)
+        createButton(on: actionButtonsView,
+                     x: alertView.frame.size.width/3 * 2 + buttonWidth/2,
+                     width: buttonWidth,
+                     title: "Submit",
+                     backgroundColor: .customBlue,
+                     titleColor: .white)
+    }
+    
+    private func createDateEntry(on view: UIView, on picker: UIDatePicker, x: CGFloat, y: CGFloat, title: String, dateMode: UIDatePicker.Mode, dateModeWidth: CGFloat) {
         // Date View
-        let dateView = UIView(frame: CGRect(x: 60, y: 70, width: view.frame.size.width, height: 25))
+        let dateView = UIView(frame: CGRect(x: x, y: y, width: view.frame.size.width, height: view.frame.height - 275))
         view.addSubview(dateView)
         // Date Label
         let dateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        dateLabel.text = Constants.dateText
+        dateLabel.text = title
         dateLabel.textAlignment = .left
         dateView.addSubview(dateLabel)
         // Date picker
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
+        var datePicker = picker
+        datePicker.datePickerMode = dateMode
         datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
         datePicker.maximumDate = Date()
-        datePicker.frame = CGRect(x: view.frame.size.width - 220, y: 0, width: 80, height: 25)
+        if dateMode == .time {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat =  "HH:mm, yyyy/MM/dd"
+            if let date = dateFormatter.date(from: "20:30, 2023/03/24") {
+                datePicker.date = date
+                print(datePicker.date)
+            }
+        }
+
+        datePicker.frame = CGRect(x: view.frame.width - 220, y: 0, width: dateModeWidth, height: 25)
         datePicker.preferredDatePickerStyle = .compact
         datePicker.backgroundColor = .clear
         dateView.addSubview(datePicker)
-        
-        // Time of sleep View
-        let timeOfSleepView = UIView(frame: CGRect(x: 60, y: 100, width: view.frame.size.width, height: 25))
-        view.addSubview(timeOfSleepView)
-        // Time of sleep label
-        let timeOfSleepLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        timeOfSleepLabel.text = Constants.timeOfSleepText
-        timeOfSleepLabel.textAlignment = .left
-        timeOfSleepView.addSubview(timeOfSleepLabel)
-        // Tame of sleep picker
-        let timeOfSleepPicker = UIDatePicker()
-        timeOfSleepPicker.datePickerMode = .time
-        timeOfSleepPicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
-        timeOfSleepPicker.maximumDate = Date()
-        if let date = dateFormatter.date(from: "23:00") {
-            timeOfSleepPicker.date = date
+    }
+    
+    private func createButton(on view: UIView, x: CGFloat, width: CGFloat, title: String, backgroundColor: UIColor, titleColor: UIColor) {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: width, height: view.frame.height))
+        button.center.x = x
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
+        button.backgroundColor = backgroundColor
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(sleepEntryAction), for: .touchUpInside)
+        view.addSubview(button)
+    }
+    
+    private func createTextLabel(on view: UIView, x: CGFloat, y: CGFloat, title: String, aligment: NSTextAlignment, widthLabel: CGFloat, heightLabel: CGFloat, textSize: CGFloat, isBold: Bool) {
+        let titleLabel = UILabel(frame: CGRect(x: x, y: y, width: widthLabel, height: heightLabel))
+        titleLabel.text = title
+        titleLabel.textAlignment = aligment
+        if (isBold) {
+            titleLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         }
-        timeOfSleepPicker.frame = CGRect(x: view.frame.size.width - 220, y: 0, width: 95, height: 25)
-        timeOfSleepPicker.preferredDatePickerStyle = .compact
-        timeOfSleepPicker.backgroundColor = .clear
-        timeOfSleepView.addSubview(timeOfSleepPicker)
-        
-        // Time of sleep View
-        let wakeUpView = UIView(frame: CGRect(x: 60, y: 130, width: view.frame.size.width, height: 25))
-        view.addSubview(wakeUpView)
-        // Wake Up label
-        let wakeUpTimeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        wakeUpTimeLabel.text = Constants.wakeUpTimeText
-        wakeUpTimeLabel.textAlignment = .left
-        wakeUpView.addSubview(wakeUpTimeLabel)
-        // Wake Up picker
-        let wakeUpPicker = UIDatePicker()
-        wakeUpPicker.datePickerMode = .time
-        wakeUpPicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
-        wakeUpPicker.maximumDate = Date()
-        if let date = dateFormatter.date(from: "07:30") {
-            wakeUpPicker.date = date
-        }
-        wakeUpPicker.frame = CGRect(x: view.frame.size.width - 220, y: 0, width: 95, height: 25)
-        wakeUpPicker.preferredDatePickerStyle = .compact
-        wakeUpPicker.backgroundColor = .clear
-        wakeUpView.addSubview(wakeUpPicker)
-        
-        // Separator line
-        let separatorView = UIView(frame: CGRect(x: 40, y: 170, width: view.frame.size.width-80, height: 1))
-        separatorView.backgroundColor = .black
-        view.addSubview(separatorView)
-        
-        // sleep duration View
-        let sleepDurationView = UIView(frame: CGRect(x: 60, y: 180, width: view.frame.size.width, height: 25))
-        view.addSubview(sleepDurationView)
-        // sleep duration Label
-        let sleepDurationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        sleepDurationLabel.text = Constants.sleepDurationText
-        sleepDurationLabel.textAlignment = .left
-        sleepDurationLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        sleepDurationView.addSubview(sleepDurationLabel)
-        // sleep duration Label
-        let sleepValueLabel = UILabel(frame: CGRect(x: view.frame.size.width - 185, y: 0, width: view.frame.size.width, height: 25))
-        sleepValueLabel.text = "8.5 hours"
-        sleepValueLabel.textAlignment = .left
-        sleepValueLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        sleepDurationView.addSubview(sleepValueLabel)
-        
-        // Action Buttons View
-        let actionButtonsView = UIView(frame: CGRect(x: 0, y: view.frame.height - 70, width: view.frame.size.width, height: 30))
-        view.addSubview(actionButtonsView)
-        // Reset Button
-        let resetButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.size.width/4, height: 30))
-        resetButton.center.x = view.center.x - resetButton.frame.width/2
-        resetButton.setTitle("Reset", for: .normal)
-        resetButton.setTitleColor(.black, for: .normal)
-        resetButton.backgroundColor = .customBlueLight
-        resetButton.layer.cornerRadius = 12
-        actionButtonsView.addSubview(resetButton)
-        // Cancel Button
-        let cancelButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.size.width/4, height: 30))
-        cancelButton.center.x = resetButton.center.x - resetButton.frame.width * 1.2
-        cancelButton.backgroundColor = .customBlueLight
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(.black, for: .normal)
-        cancelButton.layer.cornerRadius = 12
-        actionButtonsView.addSubview(cancelButton)
 
-        // Reset Button
-        let submitButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.size.width/4, height: 30))
-        submitButton.center.x = resetButton.center.x + resetButton.frame.width * 1.2
-        submitButton.setTitle("Submit", for: .normal)
-        submitButton.setTitleColor(.white, for: .highlighted)
-        submitButton.backgroundColor = .customBlue
-        submitButton.layer.cornerRadius = 12
-        submitButton.addTarget(actionButtonsView.self, action: #selector(submit), for: .touchUpInside)
-        actionButtonsView.addSubview(submitButton)
+        view.addSubview(titleLabel)
     }
     
     @objc func dateChange(datePicker: UIDatePicker) {
-        
+        print("Date changed")
     }
     
-    @objc func submit(sender: UIButton!) {
-        print("TOUCHED")
+    @objc func sleepEntryAction(sender: UIButton) {
+        if (sender.titleLabel?.text == "Reset") {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat =  "MM/dd/yyyy"
+            dateEntry.date = Date()
+
+            dateFormatter.dateFormat =  "HH:mm"
+            if let date = dateFormatter.date(from: "23:00") {
+                timeOfSleepEntry.date = date
+            }
+            if let date = dateFormatter.date(from: "23:00") {
+                print("other")
+                wakeUpTimeEntry.date = date
+            }
+            print("Reset: \(wakeUpTimeEntry.date)")
+            
+        } else if (sender.titleLabel?.text == "Cancel") || (sender.titleLabel?.text == "Submit") {
+            UIView.animate(withDuration: 0.25,
+                           animations: {
+                self.alertView.frame = CGRect(x: 40,
+                                              y: self.targetView.frame.size.height,
+                                              width: self.targetView.frame.size.width-80,
+                                              height: 300)
+            }, completion: { done in
+                if done {
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.backgroundView.alpha = 0
+                    }) { done in
+                        if done {
+                            self.alertView.removeFromSuperview()
+                            self.backgroundView.removeFromSuperview()
+                        }
+                    }
+                }
+            })
+        } else {
+            print("error")
+        }
+        
     }
 }

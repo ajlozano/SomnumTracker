@@ -24,7 +24,7 @@ class SleepStatsViewCell: UITableViewCell {
         wakeupTimeLabel.textColor = .darkGray
         sleepDurationLabel.font = sleepDurationLabel.font.withSize(9)
         sleepDurationLabel.textColor = .darkGray
-        weekdayLabel.font = weekdayLabel.font.withSize(9)
+        weekdayLabel.font = weekdayLabel.font.withSize(7)
         weekdayLabel.textColor = .darkGray
     }
     

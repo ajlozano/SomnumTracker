@@ -13,5 +13,5 @@ struct SleepStats: Identifiable {
     let timeOfSleep: String
     let wakeupTime: String
     let sleepDuration: Float
-    let createAt: Date?
+    let createAt: Date
 }

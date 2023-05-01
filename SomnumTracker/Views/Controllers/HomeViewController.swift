@@ -20,32 +20,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private let homeViewModel = HomeViewModel()
     
+    var sleepEntryAlert: SleepEntryAlert?
+    
     //let sleepStatsHistory = SleepStatsHistory()
     var statList: [SleepStats] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sleepEntryAlert = SleepEntryAlert(on: self)
+        
         setupView()
         setupBinders()
         homeViewModel.getSleepStatList()
     }
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
-//        let alert = UIAlertController(title: "New Sleep Entry", message: "", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Submit", style: .default) { action in
-//            print("Sleep session added.")
-//        }
-//        let action2 = UIAlertAction(title: "Cancel", style: .cancel)
-//        let action3 = UIAlertAction(title: "Reset", style: .default)
-//
-//        alert.addAction(action)
-//        alert.addAction(action2)
-//        alert.addAction(action3)
-//        present(alert, animated: true, completion: nil)
-        
-        let sleepEntryAlert = SleepEntryAlert()
-        sleepEntryAlert.showNewEntryAlert(on: self)
-        
+        sleepEntryAlert!.showNewEntryAlert()
+    }
+    
+    @objc func sleepEntryAction(sender: UIButton) {
+        sleepEntryAlert!.sleepEntryAction(sender: sender)
     }
     
     func setupBinders() {
@@ -99,11 +93,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let widthConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 220)
         let heightConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 170)
         sleepDurationView.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-        
-    }
-    
-    @objc func submit(sender: UIButton) {
-        print("PRESSED")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,11 +102,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SleepStatsCell") as! SleepStatsViewCell
         cell.backgroundColor = UIColor.clear
-        //cell.frame.size = CGSize(width: cell.frame.width, height: 50)
+        
+        // Week of year if we want to modify it in table view.
+        //let weekOfYear = Calendar.current.component(.weekOfYear, from: statList[indexPath.row].createAt)
+        
         cell.setup(timeOfSleep: statList[indexPath.row].timeOfSleep,
                    wakeupTIme: statList[indexPath.row].wakeupTime,
                    sleepDuration: statList[indexPath.row].sleepDuration,
-                   weekday: statList[indexPath.row].weekDay)
+                   weekday: CustomDateFormatter.shared.format(statList[indexPath.row].createAt))
         
         return cell
     }
