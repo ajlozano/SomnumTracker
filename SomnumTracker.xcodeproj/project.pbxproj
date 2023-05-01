@@ -220,9 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				AD23F6AC29F049E4002B692F /* HomeViewController.swift */,
+				AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */,
 				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
 				ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */,
-				AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,7 +246,6 @@
 				ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */,
 				E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -347,7 +346,7 @@
 			);
 			mainGroup = AD23F69C29F049E4002B692F;
 			packageReferences = (
-				ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = AD23F6A629F049E4002B692F /* Products */;
 			projectDirPath = "";
@@ -861,7 +860,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -874,7 +873,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		ADBE1DD729F928A500B0EB48 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
