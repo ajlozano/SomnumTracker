@@ -23,10 +23,12 @@
 		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
 		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
-		AD99B0FA29FAE3BE00839C49 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */; };
+		AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */; };
 		AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */; };
 		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
 		ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */; };
+		ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */; };
+		ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */; };
 		ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */; };
 		F6DC62D760E703AA9A6D5672 /* Pods_SomnumTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */; };
 /* End PBXBuildFile section */
@@ -74,9 +76,11 @@
 		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
 		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObservableObject.swift; sourceTree = "<group>"; };
 		AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEntryAlert.swift; sourceTree = "<group>"; };
 		ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsHistory.swift; sourceTree = "<group>"; };
+		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
 		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-SomnumTrackerTests/Pods-SomnumTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,9 +155,9 @@
 				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
 				AD7A446829F1382700547046 /* Helpers */,
 				AD7A446529F137EB00547046 /* Models */,
+				AD7A446429F137E500547046 /* Services */,
 				AD7A446729F1380C00547046 /* Views */,
 				AD7A446629F137F100547046 /* ViewModels */,
-				AD7A446429F137E500547046 /* Services */,
 				AD23F6B129F049E5002B692F /* Assets.xcassets */,
 				AD23F6B629F049E5002B692F /* Info.plist */,
 			);
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				AD3042DF29F1C8570024517D /* SleepStats.swift */,
+				ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */,
+				ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				AD3042D929F19B060024517D /* CustomColors.swift */,
-				AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */,
+				AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */,
 				ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */,
 			);
 			path = Helpers;
@@ -223,9 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				AD23F6AC29F049E4002B692F /* HomeViewController.swift */,
+				ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */,
 				AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */,
 				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
-				ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -501,14 +507,16 @@
 				ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */,
 				AD23F6AD29F049E4002B692F /* HomeViewController.swift in Sources */,
 				AD3042E029F1C8570024517D /* SleepStats.swift in Sources */,
+				ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
 				AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */,
 				AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */,
+				ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */,
 				ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */,
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
 				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
-				AD99B0FA29FAE3BE00839C49 /* ObservableObject.swift in Sources */,
+				AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +889,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */,
+			);
+			currentVersion = ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */;
+			path = SleepStatsDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AD23F69D29F049E4002B692F /* Project object */;
 }

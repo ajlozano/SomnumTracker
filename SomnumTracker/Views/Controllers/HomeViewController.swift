@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import SwiftUI
+import Charts
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -18,12 +19,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepStatsView: UIView!
     
-    private let homeViewModel = HomeViewModel()
-    
-    var sleepEntryAlert: SleepEntryAlert?
-    
-    //let sleepStatsHistory = SleepStatsHistory()
-    var statList: [SleepStats] = []
+    private var homeViewModel = HomeViewModel()
+    private var sleepEntryAlert: SleepEntryAlert?
+    private var sleepStats: [SleepStats] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +42,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func setupBinders() {
         homeViewModel.sleepStatList.bind { list in
-            guard let statList = list else {
+            guard let sleepStats = list else {
                 print("Not found data in sleepStatList")
                 return
             }
-            self.statList = statList
+            self.sleepStats = sleepStats
         }
     }
     
@@ -84,7 +82,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return
         }
         
-        //let newView = UIView()
         sleepDurationView.addSubview(sleepDurationGraphView)
         
         sleepDurationGraphView.translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +93,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        statList.count
+        sleepStats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,10 +103,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Week of year if we want to modify it in table view.
         //let weekOfYear = Calendar.current.component(.weekOfYear, from: statList[indexPath.row].createAt)
         
-        cell.setup(timeOfSleep: statList[indexPath.row].timeOfSleep,
-                   wakeupTIme: statList[indexPath.row].wakeupTime,
-                   sleepDuration: statList[indexPath.row].sleepDuration,
-                   weekday: CustomDateFormatter.shared.format(statList[indexPath.row].createAt))
+        cell.setup(timeOfSleep: sleepStats[indexPath.row].timeOfSleep,
+                   wakeupTIme: sleepStats[indexPath.row].wakeupTime,
+                   sleepDuration: sleepStats[indexPath.row].sleepDuration,
+                   weekday: CustomDateFormatter.shared.formatDayMonth(sleepStats[indexPath.row].createAt))
         
         return cell
     }
@@ -118,4 +115,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return tableView.frame.height / 7
     }
 }
+
+//extension HomeViewController: UIViewController, ChartViewDelegate {
+//
+//}
 

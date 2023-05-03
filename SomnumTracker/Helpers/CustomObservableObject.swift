@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ObservableObject<T> {
+final class CustomObservableObject<T> {
     var value: T {
         didSet {
             listener?(value)

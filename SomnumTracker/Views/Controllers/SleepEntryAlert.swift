@@ -16,6 +16,9 @@ class SleepEntryAlert {
         static let timeOfSleepText = "Time of sleep:"
         static let wakeUpTimeText = "Wake up time:"
         static let sleepDurationText = "Sleep duration: "
+        static let defaultSleepTime = "23:00"
+        static let defaultWakeUpTime = "07:30"
+        static let defaultSleepDuration = "2.50 hours"
     }
     
     private let backgroundView: UIView = {
@@ -37,8 +40,7 @@ class SleepEntryAlert {
     var dateEntry = UIDatePicker()
     var timeOfSleepEntry = UIDatePicker()
     var wakeUpTimeEntry = UIDatePicker()
-    
-    var sleepDurationValue = 8.5
+    var sleepDurationValueLabel = UILabel()
     
     init(on viewController: UIViewController) {
         guard let view = viewController.view else {
@@ -68,18 +70,14 @@ class SleepEntryAlert {
         }
     }
     
-    private func resetValues() {
-        sleepDurationValue = 8.5
-    }
-    
     private func createAlertAttributes() {
         // Ttitle label
-        createTextLabel(on: alertView, x: 0, y: 0, title: Constants.titleText, aligment: .center, widthLabel: alertView.frame.size.width, heightLabel: alertView.frame.height - 220, textSize: 25, isBold: true)
+        createTextLabel(on: alertView, on: nil, x: 0, y: 0, title: Constants.titleText, aligment: .center, widthLabel: alertView.frame.size.width, heightLabel: alertView.frame.height - 220, textSize: 25, isBold: true)
         
         // Date entries
-        createDateEntry(on: alertView, on: dateEntry, x: 60, y: 70, title: Constants.dateText, dateMode: .date, dateModeWidth: 80)
-        createDateEntry(on: alertView, on: timeOfSleepEntry, x: 60, y: 100, title: Constants.timeOfSleepText, dateMode: .time, dateModeWidth: 95)
-        createDateEntry(on: alertView, on: wakeUpTimeEntry, x: 60, y: 130, title: Constants.wakeUpTimeText, dateMode: .time, dateModeWidth: 95)
+        createDateEntry(on: alertView, on: dateEntry, x: 60, y: 70, title: Constants.dateText, dateMode: .date, dateModeWidth: 80, dateTime: "")
+        createDateEntry(on: alertView, on: timeOfSleepEntry, x: 60, y: 100, title: Constants.timeOfSleepText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultSleepTime)
+        createDateEntry(on: alertView, on: wakeUpTimeEntry, x: 60, y: 130, title: Constants.wakeUpTimeText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultWakeUpTime)
         
         // Separator line
         let separatorView = UIView(frame: CGRect(x: 40, y: 170, width: alertView.frame.width-80, height: 1))
@@ -87,11 +85,11 @@ class SleepEntryAlert {
         alertView.addSubview(separatorView)
 
         // sleep duration View
-        let sleepDurationView = UIView(frame: CGRect(x: 60, y: 180, width: alertView.frame.width, height: alertView.frame.height - 275))
+        let sleepDurationView = UIView(frame: CGRect(x: 45, y: 180, width: alertView.frame.width, height: alertView.frame.height - 275))
         alertView.addSubview(sleepDurationView)
         // Sleep duration labels
-        createTextLabel(on: sleepDurationView, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 20, isBold: true)
-        createTextLabel(on: sleepDurationView, x: alertView.frame.size.width - 185, y: 0, title: "\(sleepDurationValue)", aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
+        createTextLabel(on: sleepDurationView, on: nil, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 20, isBold: true)
+        createTextLabel(on: sleepDurationView, on: sleepDurationValueLabel, x: alertView.frame.size.width - 185, y: 0, title: Constants.defaultSleepDuration, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
         
         // Action Buttons View
         let actionButtonsView = UIView(frame: CGRect(x: 0, y: alertView.frame.height - 70, width: alertView.frame.size.width, height: alertView.frame.height - 270))
@@ -119,7 +117,7 @@ class SleepEntryAlert {
                      titleColor: .white)
     }
     
-    private func createDateEntry(on view: UIView, on picker: UIDatePicker, x: CGFloat, y: CGFloat, title: String, dateMode: UIDatePicker.Mode, dateModeWidth: CGFloat) {
+    private func createDateEntry(on view: UIView, on picker: UIDatePicker, x: CGFloat, y: CGFloat, title: String, dateMode: UIDatePicker.Mode, dateModeWidth: CGFloat, dateTime: String) {
         // Date View
         let dateView = UIView(frame: CGRect(x: x, y: y, width: view.frame.size.width, height: view.frame.height - 275))
         view.addSubview(dateView)
@@ -129,14 +127,14 @@ class SleepEntryAlert {
         dateLabel.textAlignment = .left
         dateView.addSubview(dateLabel)
         // Date picker
-        var datePicker = picker
+        let datePicker = picker
         datePicker.datePickerMode = dateMode
-        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(dateChanged), for: UIControl.Event.valueChanged)
         datePicker.maximumDate = Date()
         if dateMode == .time {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat =  "HH:mm, yyyy/MM/dd"
-            if let date = dateFormatter.date(from: "20:30, 2023/03/24") {
+            dateFormatter.dateFormat =  "HH:mm"
+            if let date = dateFormatter.date(from: dateTime) {
                 datePicker.date = date
                 print(datePicker.date)
             }
@@ -159,37 +157,53 @@ class SleepEntryAlert {
         view.addSubview(button)
     }
     
-    private func createTextLabel(on view: UIView, x: CGFloat, y: CGFloat, title: String, aligment: NSTextAlignment, widthLabel: CGFloat, heightLabel: CGFloat, textSize: CGFloat, isBold: Bool) {
-        let titleLabel = UILabel(frame: CGRect(x: x, y: y, width: widthLabel, height: heightLabel))
-        titleLabel.text = title
-        titleLabel.textAlignment = aligment
+    private func createTextLabel(on view: UIView, on label: UILabel?, x: CGFloat, y: CGFloat, title: String, aligment: NSTextAlignment, widthLabel: CGFloat, heightLabel: CGFloat, textSize: CGFloat, isBold: Bool) {
+        var titleLabel = label
+        if label == nil {
+            titleLabel = UILabel()
+        }
+        titleLabel!.frame = CGRect(x: x, y: y, width: widthLabel, height: heightLabel)
+        titleLabel!.text = title
+        titleLabel!.textAlignment = aligment
         if (isBold) {
-            titleLabel.font = UIFont.boldSystemFont(ofSize: textSize)
+            titleLabel!.font = UIFont.boldSystemFont(ofSize: textSize)
         }
 
-        view.addSubview(titleLabel)
+        view.addSubview(titleLabel!)
     }
     
-    @objc func dateChange(datePicker: UIDatePicker) {
-        print("Date changed")
+    private func computeTimeInHours(recent: Date, previous: Date) -> String {
+        var delta = recent.timeIntervalSince(previous) / 3600
+        if delta < 0 {
+            delta += 24.0
+        }
+        return String(format: "%.2f", delta)
+    }
+    
+    private func resetValues() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "MM/dd/yyyy"
+        dateEntry.date = Date()
+
+        dateFormatter.dateFormat =  "HH:mm"
+        if let date = dateFormatter.date(from: Constants.defaultSleepTime) {
+            timeOfSleepEntry.date = date
+        }
+        if let date = dateFormatter.date(from: Constants.defaultWakeUpTime) {
+            print("other")
+            wakeUpTimeEntry.date = date
+        }
+        sleepDurationValueLabel.text = Constants.defaultSleepDuration
+    }
+    
+    @objc func dateChanged() {
+        sleepDurationValueLabel.text = "\(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date)) hours"
+        print("Substraction: \(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date))")
     }
     
     @objc func sleepEntryAction(sender: UIButton) {
         if (sender.titleLabel?.text == "Reset") {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat =  "MM/dd/yyyy"
-            dateEntry.date = Date()
-
-            dateFormatter.dateFormat =  "HH:mm"
-            if let date = dateFormatter.date(from: "23:00") {
-                timeOfSleepEntry.date = date
-            }
-            if let date = dateFormatter.date(from: "23:00") {
-                print("other")
-                wakeUpTimeEntry.date = date
-            }
-            print("Reset: \(wakeUpTimeEntry.date)")
-            
+            resetValues()
         } else if (sender.titleLabel?.text == "Cancel") || (sender.titleLabel?.text == "Submit") {
             UIView.animate(withDuration: 0.25,
                            animations: {
@@ -212,6 +226,5 @@ class SleepEntryAlert {
         } else {
             print("error")
         }
-        
     }
 }

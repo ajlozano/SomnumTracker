@@ -9,9 +9,9 @@ import Foundation
 
 struct SleepStats: Identifiable {
     let id = UUID()
-    let weekDay: String
+    let weekOfYear: String
     let timeOfSleep: String
     let wakeupTime: String
-    let sleepDuration: Float
+    var sleepDuration: Float
     let createAt: Date
 }
