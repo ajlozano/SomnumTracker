@@ -10,46 +10,48 @@ import Foundation
 import SwiftUI
 import Charts
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepDurationSubview: UIView!
     @IBOutlet weak var sleepStatsTableView: UITableView!
     @IBOutlet weak var sleepStatsDataView: UIView!
     @IBOutlet weak var sleepEntryButton: UIButton!
-    @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepStatsView: UIView!
     
-    private var homeViewModel = HomeViewModel()
+    @ObservedObject var viewModel = HomeViewModel()
+    
     private var sleepEntryAlert: SleepEntryAlert?
-    private var sleepStats: [SleepStats] = []
+    
+    // MARK: Properties
+    var presenter: HomePresenterProtocol?
+
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sleepEntryAlert = SleepEntryAlert(on: self)
         
         setupView()
-        setupBinders()
-        homeViewModel.getSleepStatList()
+        sleepStatsTableView.dataSource = self
     }
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
         sleepEntryAlert!.showNewEntryAlert()
+        //viewModel.addSleepStat(sleepStat: viewModel.sleepStats[0])
+        viewModel.getSleepStatList()
+ 
     }
     
     @objc func sleepEntryAction(sender: UIButton) {
         sleepEntryAlert!.sleepEntryAction(sender: sender)
     }
-    
-    func setupBinders() {
-        homeViewModel.sleepStatList.bind { list in
-            guard let sleepStats = list else {
-                print("Not found data in sleepStatList")
-                return
-            }
-            self.sleepStats = sleepStats
+
+    private func reloadTableView() {
+        DispatchQueue.main.async {
+            self.sleepStatsTableView.reloadData()
         }
     }
-    
     private func setupView() {
         view.backgroundColor = .customLight
         
@@ -76,7 +78,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         sleepEntryButton.titleLabel?.isHidden = true
         
         // Sleep duration graph view configuration
-        let controller = UIHostingController(rootView: SleepStatsHistory())
+        let controller = UIHostingController(rootView: body)
         guard let sleepDurationGraphView = controller.view else {
             print("Graph view not found")
             return
@@ -84,6 +86,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         sleepDurationView.addSubview(sleepDurationGraphView)
         
+        // Add constraints
         sleepDurationGraphView.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 10)
@@ -93,7 +96,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sleepStats.count
+        viewModel.sleepStats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,10 +106,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Week of year if we want to modify it in table view.
         //let weekOfYear = Calendar.current.component(.weekOfYear, from: statList[indexPath.row].createAt)
         
-        cell.setup(timeOfSleep: sleepStats[indexPath.row].timeOfSleep,
-                   wakeupTIme: sleepStats[indexPath.row].wakeupTime,
-                   sleepDuration: sleepStats[indexPath.row].sleepDuration,
-                   weekday: CustomDateFormatter.shared.formatDayMonth(sleepStats[indexPath.row].createAt))
+        cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep,
+                   wakeupTIme: viewModel.sleepStats[indexPath.row].wakeupTime,
+                   sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
+                   weekday: CustomDateFormatter.shared.formatDayMonth(viewModel.sleepStats[indexPath.row].createAt))
         
         return cell
     }
@@ -114,9 +117,38 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 7
     }
+ 
+    // SwiftUI Chart view
+    var body: some View {
+        // TODO: Fix use of homeViewModel.list as MVVM
+        Chart(viewModel.sleepStats) { sleepStat in
+            AreaMark(
+                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                y: .value("Sleep Duration", sleepStat.sleepDuration)
+            )
+            .foregroundStyle(Color(UIColor.customBlueLight))
+            .interpolationMethod(.cardinal)
+            LineMark(
+                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                y: .value("Sleep Duration", sleepStat.sleepDuration)
+            )
+            .foregroundStyle(Color(UIColor.customBlue))
+            .interpolationMethod(.cardinal)
+            PointMark(
+                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                y: .value("Sleep Duration", sleepStat.sleepDuration)
+            )
+            .foregroundStyle(Color(UIColor.customBlue))
+            .symbolSize(20)
+        }.chartYAxis {
+            AxisMarks(position: .leading, values: .automatic(desiredCount: 5))
+        }
+        .onAppear() {
+        }
+    }
 }
 
-//extension HomeViewController: UIViewController, ChartViewDelegate {
-//
-//}
+extension HomeView: HomeViewProtocol {
+    // TODO: implement view output methods
+}
 

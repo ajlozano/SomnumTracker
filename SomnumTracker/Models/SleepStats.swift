@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SleepStats: Identifiable {
+struct SleepStats: Identifiable, Hashable {
     let id = UUID()
     let weekOfYear: String
     let timeOfSleep: String

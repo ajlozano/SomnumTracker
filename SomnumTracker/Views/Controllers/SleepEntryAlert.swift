@@ -10,17 +10,6 @@ import DropDown
 
 class SleepEntryAlert {
     
-    struct Constants {
-        static let titleText = "New Sleep Entry"
-        static let dateText = "Date:"
-        static let timeOfSleepText = "Time of sleep:"
-        static let wakeUpTimeText = "Wake up time:"
-        static let sleepDurationText = "Sleep duration: "
-        static let defaultSleepTime = "23:00"
-        static let defaultWakeUpTime = "07:30"
-        static let defaultSleepDuration = "2.50 hours"
-    }
-    
     private let backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .black
