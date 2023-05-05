@@ -8,7 +8,9 @@
 import UIKit
 import DropDown
 
-class SleepEntryAlert {
+class HomeAlertView {
+    // MARK: Protocol Properties
+    var presenter: HomePresenterProtocol?
     
     private let backgroundView: UIView = {
         let backgroundView = UIView()
@@ -39,7 +41,7 @@ class SleepEntryAlert {
         return
     }
     
-    func showNewEntryAlert() {
+    func showNewEntryAlert(completion: @escaping (HomeAlertView) -> ()) {
         backgroundView.frame = targetView.bounds
         targetView.addSubview(backgroundView)
         
@@ -54,9 +56,31 @@ class SleepEntryAlert {
             if done {
                 UIView.animate(withDuration: 0.25, animations: {
                     self.alertView.center = self.targetView.center
+                    completion(self)
                 })
             }
         }
+    }
+    
+    func removeAlertView() {
+        UIView.animate(withDuration: 0.25,
+                       animations: {
+            self.alertView.frame = CGRect(x: 40,
+                                          y: self.targetView.frame.size.height,
+                                          width: self.targetView.frame.size.width-80,
+                                          height: 300)
+        }, completion: { done in
+            if done {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.backgroundView.alpha = 0
+                }) { done in
+                    if done {
+                        self.alertView.removeFromSuperview()
+                        self.backgroundView.removeFromSuperview()
+                    }
+                }
+            }
+        })
     }
     
     private func createAlertAttributes() {
@@ -118,7 +142,7 @@ class SleepEntryAlert {
         // Date picker
         let datePicker = picker
         datePicker.datePickerMode = dateMode
-        datePicker.addTarget(self, action: #selector(dateChanged), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)
         datePicker.maximumDate = Date()
         if dateMode == .time {
             let dateFormatter = DateFormatter()
@@ -142,7 +166,7 @@ class SleepEntryAlert {
         button.setTitleColor(titleColor, for: .normal)
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(sleepEntryAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didClickActionButton), for: .touchUpInside)
         view.addSubview(button)
     }
     
@@ -185,35 +209,44 @@ class SleepEntryAlert {
         sleepDurationValueLabel.text = Constants.defaultSleepDuration
     }
     
-    @objc func dateChanged() {
+    @objc fileprivate func didDateChanged() {
         sleepDurationValueLabel.text = "\(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date)) hours"
         print("Substraction: \(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date))")
     }
     
-    @objc func sleepEntryAction(sender: UIButton) {
+    @objc func didClickActionButton(sender: UIButton) {
         if (sender.titleLabel?.text == "Reset") {
-            resetValues()
+            presenter?.didClickResetValues()
+            //resetValues()
         } else if (sender.titleLabel?.text == "Cancel") || (sender.titleLabel?.text == "Submit") {
-            UIView.animate(withDuration: 0.25,
-                           animations: {
-                self.alertView.frame = CGRect(x: 40,
-                                              y: self.targetView.frame.size.height,
-                                              width: self.targetView.frame.size.width-80,
-                                              height: 300)
-            }, completion: { done in
-                if done {
-                    UIView.animate(withDuration: 0.25, animations: {
-                        self.backgroundView.alpha = 0
-                    }) { done in
-                        if done {
-                            self.alertView.removeFromSuperview()
-                            self.backgroundView.removeFromSuperview()
-                        }
-                    }
-                }
-            })
+            print("REMOVE")
+            //removeAlertView()
+            presenter?.didClickCancelEntryAlert()
         } else {
             print("error")
         }
+    }
+}
+
+extension HomeAlertView: HomeViewProtocol {
+    func updateUI() {
+
+    }
+    
+    func showSleepStats(_ sleepStats: [SleepStat]) {
+        
+    }
+    
+    func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
+        print("RESET TIME NOW")
+        
+        dateEntry.date = Date()
+        timeOfSleepEntry.date = sleepTime
+        wakeUpTimeEntry.date = wakeUpTime
+        sleepDurationValueLabel.text = sleepDuration
+    }
+    
+    func showDurationFromEntryChanges(_ sleepDuration: String) {
+        
     }
 }

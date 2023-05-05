@@ -9,19 +9,29 @@
 import Foundation
 import UIKit
 
-class HomeWireFrame: HomeWireFrameProtocol {
 
-    class func createHomeModule() -> UIViewController {
-        let navController = mainStoryboard.instantiateViewController(withIdentifier: "HomeView")
-        if let view = navController.children.first as? HomeView {
+class HomeWireFrame: HomeWireFrameProtocol {
+    weak var viewController: UIViewController?
+    weak var presenter: HomePresenterProtocol?
+
+    var alertView: HomeAlertView?
+    
+    
+    static var homeStoryboard: UIStoryboard {
+        return UIStoryboard(name: "HomeView", bundle: Bundle.main)
+    }
+    
+    class func createHomeModule(on window: UIWindow) {
+        let view = homeStoryboard.instantiateViewController(withIdentifier: "homeView")
+        if let viewController = view as? HomeView {
             let presenter: HomePresenterProtocol & HomeInteractorOutputProtocol = HomePresenter()
             let interactor: HomeInteractorInputProtocol & HomeRemoteDataManagerOutputProtocol = HomeInteractor()
             let localDataManager: HomeLocalDataManagerInputProtocol = HomeLocalDataManager()
             let remoteDataManager: HomeRemoteDataManagerInputProtocol = HomeRemoteDataManager()
             let wireFrame: HomeWireFrameProtocol = HomeWireFrame()
             
-            view.presenter = presenter
-            presenter.view = view
+            viewController.presenter = presenter
+            presenter.view = viewController
             presenter.wireFrame = wireFrame
             presenter.interactor = interactor
             interactor.presenter = presenter
@@ -29,13 +39,30 @@ class HomeWireFrame: HomeWireFrameProtocol {
             interactor.remoteDatamanager = remoteDataManager
             remoteDataManager.remoteRequestHandler = interactor
             
-            return navController
+            wireFrame.viewController = viewController
+            wireFrame.presenter = presenter
+            
+            window.rootViewController = viewController
+            window.makeKeyAndVisible()
+            
         }
-        return UIViewController()
+    }
+    // TODO: CONTINUAR AÑADIENDO O NO ALERT EN WIREFRAME (LEER ARTICULO GUARDADO)
+    func addEntryAlert() {
+        if let view = viewController {
+            HomeAlertView(on: view).showNewEntryAlert { alert in
+                self.alertView = alert
+                //let presenter: HomePresenterProtocol & HomeInteractorOutputProtocol = HomePresenter()
+                self.alertView?.presenter = self.presenter
+                self.presenter?.view = self.alertView
+            }
+        }
     }
     
-    static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "HomeView", bundle: Bundle.main)
+    func removeEntryAlert() {
+        if let alert = alertView {
+            alert.removeAlertView()
+            self.presenter?.view = self.viewController as! HomeView
+        }
     }
-    
 }

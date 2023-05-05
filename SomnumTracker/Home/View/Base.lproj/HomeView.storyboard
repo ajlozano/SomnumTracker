@@ -18,7 +18,7 @@
         <!--Home View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeView" customModule="SomnumTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeView" id="BYZ-38-t0r" customClass="HomeView" customModule="SomnumTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="43" y="146" width="328" height="252"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Stats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOU-hY-jl4" userLabel="SleepStats">
-                                        <rect key="frame" x="22.999999999999993" y="8" width="87.333333333333314" height="20"/>
+                                        <rect key="frame" x="23" y="7.9999999999999982" width="76.333333333333343" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Limerick-Serial-Regular" family="Limerick-Serial" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                                             <constraint firstAttribute="width" constant="218" id="3Lu-xn-1g4"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SleepStatsCell" rowHeight="39" id="yt7-Cz-1Kg" customClass="SleepStatsViewCell" customModule="SomnumTracker" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SleepStatsCell" rowHeight="39" id="yt7-Cz-1Kg" customClass="HomeViewCell" customModule="SomnumTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="50" width="218" height="39"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yt7-Cz-1Kg" id="6Fm-2M-EMH">
@@ -117,19 +117,19 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z0-ss-UB7">
-                                                <rect key="frame" x="17.000000000000004" y="12" width="54.333333333333343" height="10.666666666666664"/>
+                                                <rect key="frame" x="29.666666666666654" y="12" width="49.666666666666657" height="11.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Limerick-Serial-Regular" family="Limerick-Serial" pointSize="9"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake up TIme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aat-wF-NpQ">
-                                                <rect key="frame" x="87.333333333333329" y="12" width="57.999999999999986" height="10.666666666666664"/>
+                                                <rect key="frame" x="95.333333333333329" y="12" width="53.999999999999986" height="11.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Limerick-Serial-Regular" family="Limerick-Serial" pointSize="9"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-bF-9KP">
-                                                <rect key="frame" x="160.33333333333331" y="12" width="58.666666666666657" height="10.666666666666664"/>
+                                                <rect key="frame" x="164.33333333333331" y="12" width="54.666666666666657" height="11.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Limerick-Serial-Regular" family="Limerick-Serial" pointSize="9"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -336,8 +336,8 @@
                         <outlet property="sleepDurationView" destination="qwO-9F-SQr" id="qz7-gt-vyW"/>
                         <outlet property="sleepEntryButton" destination="h4j-1B-nSh" id="8Zz-sU-e7p"/>
                         <outlet property="sleepStatsDataView" destination="2hR-Li-z6d" id="pvM-hn-GzQ"/>
-                        <outlet property="sleepStatsTableView" destination="qIQ-sb-Cv9" id="kKY-Mx-7ao"/>
                         <outlet property="sleepStatsView" destination="F01-Kj-fR2" id="Xnf-wF-kU3"/>
+                        <outlet property="tableView" destination="qIQ-sb-Cv9" id="kKY-Mx-7ao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

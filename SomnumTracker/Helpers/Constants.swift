@@ -15,5 +15,5 @@ struct Constants {
     static let sleepDurationText = "Sleep duration: "
     static let defaultSleepTime = "23:00"
     static let defaultWakeUpTime = "07:30"
-    static let defaultSleepDuration = "2.50 hours"
+    static let defaultSleepDuration = "8.50 hours"
 }

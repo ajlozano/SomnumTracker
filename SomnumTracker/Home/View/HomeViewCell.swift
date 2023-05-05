@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SleepStatsViewCell: UITableViewCell {
+class HomeViewCell: UITableViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var sleepDurationLabel: UILabel!
@@ -28,7 +28,7 @@ class SleepStatsViewCell: UITableViewCell {
         weekdayLabel.textColor = .darkGray
     }
     
-    func setup(timeOfSleep: String, wakeupTIme: String, sleepDuration: Float, weekday: String){
+    func setup(timeOfSleep: String, wakeupTIme: String, sleepDuration: Double, weekday: String){
         timeOfSleepLabel.text = timeOfSleep
         wakeupTimeLabel.text = wakeupTIme
         sleepDurationLabel.text = "\(sleepDuration) h"

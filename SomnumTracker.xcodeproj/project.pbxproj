@@ -12,7 +12,7 @@
 		AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6A829F049E4002B692F /* AppDelegate.swift */; };
 		AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AA29F049E4002B692F /* SceneDelegate.swift */; };
 		AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AC29F049E4002B692F /* HomeView.swift */; };
-		AD23F6B029F049E4002B692F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* Main.storyboard */; };
+		AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* HomeView.storyboard */; };
 		AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B129F049E5002B692F /* Assets.xcassets */; };
 		AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */; };
 		AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */; };
@@ -20,8 +20,8 @@
 		AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */; };
 		AD3042DA29F19B060024517D /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042D929F19B060024517D /* CustomColors.swift */; };
 		AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */; };
-		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
-		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
+		AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* HomeViewCell.swift */; };
+		AD3042E029F1C8570024517D /* SleepStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStat.swift */; };
 		AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF42A029F9F003CD356 /* HomePresenter.swift */; };
 		AD4FABFC2A029F9F003CD356 /* HomeLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */; };
 		AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */; };
@@ -30,7 +30,8 @@
 		AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
 		AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */; };
-		AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */; };
+		AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* HomeAlertView.swift */; };
+		ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */; };
 		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
 		ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */; };
 		ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */; };
@@ -68,7 +69,7 @@
 		AD23F6A829F049E4002B692F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD23F6AA29F049E4002B692F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD23F6AC29F049E4002B692F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		AD23F6AF29F049E4002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD23F6AF29F049E4002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeView.storyboard; sourceTree = "<group>"; };
 		AD23F6B129F049E5002B692F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD23F6B429F049E5002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD23F6B629F049E5002B692F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,8 +80,8 @@
 		AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AD3042D929F19B060024517D /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Limerick-Serial Regular.ttf"; path = "SomnumTracker/Limerick-Serial Regular.ttf"; sourceTree = "<group>"; };
-		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
-		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
+		AD3042DD29F1C51A0024517D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		AD3042DF29F1C8570024517D /* SleepStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStat.swift; sourceTree = "<group>"; };
 		AD4FABF42A029F9F003CD356 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataManager.swift; sourceTree = "<group>"; };
 		AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
@@ -89,7 +90,8 @@
 		AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObservableObject.swift; sourceTree = "<group>"; };
-		AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEntryAlert.swift; sourceTree = "<group>"; };
+		AD99B0FF29FB387400839C49 /* HomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertView.swift; sourceTree = "<group>"; };
+		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
 		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
 		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
@@ -165,8 +167,8 @@
 			children = (
 				AD23F6A829F049E4002B692F /* AppDelegate.swift */,
 				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
-				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446829F1382700547046 /* Helpers */,
+				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446529F137EB00547046 /* Models */,
 				AD7A446729F1380C00547046 /* Views */,
 				AD7A446629F137F100547046 /* ViewModels */,
@@ -199,10 +201,10 @@
 				AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */,
 				AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */,
 				AD4FABF42A029F9F003CD356 /* HomePresenter.swift */,
-				AD23F6AC29F049E4002B692F /* HomeView.swift */,
 				AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */,
 				AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */,
 				AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */,
+				ADAFCC102A05328A00DBB004 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,7 +212,7 @@
 		AD7A446529F137EB00547046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AD3042DF29F1C8570024517D /* SleepStats.swift */,
+				AD3042DF29F1C8570024517D /* SleepStat.swift */,
 				ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */,
 				ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */,
 			);
@@ -220,7 +222,6 @@
 		AD7A446629F137F100547046 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AD99B0F729FAE37300839C49 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -228,7 +229,6 @@
 		AD7A446729F1380C00547046 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AD8B835629FD732D003AC53E /* Controllers */,
 				AD8B835729FD733A003AC53E /* Storyboard */,
 			);
 			path = Views;
@@ -245,22 +245,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		AD8B835629FD732D003AC53E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */,
-				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		AD8B835729FD733A003AC53E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				AD23F6AE29F049E4002B692F /* Main.storyboard */,
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		ADAFCC102A05328A00DBB004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6AC29F049E4002B692F /* HomeView.swift */,
+				AD3042DD29F1C51A0024517D /* HomeViewCell.swift */,
+				ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */,
+				AD99B0FF29FB387400839C49 /* HomeAlertView.swift */,
+				AD99B0F729FAE37300839C49 /* HomeViewModel.swift */,
+				AD23F6AE29F049E4002B692F /* HomeView.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DEC40823561363691C7E1D00 /* Pods */ = {
@@ -394,7 +397,7 @@
 				AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */,
 				AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */,
 				AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */,
-				AD23F6B029F049E4002B692F /* Main.storyboard in Resources */,
+				AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,10 +530,10 @@
 				AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */,
 				AD4FABFC2A029F9F003CD356 /* HomeLocalDataManager.swift in Sources */,
 				AD4FAC002A029F9F003CD356 /* HomeRemoteDataManager.swift in Sources */,
-				AD3042E029F1C8570024517D /* SleepStats.swift in Sources */,
+				AD3042E029F1C8570024517D /* SleepStat.swift in Sources */,
 				ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
-				AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */,
+				AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */,
 				AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */,
 				AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */,
 				AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */,
@@ -538,9 +541,10 @@
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
-				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
+				AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */,
 				AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */,
 				AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */,
+				ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,12 +581,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AD23F6AE29F049E4002B692F /* Main.storyboard */ = {
+		AD23F6AE29F049E4002B692F /* HomeView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AD23F6AF29F049E4002B692F /* Base */,
 			);
-			name = Main.storyboard;
+			name = HomeView.storyboard;
 			sourceTree = "<group>";
 		};
 		AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */ = {
@@ -725,7 +729,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -757,7 +761,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
