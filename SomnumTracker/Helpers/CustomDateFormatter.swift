@@ -10,9 +10,15 @@ import Foundation
 struct CustomDateFormatter {
     static var shared = CustomDateFormatter()
     
-    static var dateFormatter: DateFormatter = {
+    static var dateFormat: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yy"
+        return df
+    }()
+    
+    static var timeFormat: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
         return df
     }()
     
@@ -22,6 +28,22 @@ struct CustomDateFormatter {
         guard let day = dateComponents.day, let month = dateComponents.month else {
             return "-"
         }
-        return "\(day)/\(month)"
+        let dayString = String(format: "%02d", day)
+        let monthString = String(format: "%02d", month)
+        
+        return dayString + "/" + monthString
+    }
+    
+    mutating func formatHourMinute(_ date: Date) -> String {
+        let cal = Calendar.current
+        let dateComponents = cal.dateComponents([.hour, .minute], from: date)
+        guard let hour = dateComponents.hour, let minute = dateComponents.minute else {
+            return "-"
+        }
+        let hourString = String(format: "%02d", hour)
+        let minuteString = String(format: "%02d", minute)
+        
+        
+        return hourString + ":" + minuteString
     }
 }

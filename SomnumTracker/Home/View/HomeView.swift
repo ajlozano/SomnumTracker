@@ -11,6 +11,15 @@ import SwiftUI
 import Charts
 
 class HomeView: UIViewController {
+    // TODO: Pasos para gestionar los datos de las entradas en la view
+    // 1 - almacenar en array de tipo SleepStat interno
+    // 2 - Al arrancar, saber qué semana es la actual
+    // 3 - leer del almacenamiento interno el array entero y coger todos los datos (si hay)
+    // pertenecientes a esa semana
+    // 4 - Los días de esa semana que no tengan datos se mostrarán con este símbolo: "-"
+    // 5 - Si añadimos una entrada ya existente, se sobreescribirá
+    // 6 - Opción de eliminar todas las entradas
+    
     
     @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepDurationSubview: UIView!
@@ -46,13 +55,10 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SleepStatsCell") as! HomeViewCell
         cell.backgroundColor = UIColor.clear
         
-        // Week of year if we want to modify it in table view.
-        //let weekOfYear = Calendar.current.component(.weekOfYear, from: statList[indexPath.row].createAt)
-        
         cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep,
                    wakeupTIme: viewModel.sleepStats[indexPath.row].wakeUpTime,
                    sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
-                   weekday: CustomDateFormatter.shared.formatDayMonth(viewModel.sleepStats[indexPath.row].createAt))
+                   weekday: viewModel.sleepStats[indexPath.row].dateString)
         
         return cell
     }
@@ -70,6 +76,7 @@ extension HomeView: HomeViewProtocol {
     }
     
     func showSleepStats(_ sleepStats: [SleepStat]) {
+        print("VIEW")
         viewModel.sleepStats = sleepStats
     }
     

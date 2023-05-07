@@ -20,6 +20,40 @@ protocol HomeViewProtocol: AnyObject {
     func showDurationFromEntryChanges(_ sleepDuration: String)
 }
 
+protocol HomePresenterProtocol: AnyObject {
+    // VIEW -> PRESENTER
+    var view: HomeViewProtocol? { get set }
+    var interactor: HomeInteractorInputProtocol? { get set }
+    var wireFrame: HomeWireFrameProtocol? { get set }
+    
+    func viewDidLoad()
+    
+    func getSleepStats()
+    func didClickEntryAlertView()
+    func didClickSubmitSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
+    func didClickResetValues()
+    func didClickCancelEntryAlert()
+    func didEntryValuesChanged(_ sleepTime: Date, _ wakeUpTime: Date)
+}
+protocol HomeInteractorInputProtocol: AnyObject {
+    // PRESENTER -> INTERACTOR
+    var presenter: HomeInteractorOutputProtocol? { get set }
+    var localDatamanager: HomeLocalDataManagerInputProtocol? { get set }
+    var remoteDatamanager: HomeRemoteDataManagerInputProtocol? { get set }
+    
+    func fetchSleepStats()
+    func resetEntryValues()
+    func updateSleepDurationFromEntryChanges(sleepTime: Date, wakeUpTime: Date)
+    func addSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
+}
+
+protocol HomeInteractorOutputProtocol: AnyObject {
+    // INTERACTOR -> PRESENTER
+    func sleepStatsFetched(_ sleepStats: [SleepStat])
+    func entryValuesReset(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
+    func entryValuesChanged(_ sleepDuration: String)
+}
+
 protocol HomeWireFrameProtocol: AnyObject {
     // PRESENTER -> WIREFRAME
     var viewController: UIViewController? { get set }
@@ -29,39 +63,6 @@ protocol HomeWireFrameProtocol: AnyObject {
 
     func addEntryAlert()
     func removeEntryAlert()
-
-}
-
-protocol HomePresenterProtocol: AnyObject {
-    // VIEW -> PRESENTER
-    var view: HomeViewProtocol? { get set }
-    var interactor: HomeInteractorInputProtocol? { get set }
-    var wireFrame: HomeWireFrameProtocol? { get set }
-    
-    func viewDidLoad()
-    
-    func didClickEntryAlertView()
-    func didClickSubmitSleepStat()
-    func didClickResetValues()
-    func didClickCancelEntryAlert()
-    func didEntryValuesChanged(sleepTime: Date, wakeUpTime: Date)
-    func getSleepStats()
-}
-
-protocol HomeInteractorOutputProtocol: AnyObject {
-    // INTERACTOR -> PRESENTER
-    func sleepStatsFetched(_ sleepStats: [SleepStat])
-    func entryValuesReset(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
-}
-
-protocol HomeInteractorInputProtocol: AnyObject {
-    // PRESENTER -> INTERACTOR
-    var presenter: HomeInteractorOutputProtocol? { get set }
-    var localDatamanager: HomeLocalDataManagerInputProtocol? { get set }
-    var remoteDatamanager: HomeRemoteDataManagerInputProtocol? { get set }
-    
-    func fetchSleepStats()
-    func resetEntryValues()
 }
 
 protocol HomeRemoteDataManagerInputProtocol: AnyObject {

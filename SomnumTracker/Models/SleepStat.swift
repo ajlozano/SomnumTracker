@@ -9,17 +9,10 @@ import Foundation
 
 struct SleepStat: Identifiable, Hashable {
     let id = UUID()
-    let weekOfYear: String
-    let timeOfSleep: String
-    let wakeUpTime: String
-    var sleepDuration: Double
-    var createAt: Date
-    
-//    init(weekOfYear: String, timeOfSleep: String, wakeUpTime: String, sleepDuration: Double, createAt: Date) {
-//        self.weekOfYear = weekOfYear
-//        self.timeOfSleep = timeOfSleep
-//        self.wakeUpTime = wakeUpTime
-//        self.sleepDuration = sleepDuration
-//        self.createAt = createAt
-//    }
+    var weekOfYear: String = "-"
+    var timeOfSleep: String = "-"
+    var wakeUpTime: String = "-"
+    var sleepDuration: Double = 0.0
+    var dateString: String = "-"
+    var date: Date = Date()
 }

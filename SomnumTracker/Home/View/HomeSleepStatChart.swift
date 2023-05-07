@@ -10,8 +10,6 @@ import SwiftUI
 import Charts
 
 struct HomeSleepStatChart: View {
-    
-    @State var test = Test()
     @ObservedObject var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -22,19 +20,19 @@ struct HomeSleepStatChart: View {
     var body: some View {
         Chart(viewModel.sleepStats) { sleepStat in
             AreaMark(
-                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlueLight))
             .interpolationMethod(.cardinal)
             LineMark(
-                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlue))
             .interpolationMethod(.cardinal)
             PointMark(
-                x: .value("Weekday", CustomDateFormatter.shared.formatDayMonth(sleepStat.createAt)),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlue))
@@ -42,17 +40,6 @@ struct HomeSleepStatChart: View {
         }.chartYAxis {
             AxisMarks(position: .leading, values: .automatic(desiredCount: 5))
         }
-        
-        VStack(alignment: .leading) {
-            //Text("Hello \(test.name)")
-            //TextField("Name:", text: $test.name)
-            Button("Enter") {
-                print("SwiftUI button")
-            }
-        }
     }
 }
 
-struct Test {
-    var name = "Toni"
-}

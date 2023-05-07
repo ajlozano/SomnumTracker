@@ -13,7 +13,12 @@ struct Constants {
     static let timeOfSleepText = "Time of sleep:"
     static let wakeUpTimeText = "Wake up time:"
     static let sleepDurationText = "Sleep duration: "
+    
     static let defaultSleepTime = "23:00"
     static let defaultWakeUpTime = "07:30"
-    static let defaultSleepDuration = "8.50 hours"
+    static let defaultSleepDuration = "8.50"
+    
+    static let cancelAlertButton = "Cancel"
+    static let resetAlertButton = "Reset"
+    static let submitAlertButton = "Submit"
 }

@@ -18,10 +18,8 @@ class HomePresenter  {
 }
 
 extension HomePresenter: HomePresenterProtocol {
-
     // TODO: implement presenter methods
     func viewDidLoad() {
-        //viewModel = HomeViewModel()
         interactor?.fetchSleepStats()
     }
 
@@ -29,8 +27,9 @@ extension HomePresenter: HomePresenterProtocol {
         wireFrame?.addEntryAlert()
     }
     
-    func didClickSubmitSleepStat() {
-        
+    func didClickSubmitSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
+        wireFrame?.removeEntryAlert()
+        interactor?.addSleepStat(date, sleepTime, wakeUpTime, sleepDuration)
     }
     
     func didClickResetValues() {
@@ -41,19 +40,21 @@ extension HomePresenter: HomePresenterProtocol {
         wireFrame?.removeEntryAlert()
     }
     
-    func didEntryValuesChanged(sleepTime: Date, wakeUpTime: Date) {
-        
+    func didEntryValuesChanged(_ sleepTime: Date, _ wakeUpTime: Date) {
+        interactor?.updateSleepDurationFromEntryChanges(sleepTime: sleepTime, wakeUpTime: wakeUpTime)
     }
     
     func getSleepStats() {
-        
     }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
+    func entryValuesChanged(_ sleepDuration: String) {
+        view?.showDurationFromEntryChanges(sleepDuration)
+    }
+    
     func entryValuesReset(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
         view?.showResetEntryData(sleepTime, wakeUpTime, sleepDuration)
-        
     }
     
     func sleepStatsFetched(_ sleepStats: [SleepStat]) {

@@ -100,32 +100,35 @@ class HomeAlertView {
         // sleep duration View
         let sleepDurationView = UIView(frame: CGRect(x: 45, y: 180, width: alertView.frame.width, height: alertView.frame.height - 275))
         alertView.addSubview(sleepDurationView)
+        
         // Sleep duration labels
         createTextLabel(on: sleepDurationView, on: nil, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 20, isBold: true)
-        createTextLabel(on: sleepDurationView, on: sleepDurationValueLabel, x: alertView.frame.size.width - 185, y: 0, title: Constants.defaultSleepDuration, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
+        createTextLabel(on: sleepDurationView, on: sleepDurationValueLabel, x: alertView.frame.size.width - 185, y: 0, title: Constants.defaultSleepDuration + " hours", aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
         
         // Action Buttons View
         let actionButtonsView = UIView(frame: CGRect(x: 0, y: alertView.frame.height - 70, width: alertView.frame.size.width, height: alertView.frame.height - 270))
         alertView.addSubview(actionButtonsView)
+        
         // Button width is the same for all buttons.
         let buttonWidth = actionButtonsView.frame.size.width/4
+        
         // Action buttons
         createButton(on: actionButtonsView,
                      x: alertView.center.x - buttonWidth/2,
                      width: buttonWidth,
-                     title: "Reset",
+                     title: Constants.resetAlertButton,
                      backgroundColor: .customBlueLight,
                      titleColor: .black)
         createButton(on: actionButtonsView,
                      x: alertView.frame.size.width/3 - buttonWidth/2,
                      width: buttonWidth,
-                     title: "Cancel",
+                     title: Constants.cancelAlertButton,
                      backgroundColor: .customBlueLight,
                      titleColor: .black)
         createButton(on: actionButtonsView,
                      x: alertView.frame.size.width/3 * 2 + buttonWidth/2,
                      width: buttonWidth,
-                     title: "Submit",
+                     title: Constants.submitAlertButton,
                      backgroundColor: .customBlue,
                      titleColor: .white)
     }
@@ -185,61 +188,28 @@ class HomeAlertView {
         view.addSubview(titleLabel!)
     }
     
-    private func computeTimeInHours(recent: Date, previous: Date) -> String {
-        var delta = recent.timeIntervalSince(previous) / 3600
-        if delta < 0 {
-            delta += 24.0
-        }
-        return String(format: "%.2f", delta)
-    }
-    
-    private func resetValues() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "MM/dd/yyyy"
-        dateEntry.date = Date()
-
-        dateFormatter.dateFormat =  "HH:mm"
-        if let date = dateFormatter.date(from: Constants.defaultSleepTime) {
-            timeOfSleepEntry.date = date
-        }
-        if let date = dateFormatter.date(from: Constants.defaultWakeUpTime) {
-            print("other")
-            wakeUpTimeEntry.date = date
-        }
-        sleepDurationValueLabel.text = Constants.defaultSleepDuration
-    }
-    
-    @objc fileprivate func didDateChanged() {
-        sleepDurationValueLabel.text = "\(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date)) hours"
-        print("Substraction: \(computeTimeInHours(recent: wakeUpTimeEntry.date, previous: timeOfSleepEntry.date))")
+    @objc func didDateChanged() {
+        presenter?.didEntryValuesChanged(timeOfSleepEntry.date, wakeUpTimeEntry.date)
     }
     
     @objc func didClickActionButton(sender: UIButton) {
-        if (sender.titleLabel?.text == "Reset") {
+        if (sender.titleLabel?.text == Constants.resetAlertButton) {
             presenter?.didClickResetValues()
-            //resetValues()
-        } else if (sender.titleLabel?.text == "Cancel") || (sender.titleLabel?.text == "Submit") {
-            print("REMOVE")
-            //removeAlertView()
-            presenter?.didClickCancelEntryAlert()
+        } else if (sender.titleLabel?.text == Constants.submitAlertButton){
+            presenter?.didClickSubmitSleepStat(dateEntry.date, timeOfSleepEntry.date, wakeUpTimeEntry.date, sleepDurationValueLabel.text ?? "0.0")
         } else {
-            print("error")
+            presenter?.didClickCancelEntryAlert()
         }
     }
 }
 
 extension HomeAlertView: HomeViewProtocol {
-    func updateUI() {
-
-    }
-    
+    func updateUI() {}
     func showSleepStats(_ sleepStats: [SleepStat]) {
-        
+        print("ALERT")
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
-        print("RESET TIME NOW")
-        
         dateEntry.date = Date()
         timeOfSleepEntry.date = sleepTime
         wakeUpTimeEntry.date = wakeUpTime
@@ -247,6 +217,6 @@ extension HomeAlertView: HomeViewProtocol {
     }
     
     func showDurationFromEntryChanges(_ sleepDuration: String) {
-        
+        sleepDurationValueLabel.text = sleepDuration
     }
 }
