@@ -21,4 +21,6 @@ struct Constants {
     static let cancelAlertButton = "Cancel"
     static let resetAlertButton = "Reset"
     static let submitAlertButton = "Submit"
+    
+    static let maxSleepEntries = 3
 }

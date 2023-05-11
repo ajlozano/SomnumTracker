@@ -205,7 +205,7 @@ class HomeAlertView {
 
 extension HomeAlertView: HomeViewProtocol {
     func updateUI() {}
-    func showSleepStats(_ sleepStats: [SleepStat]) {
+    func showSleepStats(_ sleepStats: [SleepData]) {
         print("ALERT")
     }
     

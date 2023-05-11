@@ -48,23 +48,29 @@ class HomeView: UIViewController {
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sleepStats.count
+        //viewModel.sleepStats.count
+        return 31
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SleepStatsCell") as! HomeViewCell
         cell.backgroundColor = UIColor.clear
         
-        cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep,
-                   wakeupTIme: viewModel.sleepStats[indexPath.row].wakeUpTime,
-                   sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
-                   weekday: viewModel.sleepStats[indexPath.row].dateString)
+//        cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep ?? "",
+//                   wakeupTIme: viewModel.sleepStats[indexPath.row].wakeUpTime ?? "",
+//                   sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
+//                   weekday: viewModel.sleepStats[indexPath.row].dateString ?? "")
+        //TEST LIMITS
+        cell.setup(timeOfSleep: "10:58",
+                   wakeupTIme: "21:30",
+                   sleepDuration: 10,
+                   weekday: "31/12")
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 7
+        return tableView.frame.height / 31
     }
 }
 
@@ -75,8 +81,7 @@ extension HomeView: HomeViewProtocol {
         }
     }
     
-    func showSleepStats(_ sleepStats: [SleepStat]) {
-        print("VIEW")
+    func showSleepStats(_ sleepStats: [SleepData]) {
         viewModel.sleepStats = sleepStats
     }
     
@@ -112,7 +117,7 @@ extension HomeView {
         sleepEntryButton.titleLabel?.isHidden = true
         
         // Sleep duration graph view configuration
-        let controller = UIHostingController(rootView: HomeSleepStatChart(viewModel: viewModel))
+        let controller = UIHostingController(rootView: HomeSleepStatChart(viewModel: self.viewModel))
         guard let sleepDurationGraphView = controller.view else {
             print("Graph view not found")
             return

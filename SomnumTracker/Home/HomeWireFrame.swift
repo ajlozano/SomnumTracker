@@ -16,7 +16,6 @@ class HomeWireFrame: HomeWireFrameProtocol {
 
     var alertView: HomeAlertView?
     
-    
     static var homeStoryboard: UIStoryboard {
         return UIStoryboard(name: "HomeView", bundle: Bundle.main)
     }

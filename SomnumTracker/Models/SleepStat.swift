@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SleepStat: Identifiable, Hashable {
-    let id = UUID()
-    var weekOfYear: String = "-"
-    var timeOfSleep: String = "-"
-    var wakeUpTime: String = "-"
-    var sleepDuration: Double = 0.0
-    var dateString: String = "-"
-    var date: Date = Date()
-}
+//struct SleepStat: Identifiable, Hashable {
+//    let id = UUID()
+//    var weekOfYear: String = "-"
+//    var timeOfSleep: String = "-"
+//    var wakeUpTime: String = "-"
+//    var sleepDuration: Double = 0.0
+//    var dateString: String = "-"
+//    var date: Date = Date()
+//}
