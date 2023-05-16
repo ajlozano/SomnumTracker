@@ -9,6 +9,12 @@
 import Foundation
 
 class HomeInteractor: HomeInteractorInputProtocol {
+    // TODO: Pasos para extraer datos:
+    // 1 - Leer datos de almacenamiento interno
+    // 2 - Buscar datos de la semana actual a partir del número de semana y año
+    // 3 - Obtener cual es el primer día de esa semana.
+    // 4 - Rellenar en vacío los 7 días de esa semana
+    // 5 - Leer datos y asociar los de la semana en el array de los 7 días.
     
     // MARK: Properties
     weak var presenter: HomeInteractorOutputProtocol?
@@ -17,6 +23,9 @@ class HomeInteractor: HomeInteractorInputProtocol {
 
     var sleepStatsWeek = [SleepData]()
     var sleepStatsDb = [SleepData]()
+    
+    // Data persitence context
+    let context = DataPersistence.shared.context
    
     func resetEntryValues() {
         if let sleepDate = CustomDateFormatter.timeFormat.date(from: Constants.defaultSleepTime),
@@ -31,18 +40,10 @@ class HomeInteractor: HomeInteractorInputProtocol {
     }
     
     func fetchSleepStats() {
-        // TODO: Pasos para extraer datos:
-        // 1 - Leer datos de almacenamiento interno
-        // 2 - Buscar datos de la semana actual
-        // 3 - Almacenarlos de forma ordenada
-        // 4 - Los huecos vacíos se muestran con valor "-" por defecto
-        
-        //addSleepStat(Date(), Date(), Date(), "8 hours")
-
         DataPersistence.shared.loadTitles { sleepData in
             sleepStatsDb = sleepData
             print(sleepStatsDb)
-            getSleepStatsFromWeek("\(Calendar.current.component(.weekOfYear, from: Date()))")
+            updateSleepStatsFromDate(Date())
 
             presenter?.sleepStatsFetched(sleepStatsWeek)
         }
@@ -53,9 +54,10 @@ class HomeInteractor: HomeInteractorInputProtocol {
         let weekOfYear = "\(Calendar.current.component(.weekOfYear, from: date))"
         let dateString = CustomDateFormatter.shared.formatDayMonth(date)
         
-        let sleepData = SleepData(context: DataPersistence.shared.context)
+        let sleepData = SleepData(context: context)
         sleepData.weekOfYear = weekOfYear
         sleepData.date = date
+        sleepData.year = CustomDateFormatter.shared.formatYear(date)
         sleepData.dateString = dateString
         sleepData.timeOfSleep = CustomDateFormatter.shared.formatHourMinute(sleepTime)
         sleepData.wakeUpTime = CustomDateFormatter.shared.formatHourMinute(wakeUpTime)
@@ -77,15 +79,53 @@ class HomeInteractor: HomeInteractorInputProtocol {
         sleepStatsDb.append(sleepData)
         
         DataPersistence.shared.saveData(sleepStatsDb) { _ in
-            getSleepStatsFromWeek("\(Calendar.current.component(.weekOfYear, from: Date()))")
+            updateSleepStatsFromDate(sleepData.date!)
             presenter?.sleepStatsFetched(sleepStatsWeek)
         }
     }
     
-    private func getSleepStatsFromWeek(_ weekOfYear: String) {
-        sleepStatsWeek = sleepStatsDb.filter { $0.weekOfYear!.contains(weekOfYear) }
-        sleepStatsWeek.sort { $0.date! < $1.date! }
-        print(sleepStatsWeek.count)
+    private func updateSleepStatsFromDate(_ date: Date) {
+        if let firstDayOfWeek = getFirstDayFromWeekOfYear(from: Calendar.current.component(.weekOfYear, from: date)) {
+            sleepStatsWeek.removeAll()
+            //sleepStatsWeek.sort { $0.date! < $1.date! }
+            print(sleepStatsWeek.count)
+            
+            for i in 0...6 {
+                //let sleepData = SleepData(context: DataPersistence.shared.context)
+                let currentDate = Calendar.current.date(byAdding: .day, value: i, to: firstDayOfWeek)
+                let currentDateString = CustomDateFormatter.shared.formatDayMonth(currentDate!)
+                
+                if let statFromCurrentDate = sleepStatsDb.first(where: { $0.dateString == currentDateString }) {
+                    sleepStatsWeek.append(statFromCurrentDate)
+                    print("current Stat")
+                } else {
+                    let sleepData = SleepData(context: context)
+                    
+                    sleepData.dateString = CustomDateFormatter.shared.formatDayMonth(currentDate!)
+                    
+                    sleepData.weekOfYear = "\(Calendar.current.component(.weekOfYear, from: date))"
+                    sleepData.date = currentDate
+                    sleepData.year = "\(Calendar.current.component(.year, from: date))"
+                    sleepData.timeOfSleep = "-"
+                    sleepData.wakeUpTime = "-"
+                    sleepData.sleepDuration = 0.0
+                    
+                    sleepStatsWeek.append(sleepData)
+                    print(sleepData.year)
+                    print("Void stat")
+                }
+            }
+            
+            print(sleepStatsWeek)
+        }
+
+    }
+    
+    private func getFirstDayFromWeekOfYear(from week: Int, year: Int? = Calendar.current.component(.year, from: Date()), locale: Locale? = nil) -> Date? {
+        var calendar = Calendar.current
+        calendar.locale = NSLocale.current
+        let dateComponents = DateComponents(calendar: calendar, year: year, weekday: 1, weekOfYear: week)
+        return calendar.date(from: dateComponents)
     }
     
     private func computeTimeInHours(recent: Date, previous: Date) -> String {

@@ -25,8 +25,10 @@ class HomeView: UIViewController {
     @IBOutlet weak var sleepDurationSubview: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sleepStatsDataView: UIView!
-    @IBOutlet weak var sleepEntryButton: UIButton!
     @IBOutlet weak var sleepStatsView: UIView!
+    
+    @IBOutlet weak var yearSleepDuration: UILabel!
+    @IBOutlet weak var yearSleepStats: UILabel!
     
     var viewModel = HomeViewModel()
     
@@ -36,41 +38,40 @@ class HomeView: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpView()
         presenter?.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setUpView()
     }
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
         presenter?.didClickEntryAlertView()
     }
+    @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        
+    }
 }
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //viewModel.sleepStats.count
-        return 31
+        viewModel.sleepStats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SleepStatsCell") as! HomeViewCell
         cell.backgroundColor = UIColor.clear
         
-//        cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep ?? "",
-//                   wakeupTIme: viewModel.sleepStats[indexPath.row].wakeUpTime ?? "",
-//                   sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
-//                   weekday: viewModel.sleepStats[indexPath.row].dateString ?? "")
-        //TEST LIMITS
-        cell.setup(timeOfSleep: "10:58",
-                   wakeupTIme: "21:30",
-                   sleepDuration: 10,
-                   weekday: "31/12")
+        cell.setup(timeOfSleep: viewModel.sleepStats[indexPath.row].timeOfSleep ?? "",
+                   wakeupTIme: viewModel.sleepStats[indexPath.row].wakeUpTime ?? "",
+                   sleepDuration: viewModel.sleepStats[indexPath.row].sleepDuration,
+                   weekday: viewModel.sleepStats[indexPath.row].dateString ?? "")
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 31
+        return tableView.frame.height / 7
     }
 }
 
@@ -83,6 +84,8 @@ extension HomeView: HomeViewProtocol {
     
     func showSleepStats(_ sleepStats: [SleepData]) {
         viewModel.sleepStats = sleepStats
+        yearSleepStats.text = sleepStats[0].year
+        yearSleepDuration.text = sleepStats[0].year
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {}
@@ -112,9 +115,9 @@ extension HomeView {
         sleepDurationView.layer.shadowColor = UIColor.black.cgColor
         sleepDurationView.layer.shadowOpacity = 0.8
         sleepDurationView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        sleepEntryButton.tintColor = .customBlue
+        //sleepEntryButton.tintColor = .customBlue
         
-        sleepEntryButton.titleLabel?.isHidden = true
+        //sleepEntryButton.titleLabel?.isHidden = true
         
         // Sleep duration graph view configuration
         let controller = UIHostingController(rootView: HomeSleepStatChart(viewModel: self.viewModel))
@@ -127,11 +130,17 @@ extension HomeView {
         
         // Add constraints
         sleepDurationGraphView.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 10)
-        let widthConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 220)
-        let heightConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 170)
-        sleepDurationView.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+//        let horizontalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+//        let verticalConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 10)
+//        let widthConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 220)
+//        let heightConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 170)
+        let leadingConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1, constant: 20)
+        let trailingConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1, constant: -20)
+        let topConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 50)
+        let bottomConstraint = NSLayoutConstraint(item: sleepDurationGraphView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sleepDurationView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -20)
+        
+        //sleepDurationView.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+        sleepDurationView.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         
         tableView.dataSource = self
     }

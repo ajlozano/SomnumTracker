@@ -7,5 +7,6 @@
         <attribute name="timeOfSleep" optional="YES" attributeType="String"/>
         <attribute name="wakeUpTime" optional="YES" attributeType="String"/>
         <attribute name="weekOfYear" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
     </entity>
 </model>

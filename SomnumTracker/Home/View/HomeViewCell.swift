@@ -13,25 +13,25 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var sleepDurationLabel: UILabel!
     @IBOutlet weak var wakeupTimeLabel: UILabel!
     @IBOutlet weak var timeOfSleepLabel: UILabel!
-    @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
         cellView.backgroundColor = UIColor.clear
-        timeOfSleepLabel.font = timeOfSleepLabel.font.withSize(9)
+        timeOfSleepLabel.font = timeOfSleepLabel.font.withSize(12)
         timeOfSleepLabel.textColor = .darkGray
-        wakeupTimeLabel.font = wakeupTimeLabel.font.withSize(9)
+        wakeupTimeLabel.font = wakeupTimeLabel.font.withSize(12)
         wakeupTimeLabel.textColor = .darkGray
-        sleepDurationLabel.font = sleepDurationLabel.font.withSize(9)
+        sleepDurationLabel.font = sleepDurationLabel.font.withSize(12)
         sleepDurationLabel.textColor = .darkGray
-        weekdayLabel.font = weekdayLabel.font.withSize(7)
-        weekdayLabel.textColor = .darkGray
+        dateLabel.font = dateLabel.font.withSize(10)
+        dateLabel.textColor = .darkGray
     }
     
     func setup(timeOfSleep: String, wakeupTIme: String, sleepDuration: Double, weekday: String){
         timeOfSleepLabel.text = timeOfSleep
         wakeupTimeLabel.text = wakeupTIme
         sleepDurationLabel.text = "\(sleepDuration) h"
-        weekdayLabel.text = weekday
+        dateLabel.text = weekday
     }
 }

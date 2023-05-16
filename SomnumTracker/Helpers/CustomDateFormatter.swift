@@ -34,6 +34,18 @@ struct CustomDateFormatter {
         return dayString + "/" + monthString
     }
     
+    mutating func formatYear(_ date: Date) -> String {
+        let cal = Calendar.current
+        let dateComponents = cal.dateComponents([.year], from: date)
+        guard let year = dateComponents.year else {
+            return "-"
+        }
+        
+        let yearString = String(format: "%04d", year)
+        
+        return yearString
+    }
+    
     mutating func formatHourMinute(_ date: Date) -> String {
         let cal = Calendar.current
         let dateComponents = cal.dateComponents([.hour, .minute], from: date)
