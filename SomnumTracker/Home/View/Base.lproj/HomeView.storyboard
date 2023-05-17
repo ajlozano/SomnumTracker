@@ -266,6 +266,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
                                             <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="lastWeekButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5pA-oM-gBe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUY-JT-WgA" userLabel="LastWeekButton">
                                         <rect key="frame" x="274" y="-5" width="60" height="60"/>
@@ -279,6 +282,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
                                             <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nextWeekButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7il-fA-ErB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Week" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaD-MY-94b">
                                         <rect key="frame" x="262.66666666666669" y="-23" width="83" height="18"/>

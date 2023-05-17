@@ -44,7 +44,12 @@ extension HomePresenter: HomePresenterProtocol {
         interactor?.updateSleepDurationFromEntryChanges(sleepTime: sleepTime, wakeUpTime: wakeUpTime)
     }
     
-    func getSleepStats() {
+    func didClickNextWeek(weekOfYear: String, year: String) {
+        interactor?.getNextWeek(weekOfYear: weekOfYear, year: year)
+    }
+    
+    func didClickLastWeek(weekOfYear: String, year: String) {
+        interactor?.getLastWeek(weekOfYear: weekOfYear, year: year)
     }
 }
 

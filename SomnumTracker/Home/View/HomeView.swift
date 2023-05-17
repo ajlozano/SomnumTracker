@@ -48,8 +48,26 @@ class HomeView: UIViewController {
     @IBAction func AddButtonPressed(_ sender: UIButton) {
         presenter?.didClickEntryAlertView()
     }
+    
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func lastWeekButtonPressed(_ sender: UIButton) {
+        print("BUTTON LAST: \(viewModel.sleepStats[0].year!) - \(viewModel.sleepStats[1].year!) - \(viewModel.sleepStats[2].year!) - \(viewModel.sleepStats[3].year!) - \(viewModel.sleepStats[4].year!) - \(viewModel.sleepStats[5].year!) - \(viewModel.sleepStats[6].year!)")
+        print("BUTTON LAST: \(viewModel.sleepStats[0].weekOfYear!) - \(viewModel.sleepStats[1].weekOfYear!) - \(viewModel.sleepStats[2].weekOfYear!) - \(viewModel.sleepStats[3].weekOfYear!) - \(viewModel.sleepStats[4].weekOfYear!) - \(viewModel.sleepStats[5].weekOfYear!) - \(viewModel.sleepStats[6].weekOfYear!)")
         
+        if let date = viewModel.sleepStats[0].date {
+            presenter?.didClickLastWeek(weekOfYear: viewModel.sleepStats[0].weekOfYear!, year: viewModel.sleepStats[0].year!)
+        }
+    }
+    
+    @IBAction func nextWeekButtonPressed(_ sender: UIButton) {
+        print("BUTTON NEXT: \(viewModel.sleepStats[0].year!) - \(viewModel.sleepStats[1].year!) - \(viewModel.sleepStats[2].year!) - \(viewModel.sleepStats[3].year!) - \(viewModel.sleepStats[4].year!) - \(viewModel.sleepStats[5].year!) - \(viewModel.sleepStats[6].year!)")
+        print("BUTTON NEXT: \(viewModel.sleepStats[0].weekOfYear!) - \(viewModel.sleepStats[1].weekOfYear!) - \(viewModel.sleepStats[2].weekOfYear!) - \(viewModel.sleepStats[3].weekOfYear!) - \(viewModel.sleepStats[4].weekOfYear!) - \(viewModel.sleepStats[5].weekOfYear!) - \(viewModel.sleepStats[6].weekOfYear!)")
+        
+        if let date = viewModel.sleepStats[0].date {
+            presenter?.didClickNextWeek(weekOfYear: viewModel.sleepStats[0].weekOfYear!, year: viewModel.sleepStats[0].year!)
+        }
     }
 }
 
@@ -86,6 +104,9 @@ extension HomeView: HomeViewProtocol {
         viewModel.sleepStats = sleepStats
         yearSleepStats.text = sleepStats[0].year
         yearSleepDuration.text = sleepStats[0].year
+        
+        print("SHOW: \(viewModel.sleepStats[0].year!) - \(viewModel.sleepStats[1].year!) - \(viewModel.sleepStats[2].year!) - \(viewModel.sleepStats[3].year!) - \(viewModel.sleepStats[4].year!) - \(viewModel.sleepStats[5].year!) - \(viewModel.sleepStats[6].year!)")
+        print("SHOW: \(viewModel.sleepStats[0].weekOfYear!) - \(viewModel.sleepStats[1].weekOfYear!) - \(viewModel.sleepStats[2].weekOfYear!) - \(viewModel.sleepStats[3].weekOfYear!) - \(viewModel.sleepStats[4].weekOfYear!) - \(viewModel.sleepStats[5].weekOfYear!) - \(viewModel.sleepStats[6].weekOfYear!)")
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {}

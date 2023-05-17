@@ -28,12 +28,13 @@ protocol HomePresenterProtocol: AnyObject {
     
     func viewDidLoad()
     
-    func getSleepStats()
     func didClickEntryAlertView()
     func didClickSubmitSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
     func didClickResetValues()
     func didClickCancelEntryAlert()
     func didEntryValuesChanged(_ sleepTime: Date, _ wakeUpTime: Date)
+    func didClickNextWeek(weekOfYear: String, year: String)
+    func didClickLastWeek(weekOfYear: String, year: String)
 }
 protocol HomeInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
@@ -45,6 +46,8 @@ protocol HomeInteractorInputProtocol: AnyObject {
     func resetEntryValues()
     func updateSleepDurationFromEntryChanges(sleepTime: Date, wakeUpTime: Date)
     func addSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
+    func getNextWeek(weekOfYear: String, year: String)
+    func getLastWeek(weekOfYear: String, year: String)
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
