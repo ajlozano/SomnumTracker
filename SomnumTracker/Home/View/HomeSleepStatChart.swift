@@ -20,19 +20,19 @@ struct HomeSleepStatChart: View {
     var body: some View {
         Chart(viewModel.sleepStats) { sleepStat in
             AreaMark(
-                x: .value("Weekday", sleepStat.dateString!),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlueLight))
-            .interpolationMethod(.cardinal)
+            .interpolationMethod(.cardinal(tension: 0.4))
             LineMark(
-                x: .value("Weekday", sleepStat.dateString!),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlue))
-            .interpolationMethod(.cardinal)
+            .interpolationMethod(.cardinal(tension: 0.4))
             PointMark(
-                x: .value("Weekday", sleepStat.dateString!),
+                x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
             .foregroundStyle(Color(UIColor.customBlue))

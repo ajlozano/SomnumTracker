@@ -83,13 +83,13 @@ class HomeAlertView {
     }
     
     private func createAlertAttributes() {
-        // Ttitle label
+        // Title label
         createTextLabel(on: alertView, on: nil, x: 0, y: 0, title: Constants.titleText, aligment: .center, widthLabel: alertView.frame.size.width, heightLabel: alertView.frame.height - 220, textSize: 25, isBold: true)
     
         // Date entries
-        createDateEntry(on: alertView, on: dateEntry, x: 50, y: 70, title: Constants.dateText, dateMode: .date, dateModeWidth: 80, dateTime: "")
-        createDateEntry(on: alertView, on: timeOfSleepEntry, x: 50, y: 100, title: Constants.timeOfSleepText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultSleepTime)
-        createDateEntry(on: alertView, on: wakeUpTimeEntry, x: 50, y: 130, title: Constants.wakeUpTimeText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultWakeUpTime)
+        createDateEntry(on: alertView, on: dateEntry, x: 45, y: 70, title: Constants.dateText, dateMode: .date, dateModeWidth: 80, dateTime: "")
+        createDateEntry(on: alertView, on: timeOfSleepEntry, x: 45, y: 100, title: Constants.timeOfSleepText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultSleepTime)
+        createDateEntry(on: alertView, on: wakeUpTimeEntry, x: 45, y: 130, title: Constants.wakeUpTimeText, dateMode: .time, dateModeWidth: 95, dateTime: Constants.defaultWakeUpTime)
         
         // Separator line
         let separatorView = UIView(frame: CGRect(x: 40, y: 170, width: alertView.frame.width-80, height: 1))
@@ -101,8 +101,8 @@ class HomeAlertView {
         alertView.addSubview(sleepDurationView)
         
         // Sleep duration labels
-        createTextLabel(on: sleepDurationView, on: nil, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
-        createTextLabel(on: sleepDurationView, on: sleepDurationValueLabel, x: alertView.frame.size.width - 175, y: 0, title: Constants.defaultSleepDuration + " hours", aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 18, isBold: true)
+        createTextLabel(on: sleepDurationView, on: nil, x: 0, y: 0, title: Constants.sleepDurationText, aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 17, isBold: true)
+        createTextLabel(on: sleepDurationView, on: sleepDurationValueLabel, x: alertView.frame.size.width - 170, y: 0, title: Constants.defaultSleepDuration + " hours", aligment: .left, widthLabel: sleepDurationView.frame.size.width, heightLabel: sleepDurationView.frame.height, textSize: 17, isBold: true)
         
         // Action Buttons View
         let actionButtonsView = UIView(frame: CGRect(x: 0, y: alertView.frame.height - 70, width: alertView.frame.size.width, height: alertView.frame.height - 270))
@@ -155,7 +155,7 @@ class HomeAlertView {
             }
         }
 
-        datePicker.frame = CGRect(x: view.frame.width - 190, y: 0, width: dateModeWidth, height: 25)
+        datePicker.frame = CGRect(x: view.frame.width - 185, y: 0, width: dateModeWidth, height: 25)
         datePicker.preferredDatePickerStyle = .compact
         datePicker.backgroundColor = .clear
         dateView.addSubview(datePicker)
@@ -205,7 +205,7 @@ class HomeAlertView {
 
 extension HomeAlertView: HomeViewProtocol {
     func updateUI() {}
-    func showSleepStats(_ sleepStats: [SleepData]) {
+    func showSleepStats(_ sleepStats: [SleepStat]) {
         print("Alert View protocol")
     }
     

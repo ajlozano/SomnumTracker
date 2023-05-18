@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    @Published var sleepStats = [SleepData]()
+    @Published var sleepStats = [SleepStat]()
     
     func getSleepStatList() {
     

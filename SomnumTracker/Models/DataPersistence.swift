@@ -35,9 +35,19 @@ struct DataPersistence {
         completion(sleepData)
     }
     
-    mutating func saveData(_ sleepStats: [SleepData]? = nil, completion: ([SleepData]) -> ()) {
+    mutating func saveData(_ sleepStats: SleepStat? = nil, completion: ([SleepData]) -> ()) {
         if let stats = sleepStats {
-            sleepData = stats
+            let data = SleepData(context: context)
+            
+            data.date = stats.date
+            data.dateString = stats.dateString
+            data.sleepDuration = stats.sleepDuration
+            data.timeOfSleep = stats.timeOfSleep
+            data.wakeUpTime = stats.wakeUpTime
+            data.weekOfYear = stats.weekOfYear
+            data.year = stats.year
+            
+            sleepData.append(data)
         }
 
         do {
@@ -48,10 +58,14 @@ struct DataPersistence {
         }
     }
     
-    mutating func deleteData(_ sleepStat: SleepData) {
-        context.delete(sleepStat)
-        saveData { _ in }
-        if let index = sleepData.firstIndex(of: sleepStat) {
+    mutating func deleteData(_ sleepStat: SleepStat) {
+        for stat in sleepData {
+            print(stat.dateString!)
+        }
+        
+        if let index = sleepData.firstIndex(where: {$0.dateString! == sleepStat.dateString}) {
+            context.delete(sleepData [index])
+            saveData { _ in }
             sleepData.remove(at: index)
         } else {
             print("Error deleting data")

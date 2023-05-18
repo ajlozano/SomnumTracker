@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BABDDED1F4A890EFAB25DA1 /* Pods_SomnumTracker_SomnumTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */; };
-		42ADC1E1738E5BC36C6D9C5D /* Pods_SomnumTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */; };
 		AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6A829F049E4002B692F /* AppDelegate.swift */; };
 		AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AA29F049E4002B692F /* SceneDelegate.swift */; };
 		AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AC29F049E4002B692F /* HomeView.swift */; };
@@ -29,7 +27,6 @@
 		AD4FAC002A029F9F003CD356 /* HomeRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */; };
 		AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
-		AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */; };
 		AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* HomeAlertView.swift */; };
 		ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */; };
 		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
@@ -37,7 +34,6 @@
 		ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */; };
 		ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */; };
 		ADEA99A72A03A8570002DCFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA99A62A03A8570002DCFB /* Constants.swift */; };
-		F6DC62D760E703AA9A6D5672 /* Pods_SomnumTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTracker_SomnumTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker.release.xcconfig"; path = "Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker.release.xcconfig"; sourceTree = "<group>"; };
-		ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTrackerTests/Pods-SomnumTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD23F6A529F049E4002B692F /* SomnumTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomnumTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD23F6A829F049E4002B692F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD23F6AA29F049E4002B692F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,15 +78,12 @@
 		AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataManager.swift; sourceTree = "<group>"; };
 		AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObservableObject.swift; sourceTree = "<group>"; };
 		AD99B0FF29FB387400839C49 /* HomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertView.swift; sourceTree = "<group>"; };
 		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
 		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
 		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		ADEA99A62A03A8570002DCFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-SomnumTrackerTests/Pods-SomnumTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
-		F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */,
-				F6DC62D760E703AA9A6D5672 /* Pods_SomnumTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ADC1E1738E5BC36C6D9C5D /* Pods_SomnumTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,23 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BABDDED1F4A890EFAB25DA1 /* Pods_SomnumTracker_SomnumTrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FCEF92569D867D1A7CC06CF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */,
-				54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */,
-				197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AD23F69C29F049E4002B692F = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +121,6 @@
 				AD23F6C829F049E5002B692F /* SomnumTrackerUITests */,
 				AD23F6A629F049E4002B692F /* Products */,
 				DEC40823561363691C7E1D00 /* Pods */,
-				0FCEF92569D867D1A7CC06CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,7 +143,6 @@
 				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446529F137EB00547046 /* Models */,
 				AD7A446729F1380C00547046 /* Views */,
-				AD7A446629F137F100547046 /* ViewModels */,
 				AD23F6B129F049E5002B692F /* Assets.xcassets */,
 				AD23F6B629F049E5002B692F /* Info.plist */,
 			);
@@ -219,13 +190,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AD7A446629F137F100547046 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		AD7A446729F1380C00547046 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				AD3042D929F19B060024517D /* CustomColors.swift */,
-				AD99B0F929FAE3BE00839C49 /* CustomObservableObject.swift */,
 				ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */,
 				ADEA99A62A03A8570002DCFB /* Constants.swift */,
 			);
@@ -269,12 +232,6 @@
 		DEC40823561363691C7E1D00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */,
-				677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */,
-				F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */,
-				0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */,
-				ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */,
-				E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -286,11 +243,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6CF29F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTracker" */;
 			buildPhases = (
-				377C9553271B66FE505F6C9C /* [CP] Check Pods Manifest.lock */,
 				AD23F6A129F049E4002B692F /* Sources */,
 				AD23F6A229F049E4002B692F /* Frameworks */,
 				AD23F6A329F049E4002B692F /* Resources */,
-				2C6875206A25227B969D2D14 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,7 +263,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6D229F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerTests" */;
 			buildPhases = (
-				839133F4FB005B548600DA39 /* [CP] Check Pods Manifest.lock */,
 				AD23F6B729F049E5002B692F /* Sources */,
 				AD23F6B829F049E5002B692F /* Frameworks */,
 				AD23F6B929F049E5002B692F /* Resources */,
@@ -327,11 +281,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6D529F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerUITests" */;
 			buildPhases = (
-				9FCBDFD8AA49E60684BB4C18 /* [CP] Check Pods Manifest.lock */,
 				AD23F6C129F049E5002B692F /* Sources */,
 				AD23F6C229F049E5002B692F /* Frameworks */,
 				AD23F6C329F049E5002B692F /* Resources */,
-				2862EDD87D10D0A3013E98D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -417,109 +369,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2862EDD87D10D0A3013E98D6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2C6875206A25227B969D2D14 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		377C9553271B66FE505F6C9C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTracker-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		839133F4FB005B548600DA39 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTrackerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FCBDFD8AA49E60684BB4C18 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTracker-SomnumTrackerUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		AD23F6A129F049E4002B692F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -542,7 +391,6 @@
 				AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
 				AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */,
-				AD99B0FA29FAE3BE00839C49 /* CustomObservableObject.swift in Sources */,
 				AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */,
 				ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */,
 			);
@@ -716,7 +564,6 @@
 		};
 		AD23F6D029F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -740,15 +587,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AD23F6D129F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -772,15 +621,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		AD23F6D329F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -801,7 +652,6 @@
 		};
 		AD23F6D429F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -822,7 +672,6 @@
 		};
 		AD23F6D629F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -841,7 +690,6 @@
 		};
 		AD23F6D729F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
