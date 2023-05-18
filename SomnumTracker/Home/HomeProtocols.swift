@@ -15,7 +15,7 @@ protocol HomeViewProtocol: AnyObject {
     
     // RELOAD TABLE VIEW, ACTIVITY INDICATOR, ETC
     func updateUI()
-    func showSleepStats(_ sleepStats: [SleepData])
+    func showSleepStats(_ sleepStats: [SleepStat])
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
     func showDurationFromEntryChanges(_ sleepDuration: String)
 }
@@ -52,7 +52,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
 
 protocol HomeInteractorOutputProtocol: AnyObject {
     // INTERACTOR -> PRESENTER
-    func sleepStatsFetched(_ sleepStats: [SleepData])
+    func sleepStatsFetched(_ sleepStats: [SleepStat])
     func entryValuesReset(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
     func entryValuesChanged(_ sleepDuration: String)
 }
@@ -89,4 +89,6 @@ protocol HomeLocalDataManagerInputProtocol: AnyObject {
 protocol HomeDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> DATAMANAGER
     // USELESS AT THE MOMENT
+    
+    
 }
