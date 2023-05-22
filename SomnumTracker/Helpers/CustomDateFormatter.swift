@@ -23,13 +23,19 @@ struct CustomDateFormatter {
     }()
     
     mutating func formatDayMonth(_ date: Date) -> String {
-        let cal = Calendar.current
-        let dateComponents = cal.dateComponents([.day, .month], from: date)
+//        var cal = Calendar(identifier: .gregorian)
+//        cal.locale = NSLocale.current
+//        cal.firstWeekday = 2
+        print(date)
+        let dateComponents = Calendar.current.dateComponents([.day, .month], from: date)
+
         guard let day = dateComponents.day, let month = dateComponents.month else {
             return "-"
         }
         let dayString = String(format: "%02d", day)
         let monthString = String(format: "%02d", month)
+        
+        print(day)
         
         return dayString + "/" + monthString
     }
@@ -57,5 +63,15 @@ struct CustomDateFormatter {
         
         
         return hourString + ":" + minuteString
+    }
+}
+
+extension Date {
+    func localDate() -> Date {
+        let nowUTC = Date()
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: nowUTC) else {return Date()}
+
+        return localDate
     }
 }

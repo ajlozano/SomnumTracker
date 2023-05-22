@@ -45,10 +45,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
                 sleepStatsDb.append(stat)
             }
             
-            var calendar = Calendar.current
-            calendar.locale = NSLocale.current
+            let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear, .day, .month], from: Date())
             
-            let dateComponents = calendar.dateComponents([.year, .weekOfYear], from: Date())
             updateSleepStatsFromDate(weekOfYear: dateComponents.weekOfYear!, year: dateComponents.year!)
             presenter?.sleepStatsFetched(sleepStatsWeek)
         }
@@ -107,7 +105,10 @@ class HomeInteractor: HomeInteractorInputProtocol {
                 return
             }
             
-            if (newWeekOfYear <= Calendar.current.component(.weekOfYear, from: Date())) {
+            let currentWeekOfYear = Calendar.current.component(.weekOfYear, from: Date())
+            print("old: \(currentWeekOfYear)")
+            print("new: \(newWeekOfYear)")
+            if (Date() > date) {
                 updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
                 presenter?.sleepStatsFetched(sleepStatsWeek)
             }
@@ -127,31 +128,42 @@ class HomeInteractor: HomeInteractorInputProtocol {
                 print("error getting year and weekOfYear from dateComponents.")
                 return
             }
+            print(newWeekOfYear)
+            print(newYear)
             updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
             presenter?.sleepStatsFetched(sleepStatsWeek)
        }
     }
     
     private func updateSleepStatsFromDate(weekOfYear: Int, year: Int) {
-        if let firstDayOfWeek = getFirstDayFromWeekOfYear(from: weekOfYear, year: year) {
+        if let firstDayOfWeek = getFirstDayFromWeekOfYear(from: Calendar.current.date(from: DateComponents(weekOfYear: weekOfYear, yearForWeekOfYear: year))!) {
+            
             sleepStatsWeek.removeAll()
-
+            
             for i in 0...6 {
                 guard let currentDate = Calendar.current.date(byAdding: .day, value: i, to: firstDayOfWeek) else {
                     return
                 }
+                //print(firstDayOfWeek)
+                //print(currentDate)
+                var calendar = Calendar(identifier: .gregorian)
+                calendar.firstWeekday = 2
+                let currentComponent = calendar.dateComponents([.day], from: currentDate)
                 
+                //print(currentComponent.day)
                 let currentDateString = CustomDateFormatter.shared.formatDayMonth(currentDate)
+                //print(currentDateString)
                 
                 if let statFromCurrentDate = sleepStatsDb.first(where: { $0.dateString == currentDateString }) {
                     sleepStatsWeek.append(statFromCurrentDate)
                 } else {
+                    
                     let sleepStat = SleepStat(
                         weekOfYear: "\(weekOfYear)",
                         timeOfSleep: "-",
                         wakeUpTime: "-",
                         sleepDuration: 0.0,
-                        dateString: CustomDateFormatter.shared.formatDayMonth(currentDate),
+                        dateString: currentDateString,
                         year: "\(year)",
                         date: currentDate)
 
@@ -161,13 +173,30 @@ class HomeInteractor: HomeInteractorInputProtocol {
         }
     }
     
-    private func getFirstDayFromWeekOfYear(from week: Int, year: Int? = Calendar.current.component(.year, from: Date()), locale: Locale? = nil) -> Date? {
+    private func getFirstDayFromWeekOfYear(from date: Date) -> Date? {
+        let today = date
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.firstWeekday = 2
+        gregorian.timeZone = TimeZone.current
+
+        let weekdayComponents = gregorian.component(.weekday, from: today)
         
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = NSLocale.current
-        calendar.firstWeekday = 2
-        let dateComponents = DateComponents(calendar: calendar, year: year, weekday: calendar.firstWeekday, weekOfYear: week)
-        return calendar.date(from: dateComponents)
+        var compontentsToSubstract = DateComponents()
+        // Sunday -> -(weekdayComponetns.weekday - gregorian.firstWeekday)
+        // Monday -> -(weekdayComponetns.weekday - gregorian.firstWeekday - 1)
+        compontentsToSubstract.day = -(weekdayComponents - gregorian.firstWeekday - 1)
+        var beginningOfWeek = gregorian.date(byAdding: compontentsToSubstract, to: today)
+        var components = DateComponents()
+        components.timeZone = TimeZone.current
+        components.day = gregorian.dateComponents([.day], from: beginningOfWeek!).day!
+        components.month = gregorian.dateComponents([.month], from: beginningOfWeek!).month!
+        components.year = gregorian.dateComponents([.year], from: beginningOfWeek!).year!
+        //var components = gregorian.dateComponents([.year, .month, .day, .weekday, .timeZone, .weekOfYear], from: beginningOfWeek!)
+        beginningOfWeek = gregorian.date(from: components)
+        print(beginningOfWeek)
+        print("\(gregorian.dateComponents([.day], from: beginningOfWeek!).day!)")
+        
+        return beginningOfWeek
     }
     
     private func computeTimeInHours(recent: Date, previous: Date) -> String {
@@ -176,6 +205,13 @@ class HomeInteractor: HomeInteractorInputProtocol {
             delta += 24.0
         }
         return String(format: "%.2f", delta)
+    }
+    
+    private func getCurrentCalendar() -> Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = NSLocale.current
+        calendar.firstWeekday = 2
+        return calendar
     }
 }
 

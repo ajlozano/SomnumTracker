@@ -18,6 +18,7 @@ class HomePresenter  {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
     // TODO: implement presenter methods
     func viewDidLoad() {
         interactor?.fetchSleepStats()
@@ -50,6 +51,10 @@ extension HomePresenter: HomePresenterProtocol {
     
     func didClickLastWeek(weekOfYear: String, year: String) {
         interactor?.getLastWeek(weekOfYear: weekOfYear, year: year)
+    }
+    
+    func showSettingsView() {
+        wireFrame?.presentNewViewSettings(from: view!, presentationStyle: .formSheet)
     }
 }
 

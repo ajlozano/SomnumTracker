@@ -28,6 +28,16 @@
 		AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
 		AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* HomeAlertView.swift */; };
+		ADAAB3DE2A1B59E6002821F9 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */; };
+		ADAAB3E02A1B59E6002821F9 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */; };
+		ADAAB3E12A1B59E6002821F9 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */; };
+		ADAAB3E22A1B59E6002821F9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */; };
+		ADAAB3E42A1B59E6002821F9 /* SettingsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */; };
+		ADAAB3E62A1B5A02002821F9 /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */; };
+		ADAAB3E92A1B79A4002821F9 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */; };
+		ADAAB3EC2A1B7EF6002821F9 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */; };
+		ADAAB3EE2A1B7F32002821F9 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3ED2A1B7F32002821F9 /* Setting.swift */; };
+		ADAAB3F02A1B9481002821F9 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */; };
 		ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */; };
 		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
 		ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */; };
@@ -79,6 +89,16 @@
 		AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AD99B0FF29FB387400839C49 /* HomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertView.swift; sourceTree = "<group>"; };
+		ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWireFrame.swift; sourceTree = "<group>"; };
+		ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
+		ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
+		ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		ADAAB3ED2A1B7F32002821F9 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
 		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
@@ -140,6 +160,7 @@
 				AD23F6A829F049E4002B692F /* AppDelegate.swift */,
 				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
 				AD7A446829F1382700547046 /* Helpers */,
+				ADAAB3D62A1B59AB002821F9 /* Settings */,
 				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446529F137EB00547046 /* Models */,
 				AD7A446729F1380C00547046 /* Views */,
@@ -214,6 +235,39 @@
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		ADAAB3D62A1B59AB002821F9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */,
+				ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */,
+				ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */,
+				ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */,
+				ADAAB3EA2A1B7ED3002821F9 /* Models */,
+				ADAAB3E72A1B69FD002821F9 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		ADAAB3E72A1B69FD002821F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */,
+				ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */,
+				ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */,
+				ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADAAB3EA2A1B7ED3002821F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */,
+				ADAAB3ED2A1B7F32002821F9 /* Setting.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		ADAFCC102A05328A00DBB004 /* View */ = {
@@ -350,6 +404,7 @@
 				AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */,
 				AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */,
 				AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */,
+				ADAAB3E62A1B5A02002821F9 /* SettingsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,25 +429,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADAAB3EC2A1B7EF6002821F9 /* Contact.swift in Sources */,
 				ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */,
+				ADAAB3E42A1B59E6002821F9 /* SettingsWireFrame.swift in Sources */,
 				ADEA99A72A03A8570002DCFB /* Constants.swift in Sources */,
 				AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */,
+				ADAAB3F02A1B9481002821F9 /* SettingsViewCell.swift in Sources */,
 				AD4FABFC2A029F9F003CD356 /* HomeLocalDataManager.swift in Sources */,
 				AD4FAC002A029F9F003CD356 /* HomeRemoteDataManager.swift in Sources */,
 				AD3042E029F1C8570024517D /* SleepStat.swift in Sources */,
 				ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
 				AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */,
+				ADAAB3E22A1B59E6002821F9 /* SettingsView.swift in Sources */,
 				AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */,
 				AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */,
+				ADAAB3E92A1B79A4002821F9 /* ContactsViewCell.swift in Sources */,
 				AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */,
 				ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */,
+				ADAAB3EE2A1B7F32002821F9 /* Setting.swift in Sources */,
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
 				AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */,
+				ADAAB3E02A1B59E6002821F9 /* SettingsProtocols.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
 				AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */,
 				AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */,
 				ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */,
+				ADAAB3E12A1B59E6002821F9 /* SettingsInteractor.swift in Sources */,
+				ADAAB3DE2A1B59E6002821F9 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

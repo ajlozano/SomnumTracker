@@ -17,12 +17,12 @@ class HomeViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.backgroundColor = UIColor.clear
-        timeOfSleepLabel.font = timeOfSleepLabel.font.withSize(12)
+        cellView.backgroundColor = .clear
+        timeOfSleepLabel.font = timeOfSleepLabel.font.withSize(11)
         timeOfSleepLabel.textColor = .darkGray
-        wakeupTimeLabel.font = wakeupTimeLabel.font.withSize(12)
+        wakeupTimeLabel.font = wakeupTimeLabel.font.withSize(11)
         wakeupTimeLabel.textColor = .darkGray
-        sleepDurationLabel.font = sleepDurationLabel.font.withSize(12)
+        sleepDurationLabel.font = sleepDurationLabel.font.withSize(11)
         sleepDurationLabel.textColor = .darkGray
         dateLabel.font = dateLabel.font.withSize(10)
         dateLabel.textColor = .darkGray

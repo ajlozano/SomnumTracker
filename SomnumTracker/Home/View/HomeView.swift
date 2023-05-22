@@ -43,6 +43,7 @@ class HomeView: UIViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        presenter?.showSettingsView()
     }
     
     @IBAction func lastWeekButtonPressed(_ sender: UIButton) {
@@ -50,6 +51,9 @@ class HomeView: UIViewController {
 //        print("BUTTON LAST: \(viewModel.sleepStats[0].weekOfYear) - \(viewModel.sleepStats[1].weekOfYear) - \(viewModel.sleepStats[2].weekOfYear) - \(viewModel.sleepStats[3].weekOfYear) - \(viewModel.sleepStats[4].weekOfYear) - \(viewModel.sleepStats[5].weekOfYear) - \(viewModel.sleepStats[6].weekOfYear)")
         
         presenter?.didClickLastWeek(weekOfYear: viewModel.sleepStats[0].weekOfYear, year: viewModel.sleepStats[0].year)
+        print(viewModel.sleepStats[0].date)
+        print(viewModel.sleepStats[0].dateString)
+        print(viewModel.sleepStats[0].weekOfYear)
     }
     
     @IBAction func nextWeekButtonPressed(_ sender: UIButton) {
@@ -91,6 +95,10 @@ extension HomeView: HomeViewProtocol {
         viewModel.sleepStats = sleepStats
         yearSleepStats.text = sleepStats[0].year
         yearSleepDuration.text = sleepStats[0].year
+        
+        print("BUTTON LAST: \(viewModel.sleepStats[0].date) - \(viewModel.sleepStats[1].date) - \(viewModel.sleepStats[2].date) - \(viewModel.sleepStats[3].date) - \(viewModel.sleepStats[4].date) - \(viewModel.sleepStats[5].date) - \(viewModel.sleepStats[6].date)")
+        print("BUTTON LAST: \(viewModel.sleepStats[0].dateString) - \(viewModel.sleepStats[1].dateString) - \(viewModel.sleepStats[2].dateString) - \(viewModel.sleepStats[3].dateString) - \(viewModel.sleepStats[4].dateString) - \(viewModel.sleepStats[5].dateString) - \(viewModel.sleepStats[6].dateString)")
+         
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {}

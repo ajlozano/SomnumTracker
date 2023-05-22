@@ -35,6 +35,7 @@ protocol HomePresenterProtocol: AnyObject {
     func didEntryValuesChanged(_ sleepTime: Date, _ wakeUpTime: Date)
     func didClickNextWeek(weekOfYear: String, year: String)
     func didClickLastWeek(weekOfYear: String, year: String)
+    func showSettingsView()
 }
 protocol HomeInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
@@ -66,6 +67,7 @@ protocol HomeWireFrameProtocol: AnyObject {
 
     func addEntryAlert()
     func removeEntryAlert()
+    func presentNewViewSettings(from view: HomeViewProtocol, presentationStyle: UIModalPresentationStyle)
 }
 
 protocol HomeRemoteDataManagerInputProtocol: AnyObject {
