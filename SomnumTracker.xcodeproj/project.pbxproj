@@ -241,8 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */,
-				ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */,
 				ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */,
+				ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */,
 				ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */,
 				ADAAB3EA2A1B7ED3002821F9 /* Models */,
 				ADAAB3E72A1B69FD002821F9 /* View */,
@@ -264,8 +264,8 @@
 		ADAAB3EA2A1B7ED3002821F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */,
 				ADAAB3ED2A1B7F32002821F9 /* Setting.swift */,
+				ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

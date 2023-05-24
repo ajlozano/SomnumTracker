@@ -59,9 +59,6 @@ struct DataPersistence {
     }
     
     mutating func deleteData(_ sleepStat: SleepStat) {
-        for stat in sleepData {
-            print(stat.dateString!)
-        }
         
         if let index = sleepData.firstIndex(where: {$0.dateString! == sleepStat.dateString}) {
             context.delete(sleepData [index])

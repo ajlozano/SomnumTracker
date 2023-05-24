@@ -10,5 +10,6 @@ import UIKit
 struct Setting {
     let icon: UIImage
     let title: String
+    let pickerItem: UIView?
     let actionItem: UIView
 }

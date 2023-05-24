@@ -31,6 +31,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
     }
         
     func fetchSleepStats() {
+        sleepStatsDb.removeAll()
+        
         DataPersistence.shared.loadTitles { sleepData in
             for data in sleepData {
                 let stat = SleepStat(
@@ -81,9 +83,9 @@ class HomeInteractor: HomeInteractorInputProtocol {
         sleepStatsDb.append(sleepStat)
         
         DataPersistence.shared.saveData(sleepStat) { _ in
-            for stat in sleepStatsDb {
-                print("\(stat.sleepDuration) - \(stat.year) - \(stat.weekOfYear) - \(stat.dateString) - \(stat.date)")
-            }
+//            for stat in sleepStatsDb {
+//                print("\(stat.sleepDuration) - \(stat.year) - \(stat.weekOfYear) - \(stat.dateString) - \(stat.date)")
+//            }
             
             let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear], from: date)
             updateSleepStatsFromDate(weekOfYear: Int(weekOfYearString)!, year: dateComponents.year!)
@@ -106,8 +108,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
             }
             
             let currentWeekOfYear = Calendar.current.component(.weekOfYear, from: Date())
-            print("old: \(currentWeekOfYear)")
-            print("new: \(newWeekOfYear)")
+//            print("old: \(currentWeekOfYear)")
+//            print("new: \(newWeekOfYear)")
             if (Date() > date) {
                 updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
                 presenter?.sleepStatsFetched(sleepStatsWeek)
@@ -128,8 +130,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
                 print("error getting year and weekOfYear from dateComponents.")
                 return
             }
-            print(newWeekOfYear)
-            print(newYear)
+//            print(newWeekOfYear)
+//            print(newYear)
             updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
             presenter?.sleepStatsFetched(sleepStatsWeek)
        }
@@ -193,8 +195,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
         components.year = gregorian.dateComponents([.year], from: beginningOfWeek!).year!
         //var components = gregorian.dateComponents([.year, .month, .day, .weekday, .timeZone, .weekOfYear], from: beginningOfWeek!)
         beginningOfWeek = gregorian.date(from: components)
-        print(beginningOfWeek)
-        print("\(gregorian.dateComponents([.day], from: beginningOfWeek!).day!)")
+        //print(beginningOfWeek)
+        //print("\(gregorian.dateComponents([.day], from: beginningOfWeek!).day!)")
         
         return beginningOfWeek
     }

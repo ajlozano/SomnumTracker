@@ -28,7 +28,7 @@ class HomeWireFrame: HomeWireFrameProtocol {
             let interactor: HomeInteractorInputProtocol & HomeRemoteDataManagerOutputProtocol = HomeInteractor()
             let localDataManager: HomeLocalDataManagerInputProtocol = HomeLocalDataManager()
             let remoteDataManager: HomeRemoteDataManagerInputProtocol = HomeRemoteDataManager()
-            let wireFrame: HomeWireFrameProtocol = HomeWireFrame()
+            let wireFrame: HomeWireFrameProtocol & HomeWireframeFromOtherPresenterProtocol = HomeWireFrame()
             
             viewController.presenter = presenter
             presenter.view = viewController
@@ -67,11 +67,17 @@ class HomeWireFrame: HomeWireFrameProtocol {
     }
     
     func presentNewViewSettings(from view: HomeViewProtocol, presentationStyle: UIModalPresentationStyle) {
-        let newSettingsView = SettingsWireFrame.createSettingsModule()
+        let newSettingsView = SettingsWireFrame.createSettingsModule(with: self)
         
         if let newView = view as? UIViewController {
-            newView.modalPresentationStyle = presentationStyle
+            newSettingsView.modalPresentationStyle = presentationStyle
             newView.present(newSettingsView, animated: true)
         }
+    }
+}
+
+extension HomeWireFrame: HomeWireframeFromOtherPresenterProtocol {
+    func notifyFetchingSleepStats() {
+        presenter?.viewDidLoad()
     }
 }

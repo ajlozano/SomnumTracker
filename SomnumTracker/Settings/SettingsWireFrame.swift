@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 
 class SettingsWireFrame: SettingsWireFrameProtocol {
-
     static var settingsStoryboard: UIStoryboard {
         return UIStoryboard(name: "SettingsView", bundle: Bundle.main)
     }
     
-    class func createSettingsModule() -> UIViewController {
+    class func createSettingsModule(with previousWireframe: HomeWireframeFromOtherPresenterProtocol) -> UIViewController {
         let view = settingsStoryboard.instantiateViewController(withIdentifier: "settingsView")
         if let viewController = view as? SettingsView {
             let presenter: SettingsPresenterProtocol & SettingsInteractorOutputProtocol = SettingsPresenter()
@@ -25,6 +24,7 @@ class SettingsWireFrame: SettingsWireFrameProtocol {
             viewController.presenter = presenter
             presenter.view = viewController
             presenter.wireFrame = wireFrame
+            presenter.previousWireframe = previousWireframe
             presenter.interactor = interactor
             interactor.presenter = presenter
             

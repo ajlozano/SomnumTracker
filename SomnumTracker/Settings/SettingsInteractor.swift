@@ -9,9 +9,14 @@
 import Foundation
 
 class SettingsInteractor: SettingsInteractorInputProtocol {
-
     // MARK: Properties
     weak var presenter: SettingsInteractorOutputProtocol?
 
+    func deleteAllStats() {
+        print("interactor")
+        
+        DataPersistence.shared.deleteAllData()
+        presenter?.statsDeleted()
+    }
 }
 

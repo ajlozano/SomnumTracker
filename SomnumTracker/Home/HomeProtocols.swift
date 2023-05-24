@@ -12,7 +12,6 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: HomePresenterProtocol? { get set }
-    
     // RELOAD TABLE VIEW, ACTIVITY INDICATOR, ETC
     func updateUI()
     func showSleepStats(_ sleepStats: [SleepStat])
@@ -27,7 +26,6 @@ protocol HomePresenterProtocol: AnyObject {
     var wireFrame: HomeWireFrameProtocol? { get set }
     
     func viewDidLoad()
-    
     func didClickEntryAlertView()
     func didClickSubmitSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
     func didClickResetValues()
@@ -70,12 +68,21 @@ protocol HomeWireFrameProtocol: AnyObject {
     func presentNewViewSettings(from view: HomeViewProtocol, presentationStyle: UIModalPresentationStyle)
 }
 
+protocol HomeWireframeFromOtherPresenterProtocol: AnyObject {
+    // OTHER PRESENTER -> WIREFRAME
+    var presenter: HomePresenterProtocol? { get set }
+    
+    func notifyFetchingSleepStats()
+}
+
 protocol HomeRemoteDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: HomeRemoteDataManagerOutputProtocol? { get set }
     
     // ADD FIREBASE DATA PETITIONS
 }
+
+
 
 protocol HomeRemoteDataManagerOutputProtocol: AnyObject {
     // REMOTEDATAMANAGER -> INTERACTOR

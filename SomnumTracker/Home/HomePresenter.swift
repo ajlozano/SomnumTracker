@@ -54,7 +54,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func showSettingsView() {
-        wireFrame?.presentNewViewSettings(from: view!, presentationStyle: .formSheet)
+        wireFrame?.presentNewViewSettings(from: view!, presentationStyle: .popover)
     }
 }
 

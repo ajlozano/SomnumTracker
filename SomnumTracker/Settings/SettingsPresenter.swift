@@ -14,15 +14,27 @@ class SettingsPresenter  {
     weak var view: SettingsViewProtocol?
     var interactor: SettingsInteractorInputProtocol?
     var wireFrame: SettingsWireFrameProtocol?
-    
+    var previousWireframe: HomeWireframeFromOtherPresenterProtocol?
 }
 
 extension SettingsPresenter: SettingsPresenterProtocol {
-    // TODO: implement presenter methods
-    func viewDidLoad() {
+    
+    func deleteAllStats() {
+        print("presenter")
+        interactor?.deleteAllStats()
+    }
+
+    func viewDidLoad() {}
+    
+    func notifyFetchingStats() {
+        print("notify fetching")
+        previousWireframe?.notifyFetchingSleepStats()
     }
 }
 
 extension SettingsPresenter: SettingsInteractorOutputProtocol {
-    // TODO: implement interactor output methods
+    func statsDeleted() {
+        print("presenter deleted")
+        view?.statsDeleted()
+    }
 }

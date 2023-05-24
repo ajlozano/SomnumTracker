@@ -35,7 +35,16 @@ class HomeView: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
         setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("ViewDidDisappear")
     }
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
@@ -84,8 +93,8 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeView: HomeViewProtocol {
-    
     func updateUI() {
+        print("homeview update")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -96,9 +105,8 @@ extension HomeView: HomeViewProtocol {
         yearSleepStats.text = sleepStats[0].year
         yearSleepDuration.text = sleepStats[0].year
         
-        print("BUTTON LAST: \(viewModel.sleepStats[0].date) - \(viewModel.sleepStats[1].date) - \(viewModel.sleepStats[2].date) - \(viewModel.sleepStats[3].date) - \(viewModel.sleepStats[4].date) - \(viewModel.sleepStats[5].date) - \(viewModel.sleepStats[6].date)")
-        print("BUTTON LAST: \(viewModel.sleepStats[0].dateString) - \(viewModel.sleepStats[1].dateString) - \(viewModel.sleepStats[2].dateString) - \(viewModel.sleepStats[3].dateString) - \(viewModel.sleepStats[4].dateString) - \(viewModel.sleepStats[5].dateString) - \(viewModel.sleepStats[6].dateString)")
-         
+//        print("BUTTON LAST: \(viewModel.sleepStats[0].date) - \(viewModel.sleepStats[1].date) - \(viewModel.sleepStats[2].date) - \(viewModel.sleepStats[3].date) - \(viewModel.sleepStats[4].date) - \(viewModel.sleepStats[5].date) - \(viewModel.sleepStats[6].date)")
+//        print("BUTTON LAST: \(viewModel.sleepStats[0].dateString) - \(viewModel.sleepStats[1].dateString) - \(viewModel.sleepStats[2].dateString) - \(viewModel.sleepStats[3].dateString) - \(viewModel.sleepStats[4].dateString) - \(viewModel.sleepStats[5].dateString) - \(viewModel.sleepStats[6].dateString)")
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {}
