@@ -34,19 +34,10 @@ class HomeView: UIViewController {
         presenter?.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
+    override func viewWillAppear(_ animated: Bool) {
         setUpView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        print("ViewDidDisappear")
-    }
-    
+
     @IBAction func AddButtonPressed(_ sender: UIButton) {
         presenter?.didClickEntryAlertView()
     }
@@ -115,15 +106,15 @@ extension HomeView: HomeViewProtocol {
 // MARK: setup view
 extension HomeView {
     private func setUpView() {
-        view.backgroundColor = .customLight
+        //view.backgroundColor = .customLight
         
         // Sleep Stats table configuration
         sleepStatsView.layer.cornerRadius = 15
-        sleepStatsView.layer.shadowColor = UIColor.black.cgColor
+        //sleepStatsView.layer.shadowColor = UIColor.black.cgColor
         sleepStatsView.layer.shadowOpacity = 0.8
         sleepStatsView.layer.shadowOffset = CGSize(width: 2, height: 2)
         
-        sleepStatsDataView.backgroundColor = .customBlueLight
+        //sleepStatsDataView.backgroundColor = .customBlueLight
         sleepStatsDataView.layer.cornerRadius = 10
         
         tableView.dataSource = self
@@ -132,7 +123,7 @@ extension HomeView {
         tableView.delegate = self
         
         sleepDurationView.layer.cornerRadius = 15
-        sleepDurationView.layer.shadowColor = UIColor.black.cgColor
+        //sleepDurationView.layer.shadowColor = UIColor.black.cgColor
         sleepDurationView.layer.shadowOpacity = 0.8
         sleepDurationView.layer.shadowOffset = CGSize(width: 2, height: 2)
         
@@ -142,6 +133,8 @@ extension HomeView {
             print("Graph view not found")
             return
         }
+        
+        sleepDurationGraphView.backgroundColor = UIColor(named: "ForegroundColorSet")
         
         sleepDurationView.addSubview(sleepDurationGraphView)
         

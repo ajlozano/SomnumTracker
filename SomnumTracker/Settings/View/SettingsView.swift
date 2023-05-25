@@ -144,6 +144,7 @@ extension SettingsView {
         notificationSwitch.addTarget(self, action: #selector(didEnableNotification(sender:)), for: .touchUpInside)
         // Date picker
         timeNotificationPicker.datePickerMode = .time
+        timeNotificationPicker.preferredDatePickerStyle = .compact
         timeNotificationPicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)
         timeNotificationPicker.maximumDate = Date()
         let dateFormatter = DateFormatter()

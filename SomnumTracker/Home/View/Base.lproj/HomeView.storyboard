@@ -5,8 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +26,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="IconColorSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i1k-AU-nMN"/>
@@ -38,19 +38,20 @@
                                         <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
                                             <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large" variableValue="0.0"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="IconColorSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="AddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8m7-px-9Zt"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SomnumTrackerLogoLight" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkQ-yZ-kgS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoimageSet" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkQ-yZ-kgS">
                                         <rect key="frame" x="10" y="-5" width="266" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="999" constant="250" id="0oW-dr-VAo"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" name="BackgroundColorSet"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1qZ-Uq-S4F" secondAttribute="trailing" constant="60" id="6Ux-8d-TbS"/>
                                     <constraint firstItem="kkQ-yZ-kgS" firstAttribute="centerY" secondItem="zlc-AD-xxL" secondAttribute="centerY" id="7tl-nO-5JK"/>
@@ -77,7 +78,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Stats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOU-hY-jl4" userLabel="SleepStats">
                                         <rect key="frame" x="22.999999999999993" y="5" width="86.333333333333314" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwI-rG-eQp" userLabel="Sleep Stats Subview">
@@ -148,7 +148,7 @@
                                                         <sections/>
                                                     </tableView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.85557967420000003" green="0.88697439430000002" blue="0.89092737440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="Foreground2ColorSet"/>
                                                 <constraints>
                                                     <constraint firstItem="qIQ-sb-Cv9" firstAttribute="leading" secondItem="2hR-Li-z6d" secondAttribute="leading" constant="-40" id="1M2-bt-yx2"/>
                                                     <constraint firstItem="qIQ-sb-Cv9" firstAttribute="top" secondItem="2hR-Li-z6d" secondAttribute="top" id="AtQ-Rp-gvI"/>
@@ -162,19 +162,16 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z0-ss-UB7">
                                                         <rect key="frame" x="0.0" y="2.3333333333333428" width="76" height="9.6666666666666661"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake up TIme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aat-wF-NpQ">
                                                         <rect key="frame" x="76" y="2.3333333333333428" width="79.333333333333314" height="9.6666666666666661"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-bF-9KP">
                                                         <rect key="frame" x="155.33333333333331" y="2.3333333333333428" width="81.666666666666686" height="9.6666666666666661"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -183,7 +180,6 @@
                                                 <rect key="frame" x="-5" y="12" width="32" height="14"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -201,7 +197,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="ForegroundColorSet"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="uwI-rG-eQp" secondAttribute="trailing" priority="999" constant="35" id="0rh-gb-Jtt"/>
                                     <constraint firstItem="DOU-hY-jl4" firstAttribute="leading" secondItem="F01-Kj-fR2" secondAttribute="leading" constant="23" id="51B-RD-Ode"/>
@@ -221,12 +217,11 @@
                                             <constraint firstAttribute="height" constant="18" id="BrZ-5z-agI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mE-97-GnH" userLabel="Sleep Duration Subview">
                                         <rect key="frame" x="20" y="43" width="310" height="264"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="ForegroundColorSet"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="241.66999999999999" id="Vvy-dT-784"/>
                                         </constraints>
@@ -241,7 +236,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="ForegroundColorSet"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="675-as-Bdp" secondAttribute="trailing" constant="245.33000000000001" id="1Nw-OH-MUu"/>
                                     <constraint firstItem="675-as-Bdp" firstAttribute="leading" secondItem="qwO-9F-SQr" secondAttribute="leading" constant="24" id="AyJ-ul-QQJ"/>
@@ -267,7 +262,7 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="arrow.left.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
-                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="IconColorSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="lastWeekButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5pA-oM-gBe"/>
@@ -282,7 +277,7 @@
                                         <buttonConfiguration key="configuration" style="plain" imagePadding="15">
                                             <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="large" variableValue="1"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
-                                            <color key="baseForegroundColor" red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="IconColorSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextWeekButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7il-fA-ErB"/>
@@ -321,7 +316,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.85557967420000003" green="0.88697439430000002" blue="0.89092737440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BackgroundColorSet"/>
                         <constraints>
                             <constraint firstItem="qwO-9F-SQr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="2Ie-9n-o30"/>
                             <constraint firstItem="F01-Kj-fR2" firstAttribute="top" secondItem="zlc-AD-xxL" secondAttribute="bottom" constant="5" id="Gbm-TB-NI2"/>
@@ -365,14 +360,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SomnumTrackerLogoLight" width="446.66665649414062" height="106.66666412353516"/>
+        <image name="LogoimageSet" width="446.66665649414062" height="106.66666412353516"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="123"/>
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="BackgroundColorSet">
+            <color red="0.85557967420000003" green="0.88697439430000002" blue="0.89092737440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Foreground2ColorSet">
+            <color red="0.85557967420000003" green="0.88697439430000002" blue="0.89092737440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ForegroundColorSet">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="IconColorSet">
+            <color red="0.33221882580000001" green="0.52216243740000001" blue="0.77569359540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

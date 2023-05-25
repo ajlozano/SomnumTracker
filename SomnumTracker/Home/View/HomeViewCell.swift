@@ -19,13 +19,13 @@ class HomeViewCell: UITableViewCell {
         
         cellView.backgroundColor = .clear
         timeOfSleepLabel.font = timeOfSleepLabel.font.withSize(11)
-        timeOfSleepLabel.textColor = .darkGray
+        //timeOfSleepLabel.textColor = .darkGray
         wakeupTimeLabel.font = wakeupTimeLabel.font.withSize(11)
-        wakeupTimeLabel.textColor = .darkGray
+        //wakeupTimeLabel.textColor = .darkGray
         sleepDurationLabel.font = sleepDurationLabel.font.withSize(11)
-        sleepDurationLabel.textColor = .darkGray
+        //sleepDurationLabel.textColor = .darkGray
         dateLabel.font = dateLabel.font.withSize(10)
-        dateLabel.textColor = .darkGray
+        //dateLabel.textColor = .darkGray
     }
     
     func setup(timeOfSleep: String, wakeupTIme: String, sleepDuration: Double, weekday: String){

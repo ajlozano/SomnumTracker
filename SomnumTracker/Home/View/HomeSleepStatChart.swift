@@ -23,7 +23,7 @@ struct HomeSleepStatChart: View {
                 x: .value("Weekday", sleepStat.dateString),
                 y: .value("Sleep Duration", sleepStat.sleepDuration)
             )
-            .foregroundStyle(Color(UIColor.customBlueLight))
+            .foregroundStyle(Color(UIColor.customBlueLessAlpha))
             .interpolationMethod(.cardinal(tension: 0.4))
             LineMark(
                 x: .value("Weekday", sleepStat.dateString),

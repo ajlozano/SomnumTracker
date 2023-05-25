@@ -68,8 +68,6 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func sleepStatsFetched(_ sleepStats: [SleepStat]) {
-        print("presenter")
-        print(sleepStats[0].date)
         view?.showSleepStats(sleepStats)
         view?.updateUI()
     }

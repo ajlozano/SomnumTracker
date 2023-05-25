@@ -20,7 +20,7 @@ class HomeAlertView {
     
     private let alertView: UIView = {
         let alert = UIView()
-        alert.backgroundColor = .white
+        alert.backgroundColor = .systemBackground
         alert.layer.masksToBounds = true
         alert.layer.cornerRadius = 12
         return alert
@@ -144,6 +144,7 @@ class HomeAlertView {
         // Date picker
         let datePicker = picker
         datePicker.datePickerMode = dateMode
+        datePicker.preferredDatePickerStyle = .compact
         datePicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)
         datePicker.maximumDate = Date()
         if dateMode == .time {
@@ -155,7 +156,7 @@ class HomeAlertView {
             }
         }
 
-        datePicker.frame = CGRect(x: view.frame.width - 185, y: 0, width: dateModeWidth, height: 25)
+        datePicker.frame = CGRect(x: view.frame.width - (dateModeWidth + 90), y: 0, width: dateModeWidth, height: 25)
         datePicker.preferredDatePickerStyle = .compact
         datePicker.backgroundColor = .clear
         dateView.addSubview(datePicker)
