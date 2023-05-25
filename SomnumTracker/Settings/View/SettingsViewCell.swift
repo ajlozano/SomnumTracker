@@ -31,5 +31,4 @@ class SettingsViewCell: UITableViewCell {
         } 
         actionView.addSubview(action)
     }
-
 }

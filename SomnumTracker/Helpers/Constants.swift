@@ -23,4 +23,14 @@ struct Constants {
     static let submitAlertButton = "Submit"
     
     static let maxSleepEntries = 1000
+    
+    static let twitterTitle = "📱 Twitter"
+    static let twitterPath = "https://twitter.com/Anthonayer"
+    
+    static let linkedinTitle = "🧑‍💻 LinkedIn"
+    static let linkedinPath = "https://www.linkedin.com/in/tonilozano/"
+    
+    static let notificationIdentifier = "daily notification"
+    static let notificationTitle = "Time to report stats!"
+    static let notificationBody = "Add today's sleep stat before you forget."
 }

@@ -12,8 +12,6 @@ class HomeInteractor: HomeInteractorInputProtocol {
     
     // MARK: Properties
     weak var presenter: HomeInteractorOutputProtocol?
-    var localDatamanager: HomeLocalDataManagerInputProtocol?
-    var remoteDatamanager: HomeRemoteDataManagerInputProtocol?
 
     var sleepStatsWeek = [SleepStat]()
     var sleepStatsDb = [SleepStat]()
@@ -34,6 +32,9 @@ class HomeInteractor: HomeInteractorInputProtocol {
         sleepStatsDb.removeAll()
         
         DataPersistence.shared.loadTitles { sleepData in
+            let calendar = CustomDateFormatter.shared.getCalendar()
+            let todayComponent = calendar.dateComponents([.day, .month, .weekOfYear, .weekday, .year], from: Date())
+            
             for data in sleepData {
                 let stat = SleepStat(
                     weekOfYear: data.weekOfYear ?? "-",
@@ -42,31 +43,38 @@ class HomeInteractor: HomeInteractorInputProtocol {
                     sleepDuration: data.sleepDuration,
                     dateString: data.dateString ?? "-",
                     year: data.year ?? "-",
-                    date: data.date ?? Date()
+                    date: data.date ?? calendar.date(from: todayComponent)!
                     )
                 sleepStatsDb.append(stat)
             }
             
-            let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear, .day, .month], from: Date())
-            
-            updateSleepStatsFromDate(weekOfYear: dateComponents.weekOfYear!, year: dateComponents.year!)
+            updateSleepStatsFromDate(date: calendar.date(from: todayComponent)!)
             presenter?.sleepStatsFetched(sleepStatsWeek)
         }
     }
     
     func addSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
         let sleepDurString = sleepDuration.replacingOccurrences(of: " hours", with: "")
-        let weekOfYearString = "\(Calendar.current.component(.weekOfYear, from: date))"
-        let dateString = CustomDateFormatter.shared.formatDayMonth(date)
+        
+        let calendar = CustomDateFormatter.shared.getCalendar()
+        
+        let dateComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: date)
+
+        let sleepTimeComponent = calendar.dateComponents([.hour, .minute,], from: sleepTime)
+        let wakeUpTimeComponent = calendar.dateComponents([.hour, .minute,], from: wakeUpTime)
+        
+        let weekOfYearString = "\(dateComponent.weekOfYear!)"
+
+        let dateString = CustomDateFormatter.shared.formatDayMonth(dateComponent.day!, dateComponent.month!)
         
         let sleepStat = SleepStat(
             weekOfYear: weekOfYearString,
-            timeOfSleep: CustomDateFormatter.shared.formatHourMinute(sleepTime),
-            wakeUpTime: CustomDateFormatter.shared.formatHourMinute(wakeUpTime),
+            timeOfSleep: CustomDateFormatter.shared.formatHourMinute(sleepTimeComponent.hour!, sleepTimeComponent.minute!),
+            wakeUpTime: CustomDateFormatter.shared.formatHourMinute(wakeUpTimeComponent.hour!, wakeUpTimeComponent.minute!),
             sleepDuration: Double(sleepDurString) ?? 0.0,
             dateString: dateString,
-            year: CustomDateFormatter.shared.formatYear(date),
-            date: date)
+            year: "\(dateComponent.year!)",
+            date: calendar.date(from: dateComponent)!)
 
         if(sleepStatsDb.count >= Constants.maxSleepEntries) {
             if let olderSleepStat = sleepStatsDb.min(by: { $0.date < $1.date }) {
@@ -75,7 +83,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
             }
         }
         
-        if let sleepStatFoundIndex = sleepStatsDb.firstIndex(where: {$0.dateString == dateString}) {
+        if let sleepStatFoundIndex = sleepStatsDb.firstIndex(where: { ($0.dateString == dateString && $0.year == "\(dateComponent.year!)") }) {
             DataPersistence.shared.deleteData(sleepStatsDb[sleepStatFoundIndex])
             sleepStatsDb.remove(at: sleepStatFoundIndex)
         }
@@ -83,120 +91,92 @@ class HomeInteractor: HomeInteractorInputProtocol {
         sleepStatsDb.append(sleepStat)
         
         DataPersistence.shared.saveData(sleepStat) { _ in
-//            for stat in sleepStatsDb {
-//                print("\(stat.sleepDuration) - \(stat.year) - \(stat.weekOfYear) - \(stat.dateString) - \(stat.date)")
-//            }
-            
-            let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear], from: date)
-            updateSleepStatsFromDate(weekOfYear: Int(weekOfYearString)!, year: dateComponents.year!)
+            let todayComponent = calendar.dateComponents([.day, .month, .weekOfYear, .weekday, .year], from: Date())
+            updateSleepStatsFromDate(date: calendar.date(from: todayComponent)!)
             presenter?.sleepStatsFetched(sleepStatsWeek)
         }
     }
     
-    func getNextWeek(weekOfYear: String, year: String) {
-        let components = DateComponents(weekOfYear: Int(weekOfYear), yearForWeekOfYear: Int(year))
-        guard let date = Calendar.current.date(from: components) else {
+    func getNextWeek(date: Date) {
+        let calendar = CustomDateFormatter.shared.getCalendar()
+        let components = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: date)
+        guard let currentDate = calendar.date(from: components) else {
             print(" Error getting date from getLastWeek")
             return
         }
         
-        if let nextWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: date) {
-            let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear], from: nextWeekDate)
-            guard let newWeekOfYear = dateComponents.weekOfYear, let newYear = dateComponents.year else {
-                print("error getting year and weekOfYear from dateComponents.")
-                return
-            }
-            
-            let currentWeekOfYear = Calendar.current.component(.weekOfYear, from: Date())
-//            print("old: \(currentWeekOfYear)")
-//            print("new: \(newWeekOfYear)")
-            if (Date() > date) {
-                updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
+        if let nextWeekDate = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) {
+            let todayComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: Date())
+            let nextWeekComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: nextWeekDate)
+            if (calendar.date(from: todayComponent)! > nextWeekDate) {
+                updateSleepStatsFromDate(date: calendar.date(from: nextWeekComponent)!)
                 presenter?.sleepStatsFetched(sleepStatsWeek)
             }
         }
     }
     
-    func getLastWeek(weekOfYear: String, year: String) {
-        let components = DateComponents(weekOfYear: Int(weekOfYear)!, yearForWeekOfYear: Int(year)!)
-        guard let date = Calendar.current.date(from: components) else {
+    func getLastWeek(date: Date) {
+        let calendar = CustomDateFormatter.shared.getCalendar()
+        let components = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: date)
+        guard let currentDate = calendar.date(from: components) else {
             print(" Error getting date from getLastWeek")
             return
         }
 
-        if let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date) {
-            let dateComponents = Calendar.current.dateComponents([.year, .weekOfYear], from: lastWeekDate)
-            guard let newWeekOfYear = dateComponents.weekOfYear, let newYear = dateComponents.year else {
-                print("error getting year and weekOfYear from dateComponents.")
-                return
-            }
-//            print(newWeekOfYear)
-//            print(newYear)
-            updateSleepStatsFromDate(weekOfYear: newWeekOfYear, year: newYear)
+        if let lastWeekDate = calendar.date(byAdding: .weekOfYear, value: -1, to: currentDate) {
+            let lastWeekComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: lastWeekDate)
+            
+            updateSleepStatsFromDate(date: calendar.date(from: lastWeekComponent)!)
             presenter?.sleepStatsFetched(sleepStatsWeek)
-       }
+        }
     }
     
-    private func updateSleepStatsFromDate(weekOfYear: Int, year: Int) {
-        if let firstDayOfWeek = getFirstDayFromWeekOfYear(from: Calendar.current.date(from: DateComponents(weekOfYear: weekOfYear, yearForWeekOfYear: year))!) {
-            
+    private func updateSleepStatsFromDate(date: Date) {
+        let calendar = CustomDateFormatter.shared.getCalendar()
+             
+        if let firstDayOfWeek = getFirstDayFromWeekOfYear(date: date) {
             sleepStatsWeek.removeAll()
-            
+
             for i in 0...6 {
-                guard let currentDate = Calendar.current.date(byAdding: .day, value: i, to: firstDayOfWeek) else {
+                guard let currentDate = calendar.date(byAdding: .day, value: i, to: firstDayOfWeek) else {
                     return
                 }
-                //print(firstDayOfWeek)
-                //print(currentDate)
-                var calendar = Calendar(identifier: .gregorian)
-                calendar.firstWeekday = 2
-                let currentComponent = calendar.dateComponents([.day], from: currentDate)
                 
-                //print(currentComponent.day)
-                let currentDateString = CustomDateFormatter.shared.formatDayMonth(currentDate)
-                //print(currentDateString)
-                
-                if let statFromCurrentDate = sleepStatsDb.first(where: { $0.dateString == currentDateString }) {
+                let currentComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: currentDate)
+                let currentDateString = CustomDateFormatter.shared.formatDayMonth(currentComponent.day!, currentComponent.month!)
+                if let statFromCurrentDate = sleepStatsDb.first(
+                    where: { ($0.dateString == currentDateString && $0.year == "\(currentComponent.year!)") }) {
                     sleepStatsWeek.append(statFromCurrentDate)
                 } else {
-                    
                     let sleepStat = SleepStat(
-                        weekOfYear: "\(weekOfYear)",
+                        weekOfYear: "\(currentComponent.weekOfYear!)",
                         timeOfSleep: "-",
                         wakeUpTime: "-",
                         sleepDuration: 0.0,
                         dateString: currentDateString,
-                        year: "\(year)",
-                        date: currentDate)
+                        year: "\(currentComponent.year!)",
+                        date: calendar.date(from: currentComponent)!)
 
                     sleepStatsWeek.append(sleepStat)
                 }
+                
             }
         }
     }
     
-    private func getFirstDayFromWeekOfYear(from date: Date) -> Date? {
-        let today = date
-        var gregorian = Calendar(identifier: .gregorian)
-        gregorian.firstWeekday = 2
-        gregorian.timeZone = TimeZone.current
+    private func getFirstDayFromWeekOfYear(date: Date) -> Date? {
+        let calendar = CustomDateFormatter.shared.getCalendar()
 
-        let weekdayComponents = gregorian.component(.weekday, from: today)
+        let weekdayComponents = calendar.dateComponents([.day, .month, .weekday, .weekOfYear, .year], from: date)
         
         var compontentsToSubstract = DateComponents()
-        // Sunday -> -(weekdayComponetns.weekday - gregorian.firstWeekday)
-        // Monday -> -(weekdayComponetns.weekday - gregorian.firstWeekday - 1)
-        compontentsToSubstract.day = -(weekdayComponents - gregorian.firstWeekday - 1)
-        var beginningOfWeek = gregorian.date(byAdding: compontentsToSubstract, to: today)
+        compontentsToSubstract.day = -(weekdayComponents.weekday! - calendar.firstWeekday)
+        var beginningOfWeek = calendar.date(byAdding: compontentsToSubstract, to: date)
         var components = DateComponents()
-        components.timeZone = TimeZone.current
-        components.day = gregorian.dateComponents([.day], from: beginningOfWeek!).day!
-        components.month = gregorian.dateComponents([.month], from: beginningOfWeek!).month!
-        components.year = gregorian.dateComponents([.year], from: beginningOfWeek!).year!
-        //var components = gregorian.dateComponents([.year, .month, .day, .weekday, .timeZone, .weekOfYear], from: beginningOfWeek!)
-        beginningOfWeek = gregorian.date(from: components)
-        //print(beginningOfWeek)
-        //print("\(gregorian.dateComponents([.day], from: beginningOfWeek!).day!)")
+        components.day = calendar.dateComponents([.day], from: beginningOfWeek!).day!
+        components.month = calendar.dateComponents([.month], from: beginningOfWeek!).month!
+        components.year = calendar.dateComponents([.year], from: beginningOfWeek!).year!
+        beginningOfWeek = calendar.date(from: components)
         
         return beginningOfWeek
     }
@@ -208,15 +188,5 @@ class HomeInteractor: HomeInteractorInputProtocol {
         }
         return String(format: "%.2f", delta)
     }
-    
-    private func getCurrentCalendar() -> Calendar {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = NSLocale.current
-        calendar.firstWeekday = 2
-        return calendar
-    }
 }
 
-extension HomeInteractor: HomeRemoteDataManagerOutputProtocol {
-    // TODO: Implement use case methods
-}

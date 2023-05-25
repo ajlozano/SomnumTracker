@@ -21,10 +21,8 @@
 		AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* HomeViewCell.swift */; };
 		AD3042E029F1C8570024517D /* SleepStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStat.swift */; };
 		AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF42A029F9F003CD356 /* HomePresenter.swift */; };
-		AD4FABFC2A029F9F003CD356 /* HomeLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */; };
 		AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */; };
 		AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */; };
-		AD4FAC002A029F9F003CD356 /* HomeRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */; };
 		AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
 		AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* HomeAlertView.swift */; };
@@ -82,10 +80,8 @@
 		AD3042DD29F1C51A0024517D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		AD3042DF29F1C8570024517D /* SleepStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStat.swift; sourceTree = "<group>"; };
 		AD4FABF42A029F9F003CD356 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataManager.swift; sourceTree = "<group>"; };
 		AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataManager.swift; sourceTree = "<group>"; };
 		AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AD99B0FF29FB387400839C49 /* HomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertView.swift; sourceTree = "<group>"; };
@@ -194,8 +190,6 @@
 				AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */,
 				AD4FABF42A029F9F003CD356 /* HomePresenter.swift */,
 				AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */,
-				AD4FABF52A029F9F003CD356 /* HomeLocalDataManager.swift */,
-				AD4FABF92A029F9F003CD356 /* HomeRemoteDataManager.swift */,
 				ADAFCC102A05328A00DBB004 /* View */,
 			);
 			path = Home;
@@ -244,8 +238,8 @@
 				ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */,
 				ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */,
 				ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */,
-				ADAAB3EA2A1B7ED3002821F9 /* Models */,
 				ADAAB3E72A1B69FD002821F9 /* View */,
+				ADAAB3EA2A1B7ED3002821F9 /* Models */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -435,8 +429,6 @@
 				ADEA99A72A03A8570002DCFB /* Constants.swift in Sources */,
 				AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */,
 				ADAAB3F02A1B9481002821F9 /* SettingsViewCell.swift in Sources */,
-				AD4FABFC2A029F9F003CD356 /* HomeLocalDataManager.swift in Sources */,
-				AD4FAC002A029F9F003CD356 /* HomeRemoteDataManager.swift in Sources */,
 				AD3042E029F1C8570024517D /* SleepStat.swift in Sources */,
 				ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,

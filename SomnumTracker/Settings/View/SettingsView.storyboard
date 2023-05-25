@@ -120,7 +120,7 @@
                                             <constraint firstAttribute="width" constant="295" id="BPa-r5-wiS"/>
                                         </constraints>
                                         <string key="text">👋 Hey, I'm Toni! 
-I'm a self.driven iOS developer 📱, hobbist game creator 🎮, music and guitar enthusiast 🎸.
+I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guitar enthusiast 🎸.
 </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

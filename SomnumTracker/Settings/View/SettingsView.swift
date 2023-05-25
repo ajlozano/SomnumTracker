@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 class SettingsView: UIViewController {
 
@@ -20,6 +21,8 @@ class SettingsView: UIViewController {
     var contactsModel: [Contact] = [Contact]()
     var settingsModel: [Setting] = [Setting]()
     let deleteButton = UIButton()
+    let notificationSwitch = UISwitch()
+    let timeNotificationPicker = UIDatePicker()
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -28,12 +31,29 @@ class SettingsView: UIViewController {
         setUpView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewDidAppear(_ animated: Bool) {}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkIfNotificationEnabled()
+    
     }
     
     @objc func didClickDeleteButton(sender: UIButton) {
         showAlert(sender)
+    }
+    
+    @objc func didEnableNotification(sender: UISwitch) {
+        if(sender.isOn) {
+            checkForNotificationPermission(time: timeNotificationPicker.date)
+        } else {
+            disableNotifications()
+        }
+    }
+    
+    @objc func didDateChanged() {
+        if (notificationSwitch.isOn) {
+            dispatchNotification(time: timeNotificationPicker.date)
+        }
     }
 }
 
@@ -67,12 +87,11 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(tableView == settingsTableView) {
-            
+        if(tableView == contactsTableView) {
+            presenter?.didClickOnContact(contact: contactsModel[indexPath.row])
         }
-        else if(tableView == contactsTableView) {
-            
-        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,7 +114,6 @@ extension SettingsView: SettingsViewProtocol {
     
     func statsDeleted() {
         deleteButton.isEnabled = false
-        
     }
 }
 
@@ -111,43 +129,43 @@ extension SettingsView {
         contactsTableView.dataSource = self
         contactsTableView.layer.cornerRadius = 10
         profileView.layer.cornerRadius = 10
-
-        let notifyIcon = UIImage(systemName: "bell", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
+        
         let deleteIcon = UIImage(systemName: "exclamationmark.triangle", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
-        let notifyAction = UISwitch()
-        deleteButton.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
         let trashImage = UIImage(systemName: "trash",withConfiguration: UIImage.SymbolConfiguration(scale: .medium))
+        deleteButton.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
         deleteButton.setImage(trashImage, for: .normal)
         deleteButton.tintColor = .white
-        
         deleteButton.setTitleColor(.white, for: .normal)
         deleteButton.backgroundColor = .systemRed
         deleteButton.layer.cornerRadius = 10
         deleteButton.addTarget(self, action: #selector(didClickDeleteButton(sender:)), for: .touchUpInside)
     
+        let notifyIcon = UIImage(systemName: "bell", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
+        notificationSwitch.addTarget(self, action: #selector(didEnableNotification(sender:)), for: .touchUpInside)
         // Date picker
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .time
-        //datePicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)
-        datePicker.maximumDate = Date()
+        timeNotificationPicker.datePickerMode = .time
+        timeNotificationPicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)
+        timeNotificationPicker.maximumDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        if let date = dateFormatter.date(from: "09:00") {
-            datePicker.date = date
+        if let date = dateFormatter.date(from: "10:00") {
+            timeNotificationPicker.date = date
         }
-        datePicker.frame = CGRect(x: 0, y: 0, width: 85, height: 30)
-        datePicker.preferredDatePickerStyle = .compact
-        datePicker.backgroundColor = .clear
+        timeNotificationPicker.frame = CGRect(x: 0, y: 0, width: 85, height: 30)
+        timeNotificationPicker.preferredDatePickerStyle = .compact
+        timeNotificationPicker.backgroundColor = .clear
         
         settingsModel = [
             Setting(icon: deleteIcon ?? UIImage(), title: "Delete sleep stats", pickerItem: nil ,actionItem: deleteButton),
-            Setting(icon: notifyIcon ?? UIImage(), title: "Notifications", pickerItem: datePicker, actionItem: notifyAction)]
+            Setting(icon: notifyIcon ?? UIImage(), title: "Notifications", pickerItem: timeNotificationPicker, actionItem: notificationSwitch)]
         
         contactsModel = [
-            Contact(title: "📱 Twitter", path: ""),
-            Contact(title: "🧑‍💻 LinkedIn", path: "")]
+            Contact(title: Constants.twitterTitle, path: Constants.twitterPath),
+            Contact(title: Constants.linkedinTitle, path: Constants.linkedinPath)]
     }
-    
+}
+
+extension SettingsView {
     private func showAlert(_ sender: UIButton) {
         // Create new Alert
         let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to delete all stats?", preferredStyle: .alert)
@@ -169,6 +187,77 @@ extension SettingsView {
         // Present Alert to
         self.present(dialogMessage, animated: true, completion: nil)
     }
-}
+    
+    private func checkForNotificationPermission(time: Date) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .denied:
+                return
+            case .authorized:
+                self.dispatchNotification(time: time)
+            case .notDetermined:
+                notificationCenter.requestAuthorization(options: [.sound, .alert]) { didAllow, error in
+                    if didAllow {
+                        self.dispatchNotification(time: time)
+                    }
+                }
+            default:
+                return
+            }
+        }
+    }
+    
+    private func dispatchNotification(time: Date) {
+        let identifier = Constants.notificationIdentifier
+        let title = Constants.notificationTitle
+        let body = Constants.notificationBody
+        let isDaily = true
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        let calendar = Calendar.current
+        let timeComponent = Calendar.current.dateComponents([.hour, .minute], from: time)
+        var dateComponent = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+        dateComponent.hour = timeComponent.hour
+        dateComponent.minute = timeComponent.minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: isDaily)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        print("\(trigger.dateComponents)")
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.add(request)
+    }
+    
+    private func disableNotifications() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removeAllDeliveredNotifications()
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
+    
+    private func checkIfNotificationEnabled() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getPendingNotificationRequests { notifications in
+            if notifications.count != 0 {
+                var dateComponent = DateComponents()
+                var date : Date?
+                for request in notifications {
+                    let trigger = request.trigger as! UNCalendarNotificationTrigger
 
+                    dateComponent.hour = trigger.dateComponents.hour
+                    dateComponent.minute = trigger.dateComponents.minute
+                    date = Calendar.current.date(from: dateComponent)
+                }
+                
+                DispatchQueue.main.async {
+                    self.notificationSwitch.setOn(true, animated: true)
+                    self.timeNotificationPicker.date = date!
+                }
+            }
+        }
+    }
+}
 

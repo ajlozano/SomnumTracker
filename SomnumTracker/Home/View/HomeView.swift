@@ -59,14 +59,14 @@ class HomeView: UIViewController {
 //        print("BUTTON LAST: \(viewModel.sleepStats[0].year) - \(viewModel.sleepStats[1].year) - \(viewModel.sleepStats[2].year) - \(viewModel.sleepStats[3].year) - \(viewModel.sleepStats[4].year) - \(viewModel.sleepStats[5].year) - \(viewModel.sleepStats[6].year)")
 //        print("BUTTON LAST: \(viewModel.sleepStats[0].weekOfYear) - \(viewModel.sleepStats[1].weekOfYear) - \(viewModel.sleepStats[2].weekOfYear) - \(viewModel.sleepStats[3].weekOfYear) - \(viewModel.sleepStats[4].weekOfYear) - \(viewModel.sleepStats[5].weekOfYear) - \(viewModel.sleepStats[6].weekOfYear)")
         
-        presenter?.didClickLastWeek(weekOfYear: viewModel.sleepStats[0].weekOfYear, year: viewModel.sleepStats[0].year)
+        presenter?.didClickLastWeek(date: viewModel.sleepStats[0].date)
         print(viewModel.sleepStats[0].date)
         print(viewModel.sleepStats[0].dateString)
         print(viewModel.sleepStats[0].weekOfYear)
     }
     
     @IBAction func nextWeekButtonPressed(_ sender: UIButton) {
-        presenter?.didClickNextWeek(weekOfYear: viewModel.sleepStats[0].weekOfYear, year: viewModel.sleepStats[0].year)
+        presenter?.didClickNextWeek(date: viewModel.sleepStats[0].date)
     }
 }
 
@@ -94,7 +94,6 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeView: HomeViewProtocol {
     func updateUI() {
-        print("homeview update")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

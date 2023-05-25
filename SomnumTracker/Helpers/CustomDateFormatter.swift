@@ -22,47 +22,26 @@ struct CustomDateFormatter {
         return df
     }()
     
-    mutating func formatDayMonth(_ date: Date) -> String {
-//        var cal = Calendar(identifier: .gregorian)
-//        cal.locale = NSLocale.current
-//        cal.firstWeekday = 2
-        print(date)
-        let dateComponents = Calendar.current.dateComponents([.day, .month], from: date)
-
-        guard let day = dateComponents.day, let month = dateComponents.month else {
-            return "-"
-        }
+    mutating func formatDayMonth(_ day: Int, _ month: Int) -> String {
         let dayString = String(format: "%02d", day)
         let monthString = String(format: "%02d", month)
         
-        print(day)
-        
         return dayString + "/" + monthString
     }
+
     
-    mutating func formatYear(_ date: Date) -> String {
-        let cal = Calendar.current
-        let dateComponents = cal.dateComponents([.year], from: date)
-        guard let year = dateComponents.year else {
-            return "-"
-        }
-        
-        let yearString = String(format: "%04d", year)
-        
-        return yearString
-    }
-    
-    mutating func formatHourMinute(_ date: Date) -> String {
-        let cal = Calendar.current
-        let dateComponents = cal.dateComponents([.hour, .minute], from: date)
-        guard let hour = dateComponents.hour, let minute = dateComponents.minute else {
-            return "-"
-        }
+    mutating func formatHourMinute(_ hour: Int, _ minute: Int) -> String {
         let hourString = String(format: "%02d", hour)
         let minuteString = String(format: "%02d", minute)
         
-        
         return hourString + ":" + minuteString
+    }
+    
+    func getCalendar() -> Calendar {
+        var calendar = Calendar.current
+        //calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        calendar.firstWeekday = 2   // Weekday -> Monday
+        return calendar
     }
 }
 

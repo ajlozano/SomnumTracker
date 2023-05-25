@@ -31,22 +31,20 @@ protocol HomePresenterProtocol: AnyObject {
     func didClickResetValues()
     func didClickCancelEntryAlert()
     func didEntryValuesChanged(_ sleepTime: Date, _ wakeUpTime: Date)
-    func didClickNextWeek(weekOfYear: String, year: String)
-    func didClickLastWeek(weekOfYear: String, year: String)
+    func didClickNextWeek(date: Date)
+    func didClickLastWeek(date: Date)
     func showSettingsView()
 }
 protocol HomeInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
     var presenter: HomeInteractorOutputProtocol? { get set }
-    var localDatamanager: HomeLocalDataManagerInputProtocol? { get set }
-    var remoteDatamanager: HomeRemoteDataManagerInputProtocol? { get set }
     
     func fetchSleepStats()
     func resetEntryValues()
     func updateSleepDurationFromEntryChanges(sleepTime: Date, wakeUpTime: Date)
     func addSleepStat(_ date: Date, _ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
-    func getNextWeek(weekOfYear: String, year: String)
-    func getLastWeek(weekOfYear: String, year: String)
+    func getNextWeek(date: Date)
+    func getLastWeek(date: Date)
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
@@ -75,29 +73,4 @@ protocol HomeWireframeFromOtherPresenterProtocol: AnyObject {
     func notifyFetchingSleepStats()
 }
 
-protocol HomeRemoteDataManagerInputProtocol: AnyObject {
-    // INTERACTOR -> REMOTEDATAMANAGER
-    var remoteRequestHandler: HomeRemoteDataManagerOutputProtocol? { get set }
-    
-    // ADD FIREBASE DATA PETITIONS
-}
 
-
-
-protocol HomeRemoteDataManagerOutputProtocol: AnyObject {
-    // REMOTEDATAMANAGER -> INTERACTOR
-    
-    // ADD FIREBASE DATA RECEPTION
-}
-
-protocol HomeLocalDataManagerInputProtocol: AnyObject {
-    // INTERACTOR -> LOCALDATAMANAGER
-    // ADD DATA PERSISTENCE MANAGEMENT
-}
-
-protocol HomeDataManagerInputProtocol: AnyObject {
-    // INTERACTOR -> DATAMANAGER
-    // USELESS AT THE MOMENT
-    
-    
-}

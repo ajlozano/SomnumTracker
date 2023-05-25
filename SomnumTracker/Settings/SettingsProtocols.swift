@@ -30,12 +30,14 @@ protocol SettingsPresenterProtocol: AnyObject {
     func viewDidLoad()
     func deleteAllStats()
     func notifyFetchingStats()
+    func didClickOnContact(contact: Contact)
 }
 
 protocol SettingsInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
     var presenter: SettingsInteractorOutputProtocol? { get set }
     func deleteAllStats()
+    func makeHyperLink(_ contact: Contact)
 }
 
 protocol SettingsInteractorOutputProtocol: AnyObject {

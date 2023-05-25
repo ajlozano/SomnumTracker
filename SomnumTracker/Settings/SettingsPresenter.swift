@@ -18,23 +18,23 @@ class SettingsPresenter  {
 }
 
 extension SettingsPresenter: SettingsPresenterProtocol {
+    func didClickOnContact(contact: Contact) {
+        interactor?.makeHyperLink(contact)
+    }
     
     func deleteAllStats() {
-        print("presenter")
         interactor?.deleteAllStats()
     }
 
     func viewDidLoad() {}
     
     func notifyFetchingStats() {
-        print("notify fetching")
         previousWireframe?.notifyFetchingSleepStats()
     }
 }
 
 extension SettingsPresenter: SettingsInteractorOutputProtocol {
     func statsDeleted() {
-        print("presenter deleted")
         view?.statsDeleted()
     }
 }

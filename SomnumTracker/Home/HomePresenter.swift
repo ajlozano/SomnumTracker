@@ -45,12 +45,12 @@ extension HomePresenter: HomePresenterProtocol {
         interactor?.updateSleepDurationFromEntryChanges(sleepTime: sleepTime, wakeUpTime: wakeUpTime)
     }
     
-    func didClickNextWeek(weekOfYear: String, year: String) {
-        interactor?.getNextWeek(weekOfYear: weekOfYear, year: year)
+    func didClickNextWeek(date: Date) {
+        interactor?.getNextWeek(date: date)
     }
     
-    func didClickLastWeek(weekOfYear: String, year: String) {
-        interactor?.getLastWeek(weekOfYear: weekOfYear, year: year)
+    func didClickLastWeek(date: Date) {
+        interactor?.getLastWeek(date: date)
     }
     
     func showSettingsView() {
@@ -68,6 +68,8 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func sleepStatsFetched(_ sleepStats: [SleepStat]) {
+        print("presenter")
+        print(sleepStats[0].date)
         view?.showSleepStats(sleepStats)
         view?.updateUI()
     }
