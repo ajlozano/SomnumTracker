@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeAlertView {
-    // MARK: Protocol Properties
+    // MARK: - Properties
     var presenter: HomePresenterProtocol?
     
     private let backgroundView: UIView = {
@@ -204,6 +204,7 @@ class HomeAlertView {
     }
 }
 
+// MARK: - View update
 extension HomeAlertView: HomeViewProtocol {
     func updateUI() {}
     func showSleepStats(_ sleepStats: [SleepStat]) {

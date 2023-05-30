@@ -24,7 +24,6 @@ class SettingsView: UIViewController {
     let notificationSwitch = UISwitch()
     let timeNotificationPicker = UIDatePicker()
 
-    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -57,6 +56,8 @@ class SettingsView: UIViewController {
     }
 }
 
+
+// MARK: - Table view data source and delegate
 extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(tableView == settingsTableView) {
@@ -104,6 +105,7 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - Settings view protocol
 extension SettingsView: SettingsViewProtocol {
     func updateUI() {
         DispatchQueue.main.async {
@@ -117,6 +119,7 @@ extension SettingsView: SettingsViewProtocol {
     }
 }
 
+// MARK: - view setup
 extension SettingsView {
     private func setUpView() {
         settingsTableView.isScrollEnabled = false
@@ -166,6 +169,7 @@ extension SettingsView {
     }
 }
 
+// MARK: - Alert setup
 extension SettingsView {
     private func showAlert(_ sender: UIButton) {
         // Create new Alert

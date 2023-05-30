@@ -12,7 +12,6 @@ class HomeInteractor: HomeInteractorInputProtocol {
     
     // MARK: Properties
     weak var presenter: HomeInteractorOutputProtocol?
-
     var sleepStatsWeek = [SleepStat]()
     var sleepStatsDb = [SleepStat]()
    

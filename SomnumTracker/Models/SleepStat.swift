@@ -16,5 +16,4 @@ struct SleepStat: Identifiable, Hashable {
     var dateString: String
     var year: String
     var date: Date
-
 }

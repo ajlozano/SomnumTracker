@@ -9,5 +9,6 @@ import Foundation
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var sleepStats = [SleepStat]()
 }

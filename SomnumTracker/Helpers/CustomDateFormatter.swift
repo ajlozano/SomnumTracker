@@ -28,7 +28,6 @@ struct CustomDateFormatter {
         
         return dayString + "/" + monthString
     }
-
     
     mutating func formatHourMinute(_ hour: Int, _ minute: Int) -> String {
         let hourString = String(format: "%02d", hour)
@@ -42,15 +41,5 @@ struct CustomDateFormatter {
         //calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         calendar.firstWeekday = 2   // Weekday -> Monday
         return calendar
-    }
-}
-
-extension Date {
-    func localDate() -> Date {
-        let nowUTC = Date()
-        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: nowUTC) else {return Date()}
-
-        return localDate
     }
 }

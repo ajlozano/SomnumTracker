@@ -9,10 +9,9 @@ import UIKit
 import CoreData
 
 struct DataPersistence {
+    // MARK: - Properties
     var sleepData = [SleepData]()
-    
     let context: NSManagedObjectContext
-    
     static var shared = DataPersistence()
     init() {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

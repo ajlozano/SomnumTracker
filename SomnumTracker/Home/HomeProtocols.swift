@@ -35,6 +35,7 @@ protocol HomePresenterProtocol: AnyObject {
     func didClickLastWeek(date: Date)
     func showSettingsView()
 }
+
 protocol HomeInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
     var presenter: HomeInteractorOutputProtocol? { get set }

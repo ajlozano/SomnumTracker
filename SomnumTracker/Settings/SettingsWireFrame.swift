@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class SettingsWireFrame: SettingsWireFrameProtocol {
+    
+    // MARK: - Properties
     static var settingsStoryboard: UIStoryboard {
         return UIStoryboard(name: "SettingsView", bundle: Bundle.main)
     }

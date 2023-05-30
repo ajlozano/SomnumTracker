@@ -11,9 +11,7 @@ import SwiftUI
 import Charts
 
 class HomeView: UIViewController {
-    // TODO: Pasos para gestionar los datos de las entradas en la view
-    // 6 - Opción de eliminar todas las entradas
-    
+
     @IBOutlet weak var sleepDurationView: UIView!
     @IBOutlet weak var sleepDurationSubview: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -23,12 +21,10 @@ class HomeView: UIViewController {
     @IBOutlet weak var yearSleepDuration: UILabel!
     @IBOutlet weak var yearSleepStats: UILabel!
     
+    // MARK: - Properties
     var viewModel = HomeViewModel()
-    
-    // MARK: Protocol Properties
     var presenter: HomePresenterProtocol?
 
-    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -47,9 +43,6 @@ class HomeView: UIViewController {
     }
     
     @IBAction func lastWeekButtonPressed(_ sender: UIButton) {
-//        print("BUTTON LAST: \(viewModel.sleepStats[0].year) - \(viewModel.sleepStats[1].year) - \(viewModel.sleepStats[2].year) - \(viewModel.sleepStats[3].year) - \(viewModel.sleepStats[4].year) - \(viewModel.sleepStats[5].year) - \(viewModel.sleepStats[6].year)")
-//        print("BUTTON LAST: \(viewModel.sleepStats[0].weekOfYear) - \(viewModel.sleepStats[1].weekOfYear) - \(viewModel.sleepStats[2].weekOfYear) - \(viewModel.sleepStats[3].weekOfYear) - \(viewModel.sleepStats[4].weekOfYear) - \(viewModel.sleepStats[5].weekOfYear) - \(viewModel.sleepStats[6].weekOfYear)")
-        
         presenter?.didClickLastWeek(date: viewModel.sleepStats[0].date)
         print(viewModel.sleepStats[0].date)
         print(viewModel.sleepStats[0].dateString)
@@ -61,6 +54,7 @@ class HomeView: UIViewController {
     }
 }
 
+// MARK: - Table view data source and delegate
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.sleepStats.count
@@ -83,6 +77,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - view update
 extension HomeView: HomeViewProtocol {
     func updateUI() {
         DispatchQueue.main.async {
@@ -94,16 +89,13 @@ extension HomeView: HomeViewProtocol {
         viewModel.sleepStats = sleepStats
         yearSleepStats.text = sleepStats[0].year
         yearSleepDuration.text = sleepStats[0].year
-        
-//        print("BUTTON LAST: \(viewModel.sleepStats[0].date) - \(viewModel.sleepStats[1].date) - \(viewModel.sleepStats[2].date) - \(viewModel.sleepStats[3].date) - \(viewModel.sleepStats[4].date) - \(viewModel.sleepStats[5].date) - \(viewModel.sleepStats[6].date)")
-//        print("BUTTON LAST: \(viewModel.sleepStats[0].dateString) - \(viewModel.sleepStats[1].dateString) - \(viewModel.sleepStats[2].dateString) - \(viewModel.sleepStats[3].dateString) - \(viewModel.sleepStats[4].dateString) - \(viewModel.sleepStats[5].dateString) - \(viewModel.sleepStats[6].dateString)")
     }
     
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {}
     func showDurationFromEntryChanges(_ sleepDuration: String) {}
 }
 
-// MARK: setup view
+// MARK: - setup view
 extension HomeView {
     private func setUpView() {
         //view.backgroundColor = .customLight

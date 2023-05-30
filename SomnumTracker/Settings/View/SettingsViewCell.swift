@@ -15,6 +15,7 @@ class SettingsViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     
+    // MARK: - Properties
     let relativeFontConstant: CGFloat = 0.036
     
     override func awakeFromNib() {

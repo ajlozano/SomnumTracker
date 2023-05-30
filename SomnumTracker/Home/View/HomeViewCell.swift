@@ -14,6 +14,7 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var wakeupTimeLabel: UILabel!
     @IBOutlet weak var timeOfSleepLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

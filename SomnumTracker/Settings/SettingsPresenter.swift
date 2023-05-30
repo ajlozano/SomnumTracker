@@ -17,6 +17,8 @@ class SettingsPresenter  {
     var previousWireframe: HomeWireframeFromOtherPresenterProtocol?
 }
 
+
+// MARK: - Settings presenter protocol
 extension SettingsPresenter: SettingsPresenterProtocol {
     func didClickOnContact(contact: Contact) {
         interactor?.makeHyperLink(contact)
@@ -33,6 +35,7 @@ extension SettingsPresenter: SettingsPresenterProtocol {
     }
 }
 
+// MARK: - Settgins interactor output protocol
 extension SettingsPresenter: SettingsInteractorOutputProtocol {
     func statsDeleted() {
         view?.statsDeleted()

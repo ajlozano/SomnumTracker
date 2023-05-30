@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class HomeWireFrame: HomeWireFrameProtocol {
+    // MARK: - Properties
     weak var viewController: UIViewController?
     weak var presenter: HomePresenterProtocol?
 
@@ -71,6 +72,7 @@ class HomeWireFrame: HomeWireFrameProtocol {
     }
 }
 
+// MARK: - Home wireframe from other presenter protocol
 extension HomeWireFrame: HomeWireframeFromOtherPresenterProtocol {
     func notifyFetchingSleepStats() {
         presenter?.viewDidLoad()

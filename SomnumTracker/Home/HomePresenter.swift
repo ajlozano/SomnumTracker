@@ -17,9 +17,9 @@ class HomePresenter  {
     var wireFrame: HomeWireFrameProtocol?
 }
 
+// MARK: - Home presenter protocol
 extension HomePresenter: HomePresenterProtocol {
     
-    // TODO: implement presenter methods
     func viewDidLoad() {
         interactor?.fetchSleepStats()
     }
@@ -58,6 +58,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
 }
 
+// MARK: - Home interactor output protocol
 extension HomePresenter: HomeInteractorOutputProtocol {
     func entryValuesChanged(_ sleepDuration: String) {
         view?.showDurationFromEntryChanges(sleepDuration)

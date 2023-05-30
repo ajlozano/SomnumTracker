@@ -11,6 +11,8 @@ class ContactsViewCell: UITableViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var linkLabel: UILabel!
+    
+    // MARK: - Properties
     var linkPath: String?
     
     override func awakeFromNib() {
