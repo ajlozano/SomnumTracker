@@ -7,27 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BABDDED1F4A890EFAB25DA1 /* Pods_SomnumTracker_SomnumTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */; };
-		42ADC1E1738E5BC36C6D9C5D /* Pods_SomnumTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */; };
 		AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6A829F049E4002B692F /* AppDelegate.swift */; };
 		AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AA29F049E4002B692F /* SceneDelegate.swift */; };
-		AD23F6AD29F049E4002B692F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AC29F049E4002B692F /* HomeViewController.swift */; };
-		AD23F6B029F049E4002B692F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* Main.storyboard */; };
+		AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6AC29F049E4002B692F /* HomeView.swift */; };
+		AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* HomeView.storyboard */; };
 		AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B129F049E5002B692F /* Assets.xcassets */; };
 		AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */; };
-		AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */; };
+		AD23F6C029F049E5002B692F /* DataPersistenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */; };
 		AD23F6CA29F049E5002B692F /* SomnumTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */; };
 		AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */; };
 		AD3042DA29F19B060024517D /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042D929F19B060024517D /* CustomColors.swift */; };
 		AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */; };
-		AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */; };
-		AD3042E029F1C8570024517D /* SleepStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStats.swift */; };
+		AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DD29F1C51A0024517D /* HomeViewCell.swift */; };
+		AD3042E029F1C8570024517D /* SleepStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042DF29F1C8570024517D /* SleepStat.swift */; };
+		AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF42A029F9F003CD356 /* HomePresenter.swift */; };
+		AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */; };
+		AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */; };
+		AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */; };
 		AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F729FAE37300839C49 /* HomeViewModel.swift */; };
-		AD99B0FA29FAE3BE00839C49 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */; };
-		AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */; };
+		AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99B0FF29FB387400839C49 /* HomeAlertView.swift */; };
+		ADAAB3DE2A1B59E6002821F9 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */; };
+		ADAAB3E02A1B59E6002821F9 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */; };
+		ADAAB3E12A1B59E6002821F9 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */; };
+		ADAAB3E22A1B59E6002821F9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */; };
+		ADAAB3E42A1B59E6002821F9 /* SettingsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */; };
+		ADAAB3E62A1B5A02002821F9 /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */; };
+		ADAAB3E92A1B79A4002821F9 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */; };
+		ADAAB3EC2A1B7EF6002821F9 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */; };
+		ADAAB3EE2A1B7F32002821F9 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3ED2A1B7F32002821F9 /* Setting.swift */; };
+		ADAAB3F02A1B9481002821F9 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */; };
+		ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */; };
 		ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADBE1DD729F928A500B0EB48 /* SnapKit */; };
-		ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */; };
-		F6DC62D760E703AA9A6D5672 /* Pods_SomnumTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */; };
+		ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */; };
+		ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */; };
+		ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */; };
+		ADEA99A72A03A8570002DCFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA99A62A03A8570002DCFB /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,36 +62,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomnumTracker_SomnumTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker.release.xcconfig"; path = "Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker.release.xcconfig"; sourceTree = "<group>"; };
-		ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTrackerTests/Pods-SomnumTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD23F6A529F049E4002B692F /* SomnumTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomnumTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD23F6A829F049E4002B692F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD23F6AA29F049E4002B692F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD23F6AC29F049E4002B692F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		AD23F6AF29F049E4002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD23F6AC29F049E4002B692F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AD23F6AF29F049E4002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeView.storyboard; sourceTree = "<group>"; };
 		AD23F6B129F049E5002B692F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD23F6B429F049E5002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD23F6B629F049E5002B692F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD23F6BB29F049E5002B692F /* SomnumTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerTests.swift; sourceTree = "<group>"; };
+		AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceTest.swift; sourceTree = "<group>"; };
 		AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITests.swift; sourceTree = "<group>"; };
 		AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AD3042D929F19B060024517D /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Limerick-Serial Regular.ttf"; path = "SomnumTracker/Limerick-Serial Regular.ttf"; sourceTree = "<group>"; };
-		AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsViewCell.swift; sourceTree = "<group>"; };
-		AD3042DF29F1C8570024517D /* SleepStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStats.swift; sourceTree = "<group>"; };
+		AD3042DD29F1C51A0024517D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		AD3042DF29F1C8570024517D /* SleepStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStat.swift; sourceTree = "<group>"; };
+		AD4FABF42A029F9F003CD356 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		AD99B0F729FAE37300839C49 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
-		AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEntryAlert.swift; sourceTree = "<group>"; };
-		ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStatsHistory.swift; sourceTree = "<group>"; };
-		E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-SomnumTrackerTests/Pods-SomnumTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
-		F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD99B0FF29FB387400839C49 /* HomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertView.swift; sourceTree = "<group>"; };
+		ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWireFrame.swift; sourceTree = "<group>"; };
+		ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
+		ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
+		ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		ADAAB3ED2A1B7F32002821F9 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
+		ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SomnumTrackerTests.xctestplan; sourceTree = "<group>"; };
+		ADBA31412A4306F50046B99F /* SomnumTrackerUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SomnumTrackerUITests.xctestplan; sourceTree = "<group>"; };
+		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
+		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
+		ADEA99A62A03A8570002DCFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +110,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBE1DD829F928A500B0EB48 /* SnapKit in Frameworks */,
-				F6DC62D760E703AA9A6D5672 /* Pods_SomnumTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ADC1E1738E5BC36C6D9C5D /* Pods_SomnumTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,33 +124,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BABDDED1F4A890EFAB25DA1 /* Pods_SomnumTracker_SomnumTrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FCEF92569D867D1A7CC06CF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				27D68CA6DCC70F9A96721A8A /* Pods_SomnumTracker.framework */,
-				54A48757D7E8E1B14AD40E8C /* Pods_SomnumTracker_SomnumTrackerUITests.framework */,
-				197099603338BAC7C59B5129 /* Pods_SomnumTrackerTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AD23F69C29F049E4002B692F = {
 			isa = PBXGroup;
 			children = (
+				ADBA31412A4306F50046B99F /* SomnumTrackerUITests.xctestplan */,
+				ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */,
 				AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */,
 				AD23F6A729F049E4002B692F /* SomnumTracker */,
 				AD23F6BE29F049E5002B692F /* SomnumTrackerTests */,
 				AD23F6C829F049E5002B692F /* SomnumTrackerUITests */,
 				AD23F6A629F049E4002B692F /* Products */,
 				DEC40823561363691C7E1D00 /* Pods */,
-				0FCEF92569D867D1A7CC06CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,10 +160,11 @@
 				AD23F6A829F049E4002B692F /* AppDelegate.swift */,
 				AD23F6AA29F049E4002B692F /* SceneDelegate.swift */,
 				AD7A446829F1382700547046 /* Helpers */,
+				ADAAB3D62A1B59AB002821F9 /* Settings */,
+				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446529F137EB00547046 /* Models */,
+				ADBA313E2A42F3970046B99F /* Database */,
 				AD7A446729F1380C00547046 /* Views */,
-				AD7A446629F137F100547046 /* ViewModels */,
-				AD7A446429F137E500547046 /* Services */,
 				AD23F6B129F049E5002B692F /* Assets.xcassets */,
 				AD23F6B629F049E5002B692F /* Info.plist */,
 			);
@@ -161,7 +174,7 @@
 		AD23F6BE29F049E5002B692F /* SomnumTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */,
+				ADBA31402A42FE150046B99F /* Database */,
 			);
 			path = SomnumTrackerTests;
 			sourceTree = "<group>";
@@ -175,33 +188,29 @@
 			path = SomnumTrackerUITests;
 			sourceTree = "<group>";
 		};
-		AD7A446429F137E500547046 /* Services */ = {
+		AD4FAC022A029FB5003CD356 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AD4FABF62A029F9F003CD356 /* HomeProtocols.swift */,
+				AD4FABF72A029F9F003CD356 /* HomeInteractor.swift */,
+				AD4FABF42A029F9F003CD356 /* HomePresenter.swift */,
+				AD4FABFA2A029F9F003CD356 /* HomeWireFrame.swift */,
+				ADAFCC102A05328A00DBB004 /* View */,
 			);
-			path = Services;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		AD7A446529F137EB00547046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AD3042DF29F1C8570024517D /* SleepStats.swift */,
+				AD3042DF29F1C8570024517D /* SleepStat.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		AD7A446629F137F100547046 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				AD99B0F729FAE37300839C49 /* HomeViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		AD7A446729F1380C00547046 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AD8B835629FD732D003AC53E /* Controllers */,
 				AD8B835729FD733A003AC53E /* Storyboard */,
 			);
 			path = Views;
@@ -211,42 +220,87 @@
 			isa = PBXGroup;
 			children = (
 				AD3042D929F19B060024517D /* CustomColors.swift */,
-				AD99B0F929FAE3BE00839C49 /* ObservableObject.swift */,
+				ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */,
+				ADEA99A62A03A8570002DCFB /* Constants.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		AD8B835629FD732D003AC53E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AD23F6AC29F049E4002B692F /* HomeViewController.swift */,
-				AD3042DD29F1C51A0024517D /* SleepStatsViewCell.swift */,
-				ADBE1DD929F92AA500B0EB48 /* SleepStatsHistory.swift */,
-				AD99B0FF29FB387400839C49 /* SleepEntryAlert.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		AD8B835729FD733A003AC53E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				AD23F6AE29F049E4002B692F /* Main.storyboard */,
 				AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		ADAAB3D62A1B59AB002821F9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3D92A1B59E6002821F9 /* SettingsProtocols.swift */,
+				ADAAB3D72A1B59E6002821F9 /* SettingsPresenter.swift */,
+				ADAAB3DA2A1B59E6002821F9 /* SettingsInteractor.swift */,
+				ADAAB3DD2A1B59E6002821F9 /* SettingsWireFrame.swift */,
+				ADAAB3E72A1B69FD002821F9 /* View */,
+				ADAAB3EA2A1B7ED3002821F9 /* Models */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		ADAAB3E72A1B69FD002821F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3DB2A1B59E6002821F9 /* SettingsView.swift */,
+				ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */,
+				ADAAB3E82A1B79A4002821F9 /* ContactsViewCell.swift */,
+				ADAAB3E52A1B5A02002821F9 /* SettingsView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADAAB3EA2A1B7ED3002821F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADAAB3ED2A1B7F32002821F9 /* Setting.swift */,
+				ADAAB3EB2A1B7EF6002821F9 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ADAFCC102A05328A00DBB004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6AC29F049E4002B692F /* HomeView.swift */,
+				AD3042DD29F1C51A0024517D /* HomeViewCell.swift */,
+				ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */,
+				AD99B0FF29FB387400839C49 /* HomeAlertView.swift */,
+				AD99B0F729FAE37300839C49 /* HomeViewModel.swift */,
+				AD23F6AE29F049E4002B692F /* HomeView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADBA313E2A42F3970046B99F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */,
+				ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		ADBA31402A42FE150046B99F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		DEC40823561363691C7E1D00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */,
-				677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */,
-				F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */,
-				0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */,
-				ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */,
-				E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -257,11 +311,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6CF29F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTracker" */;
 			buildPhases = (
-				377C9553271B66FE505F6C9C /* [CP] Check Pods Manifest.lock */,
 				AD23F6A129F049E4002B692F /* Sources */,
 				AD23F6A229F049E4002B692F /* Frameworks */,
 				AD23F6A329F049E4002B692F /* Resources */,
-				2C6875206A25227B969D2D14 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,7 +331,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6D229F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerTests" */;
 			buildPhases = (
-				839133F4FB005B548600DA39 /* [CP] Check Pods Manifest.lock */,
 				AD23F6B729F049E5002B692F /* Sources */,
 				AD23F6B829F049E5002B692F /* Frameworks */,
 				AD23F6B929F049E5002B692F /* Resources */,
@@ -298,11 +349,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD23F6D529F049E5002B692F /* Build configuration list for PBXNativeTarget "SomnumTrackerUITests" */;
 			buildPhases = (
-				9FCBDFD8AA49E60684BB4C18 /* [CP] Check Pods Manifest.lock */,
 				AD23F6C129F049E5002B692F /* Sources */,
 				AD23F6C229F049E5002B692F /* Frameworks */,
 				AD23F6C329F049E5002B692F /* Resources */,
-				2862EDD87D10D0A3013E98D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,7 +396,7 @@
 			);
 			mainGroup = AD23F69C29F049E4002B692F;
 			packageReferences = (
-				ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = AD23F6A629F049E4002B692F /* Products */;
 			projectDirPath = "";
@@ -368,7 +417,8 @@
 				AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */,
 				AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */,
 				AD3042DC29F1B4740024517D /* Limerick-Serial Regular.ttf in Resources */,
-				AD23F6B029F049E4002B692F /* Main.storyboard in Resources */,
+				AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */,
+				ADAAB3E62A1B5A02002821F9 /* SettingsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,124 +438,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2862EDD87D10D0A3013E98D6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker-SomnumTrackerUITests/Pods-SomnumTracker-SomnumTrackerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2C6875206A25227B969D2D14 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SomnumTracker/Pods-SomnumTracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		377C9553271B66FE505F6C9C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTracker-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		839133F4FB005B548600DA39 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTrackerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FCBDFD8AA49E60684BB4C18 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SomnumTracker-SomnumTrackerUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		AD23F6A129F049E4002B692F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD23F6AD29F049E4002B692F /* HomeViewController.swift in Sources */,
-				AD3042E029F1C8570024517D /* SleepStats.swift in Sources */,
+				ADAAB3EC2A1B7EF6002821F9 /* Contact.swift in Sources */,
+				ADDE662E29FFF86D008089AE /* CustomDateFormatter.swift in Sources */,
+				ADAAB3E42A1B59E6002821F9 /* SettingsWireFrame.swift in Sources */,
+				ADEA99A72A03A8570002DCFB /* Constants.swift in Sources */,
+				AD23F6AD29F049E4002B692F /* HomeView.swift in Sources */,
+				ADAAB3F02A1B9481002821F9 /* SettingsViewCell.swift in Sources */,
+				AD3042E029F1C8570024517D /* SleepStat.swift in Sources */,
+				ADBF4AC12A01C59D00432B07 /* DataPersistence.swift in Sources */,
 				AD23F6A929F049E4002B692F /* AppDelegate.swift in Sources */,
-				AD99B10029FB387400839C49 /* SleepEntryAlert.swift in Sources */,
+				AD99B10029FB387400839C49 /* HomeAlertView.swift in Sources */,
+				ADAAB3E22A1B59E6002821F9 /* SettingsView.swift in Sources */,
 				AD99B0F829FAE37300839C49 /* HomeViewModel.swift in Sources */,
-				ADBE1DDA29F92AA500B0EB48 /* SleepStatsHistory.swift in Sources */,
+				AD4FAC012A029F9F003CD356 /* HomeWireFrame.swift in Sources */,
+				ADAAB3E92A1B79A4002821F9 /* ContactsViewCell.swift in Sources */,
+				AD4FABFB2A029F9F003CD356 /* HomePresenter.swift in Sources */,
+				ADBF4AC42A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld in Sources */,
+				ADAAB3EE2A1B7F32002821F9 /* Setting.swift in Sources */,
 				AD3042DA29F19B060024517D /* CustomColors.swift in Sources */,
+				AD4FABFD2A029F9F003CD356 /* HomeProtocols.swift in Sources */,
+				ADAAB3E02A1B59E6002821F9 /* SettingsProtocols.swift in Sources */,
 				AD23F6AB29F049E4002B692F /* SceneDelegate.swift in Sources */,
-				AD3042DE29F1C51A0024517D /* SleepStatsViewCell.swift in Sources */,
-				AD99B0FA29FAE3BE00839C49 /* ObservableObject.swift in Sources */,
+				AD3042DE29F1C51A0024517D /* HomeViewCell.swift in Sources */,
+				AD4FABFE2A029F9F003CD356 /* HomeInteractor.swift in Sources */,
+				ADAFCC0F2A05281E00DBB004 /* HomeSleepStatChart.swift in Sources */,
+				ADAAB3E12A1B59E6002821F9 /* SettingsInteractor.swift in Sources */,
+				ADAAB3DE2A1B59E6002821F9 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */,
+				AD23F6C029F049E5002B692F /* DataPersistenceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,12 +505,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AD23F6AE29F049E4002B692F /* Main.storyboard */ = {
+		AD23F6AE29F049E4002B692F /* HomeView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AD23F6AF29F049E4002B692F /* Base */,
 			);
-			name = Main.storyboard;
+			name = HomeView.storyboard;
 			sourceTree = "<group>";
 		};
 		AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */ = {
@@ -677,7 +640,6 @@
 		};
 		AD23F6D029F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A58ED1A1A842FA143F477EC /* Pods-SomnumTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -690,7 +652,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -701,15 +663,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AD23F6D129F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 677808D774C30E40DAC97B78 /* Pods-SomnumTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -722,7 +686,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -733,15 +697,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.SomnumTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		AD23F6D329F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACFD33C5358FA2118F8FC91C /* Pods-SomnumTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -762,7 +728,6 @@
 		};
 		AD23F6D429F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E78B2BD8C596B72087D3C5F8 /* Pods-SomnumTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -783,7 +748,6 @@
 		};
 		AD23F6D629F049E5002B692F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1F768AD73CF790FB0B41F8C /* Pods-SomnumTracker-SomnumTrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -802,7 +766,6 @@
 		};
 		AD23F6D729F049E5002B692F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0101AA7AE235AF9661A6ED9F /* Pods-SomnumTracker-SomnumTrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -861,7 +824,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -874,10 +837,23 @@
 /* Begin XCSwiftPackageProductDependency section */
 		ADBE1DD729F928A500B0EB48 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ADBE1DD629F928A500B0EB48 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */,
+			);
+			currentVersion = ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */;
+			path = SleepStatsDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AD23F69D29F049E4002B692F /* Project object */;
 }
