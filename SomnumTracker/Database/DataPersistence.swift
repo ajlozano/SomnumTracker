@@ -8,18 +8,30 @@
 import UIKit
 import CoreData
 
-struct DataPersistence {
+class DataPersistence {
     // MARK: - Properties
     var sleepData = [SleepData]()
     let context: NSManagedObjectContext
     static var shared = DataPersistence()
-    init() {
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //MARK: Init with dependency
+    init(container: NSPersistentContainer) {
+        self.context = container.viewContext
+        self.context.automaticallyMergesChangesFromParent = true
     }
     
-    mutating func loadTitles(with savedRequest: NSFetchRequest<SleepData> = SleepData.fetchRequest(),
+    convenience init() {
+        //Use the default container for production environment
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("AppDelegate unavailable")
+        }
+        
+        self.init(container: appDelegate.persistentContainer)
+    }
+    
+    func loadData(with savedRequest: NSFetchRequest<SleepData> = SleepData.fetchRequest(),
                              completion: ([SleepData]) -> ()) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let sleepData: [SleepData]
         do {
@@ -34,7 +46,7 @@ struct DataPersistence {
         completion(sleepData)
     }
     
-    mutating func saveData(_ sleepStats: SleepStat? = nil, completion: ([SleepData]) -> ()) {
+    func saveData(_ sleepStats: SleepStat? = nil, completion: ([SleepData]) -> ()) {
         if let stats = sleepStats {
             let data = SleepData(context: context)
             
@@ -57,8 +69,7 @@ struct DataPersistence {
         }
     }
     
-    mutating func deleteData(_ sleepStat: SleepStat) {
-        
+    func deleteData(_ sleepStat: SleepStat) {
         if let index = sleepData.firstIndex(where: {$0.dateString! == sleepStat.dateString}) {
             context.delete(sleepData [index])
             saveData { _ in }
@@ -68,7 +79,7 @@ struct DataPersistence {
         }
     }
 
-    mutating func deleteAllData() {
+    func deleteAllData() {
         for data in sleepData {
             context.delete(data)
             saveData { _ in }

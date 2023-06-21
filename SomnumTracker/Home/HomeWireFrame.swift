@@ -50,7 +50,7 @@ class HomeWireFrame: HomeWireFrameProtocol {
                 self.alertView = alert
                 //let presenter: HomePresenterProtocol & HomeInteractorOutputProtocol = HomePresenter()
                 self.alertView?.presenter = self.presenter
-                self.presenter?.view = self.alertView
+                self.presenter?.alertView = self.alertView
             }
         }
     }
@@ -58,7 +58,7 @@ class HomeWireFrame: HomeWireFrameProtocol {
     func removeEntryAlert() {
         if let alert = alertView {
             alert.removeAlertView()
-            self.presenter?.view = self.viewController as! HomeView
+            //self.presenter?.view = self.viewController as! HomeView
         }
     }
     

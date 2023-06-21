@@ -183,7 +183,7 @@ extension SettingsView {
          })
         // Create CANCEL button with action handler
         let cancel = UIAlertAction(title: "CANCEL", style: .cancel, handler: { (action) -> Void in
-            print("Ok button tapped")
+            //print("Ok button tapped")
          })
         //Add OK button to a dialog message
         dialogMessage.addAction(ok)
@@ -232,7 +232,6 @@ extension SettingsView {
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: isDaily)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        print("\(trigger.dateComponents)")
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
         notificationCenter.add(request)
     }

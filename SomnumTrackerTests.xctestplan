@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "F6401E99-FFA8-4E99-98EA-C1E25602E398",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SomnumTracker.xcodeproj",
+        "identifier" : "AD23F6BA29F049E5002B692F",
+        "name" : "SomnumTrackerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

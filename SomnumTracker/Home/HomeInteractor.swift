@@ -30,7 +30,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
     func fetchSleepStats() {
         sleepStatsDb.removeAll()
         
-        DataPersistence.shared.loadTitles { sleepData in
+        DataPersistence.shared.loadData { sleepData in
             let calendar = CustomDateFormatter.shared.getCalendar()
             let todayComponent = calendar.dateComponents([.day, .month, .weekOfYear, .weekday, .year], from: Date())
             

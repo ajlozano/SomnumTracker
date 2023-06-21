@@ -13,7 +13,7 @@
 		AD23F6B029F049E4002B692F /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6AE29F049E4002B692F /* HomeView.storyboard */; };
 		AD23F6B229F049E5002B692F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B129F049E5002B692F /* Assets.xcassets */; };
 		AD23F6B529F049E5002B692F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6B329F049E5002B692F /* LaunchScreen.storyboard */; };
-		AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */; };
+		AD23F6C029F049E5002B692F /* DataPersistenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */; };
 		AD23F6CA29F049E5002B692F /* SomnumTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */; };
 		AD23F6CC29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */; };
 		AD3042DA29F19B060024517D /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3042D929F19B060024517D /* CustomColors.swift */; };
@@ -71,7 +71,7 @@
 		AD23F6B429F049E5002B692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD23F6B629F049E5002B692F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD23F6BB29F049E5002B692F /* SomnumTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerTests.swift; sourceTree = "<group>"; };
+		AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceTest.swift; sourceTree = "<group>"; };
 		AD23F6C529F049E5002B692F /* SomnumTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomnumTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD23F6C929F049E5002B692F /* SomnumTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITests.swift; sourceTree = "<group>"; };
 		AD23F6CB29F049E5002B692F /* SomnumTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomnumTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		ADAAB3ED2A1B7F32002821F9 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
+		ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SomnumTrackerTests.xctestplan; sourceTree = "<group>"; };
 		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
 		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		AD23F69C29F049E4002B692F = {
 			isa = PBXGroup;
 			children = (
+				ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */,
 				AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */,
 				AD23F6A729F049E4002B692F /* SomnumTracker */,
 				AD23F6BE29F049E5002B692F /* SomnumTrackerTests */,
@@ -159,6 +161,7 @@
 				ADAAB3D62A1B59AB002821F9 /* Settings */,
 				AD4FAC022A029FB5003CD356 /* Home */,
 				AD7A446529F137EB00547046 /* Models */,
+				ADBA313E2A42F3970046B99F /* Database */,
 				AD7A446729F1380C00547046 /* Views */,
 				AD23F6B129F049E5002B692F /* Assets.xcassets */,
 				AD23F6B629F049E5002B692F /* Info.plist */,
@@ -169,7 +172,7 @@
 		AD23F6BE29F049E5002B692F /* SomnumTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD23F6BF29F049E5002B692F /* SomnumTrackerTests.swift */,
+				ADBA31402A42FE150046B99F /* Database */,
 			);
 			path = SomnumTrackerTests;
 			sourceTree = "<group>";
@@ -199,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				AD3042DF29F1C8570024517D /* SleepStat.swift */,
-				ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */,
-				ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +276,23 @@
 				AD23F6AE29F049E4002B692F /* HomeView.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ADBA313E2A42F3970046B99F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */,
+				ADBF4AC22A01C5ED00432B07 /* SleepStatsDB.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		ADBA31402A42FE150046B99F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6BF29F049E5002B692F /* DataPersistenceTest.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		DEC40823561363691C7E1D00 /* Pods */ = {
@@ -456,7 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD23F6C029F049E5002B692F /* SomnumTrackerTests.swift in Sources */,
+				AD23F6C029F049E5002B692F /* DataPersistenceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

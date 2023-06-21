@@ -15,6 +15,14 @@ protocol HomeViewProtocol: AnyObject {
     // RELOAD TABLE VIEW, ACTIVITY INDICATOR, ETC
     func updateUI()
     func showSleepStats(_ sleepStats: [SleepStat])
+    //func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
+    //func showDurationFromEntryChanges(_ sleepDuration: String)
+}
+
+protocol HomeAlertViewProtocol: AnyObject {
+    // PRESENTER -> VIEW
+    var presenter: HomePresenterProtocol? { get set }
+    
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String)
     func showDurationFromEntryChanges(_ sleepDuration: String)
 }
@@ -22,6 +30,7 @@ protocol HomeViewProtocol: AnyObject {
 protocol HomePresenterProtocol: AnyObject {
     // VIEW -> PRESENTER
     var view: HomeViewProtocol? { get set }
+    var alertView: HomeAlertViewProtocol? { get set }
     var interactor: HomeInteractorInputProtocol? { get set }
     var wireFrame: HomeWireFrameProtocol? { get set }
     

@@ -152,7 +152,6 @@ class HomeAlertView {
             dateFormatter.dateFormat =  "HH:mm"
             if let date = dateFormatter.date(from: dateTime) {
                 datePicker.date = date
-                print(datePicker.date)
             }
         }
 
@@ -205,12 +204,7 @@ class HomeAlertView {
 }
 
 // MARK: - View update
-extension HomeAlertView: HomeViewProtocol {
-    func updateUI() {}
-    func showSleepStats(_ sleepStats: [SleepStat]) {
-        print("Alert View protocol")
-    }
-    
+extension HomeAlertView: HomeAlertViewProtocol {
     func showResetEntryData(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
         dateEntry.date = Date()
         timeOfSleepEntry.date = sleepTime

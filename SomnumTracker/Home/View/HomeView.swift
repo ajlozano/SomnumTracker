@@ -44,9 +44,6 @@ class HomeView: UIViewController {
     
     @IBAction func lastWeekButtonPressed(_ sender: UIButton) {
         presenter?.didClickLastWeek(date: viewModel.sleepStats[0].date)
-        print(viewModel.sleepStats[0].date)
-        print(viewModel.sleepStats[0].dateString)
-        print(viewModel.sleepStats[0].weekOfYear)
     }
     
     @IBAction func nextWeekButtonPressed(_ sender: UIButton) {

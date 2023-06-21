@@ -13,13 +13,13 @@ import Combine
 class HomePresenter  {
     // MARK: Properties
     var view: HomeViewProtocol?
+    var alertView: HomeAlertViewProtocol?
     var interactor: HomeInteractorInputProtocol?
     var wireFrame: HomeWireFrameProtocol?
 }
 
 // MARK: - Home presenter protocol
 extension HomePresenter: HomePresenterProtocol {
-    
     func viewDidLoad() {
         interactor?.fetchSleepStats()
     }
@@ -61,11 +61,11 @@ extension HomePresenter: HomePresenterProtocol {
 // MARK: - Home interactor output protocol
 extension HomePresenter: HomeInteractorOutputProtocol {
     func entryValuesChanged(_ sleepDuration: String) {
-        view?.showDurationFromEntryChanges(sleepDuration)
+        alertView?.showDurationFromEntryChanges(sleepDuration)
     }
     
     func entryValuesReset(_ sleepTime: Date, _ wakeUpTime: Date, _ sleepDuration: String) {
-        view?.showResetEntryData(sleepTime, wakeUpTime, sleepDuration)
+        alertView?.showResetEntryData(sleepTime, wakeUpTime, sleepDuration)
     }
     
     func sleepStatsFetched(_ sleepStats: [SleepStat]) {
