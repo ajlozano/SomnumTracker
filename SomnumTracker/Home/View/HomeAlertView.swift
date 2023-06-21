@@ -27,9 +27,21 @@ class HomeAlertView {
     }()
     
     var targetView: UIView
-    var dateEntry = UIDatePicker()
-    var timeOfSleepEntry = UIDatePicker()
-    var wakeUpTimeEntry = UIDatePicker()
+    var dateEntry: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.accessibilityIdentifier = "dateEntry"
+        return datePicker
+    }()
+    var timeOfSleepEntry: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.accessibilityIdentifier = "timeOfSleepEntry"
+        return datePicker
+    }()
+    var wakeUpTimeEntry: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.accessibilityIdentifier = "wakeUpTimeEntry"
+        return datePicker
+    }()
     var sleepDurationValueLabel = UILabel()
     
     init(on viewController: UIViewController) {
@@ -143,6 +155,7 @@ class HomeAlertView {
         dateView.addSubview(dateLabel)
         // Date picker
         let datePicker = picker
+        print("DATE PICKER: \(datePicker.accessibilityIdentifier)")
         datePicker.datePickerMode = dateMode
         datePicker.preferredDatePickerStyle = .compact
         datePicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)

@@ -97,6 +97,7 @@
 		ADAAB3EF2A1B9481002821F9 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		ADAFCC0E2A05281E00DBB004 /* HomeSleepStatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSleepStatChart.swift; sourceTree = "<group>"; };
 		ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SomnumTrackerTests.xctestplan; sourceTree = "<group>"; };
+		ADBA31412A4306F50046B99F /* SomnumTrackerUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SomnumTrackerUITests.xctestplan; sourceTree = "<group>"; };
 		ADBF4AC02A01C59D00432B07 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		ADBF4AC32A01C5ED00432B07 /* SleepStatsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepStatsDB.xcdatamodel; sourceTree = "<group>"; };
 		ADDE662D29FFF86D008089AE /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		AD23F69C29F049E4002B692F = {
 			isa = PBXGroup;
 			children = (
+				ADBA31412A4306F50046B99F /* SomnumTrackerUITests.xctestplan */,
 				ADBA313F2A42F68E0046B99F /* SomnumTrackerTests.xctestplan */,
 				AD3042DB29F1B4740024517D /* Limerick-Serial Regular.ttf */,
 				AD23F6A729F049E4002B692F /* SomnumTracker */,

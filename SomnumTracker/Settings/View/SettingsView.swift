@@ -22,7 +22,11 @@ class SettingsView: UIViewController {
     var settingsModel: [Setting] = [Setting]()
     let deleteButton = UIButton()
     let notificationSwitch = UISwitch()
-    let timeNotificationPicker = UIDatePicker()
+    let timeNotificationPicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.accessibilityIdentifier = "timeNotificationPicker"
+        return datePicker
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
