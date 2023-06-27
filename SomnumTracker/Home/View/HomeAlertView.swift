@@ -155,7 +155,6 @@ class HomeAlertView {
         dateView.addSubview(dateLabel)
         // Date picker
         let datePicker = picker
-        print("DATE PICKER: \(datePicker.accessibilityIdentifier)")
         datePicker.datePickerMode = dateMode
         datePicker.preferredDatePickerStyle = .compact
         datePicker.addTarget(self, action: #selector(didDateChanged), for: UIControl.Event.valueChanged)

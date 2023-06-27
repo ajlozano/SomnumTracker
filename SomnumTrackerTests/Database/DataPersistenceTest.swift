@@ -89,7 +89,6 @@ final class DataPersistenceTest: XCTestCase {
         sut?.deleteData(SleepStat(weekOfYear: "1", timeOfSleep: "1", wakeUpTime: "1", sleepDuration: Double(1), dateString: "1", year: "1", date: Date()))
 
         sut?.loadData(completion: { sleepStats in
-            print(sleepStats)
             XCTAssertEqual(sleepStats.count, 9)
             XCTAssertNil(sleepStats.firstIndex(where: {$0.dateString == "1"}))
         })
