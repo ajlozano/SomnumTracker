@@ -106,8 +106,14 @@ class HomeInteractor: HomeInteractorInputProtocol {
         
         if let nextWeekDate = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) {
             let todayComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: Date())
-            let nextWeekComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: nextWeekDate)
-            if (calendar.date(from: todayComponent)! > nextWeekDate) {
+
+            let todayDate = calendar.date(from: todayComponent)!
+            // Is necessary to increase 1 day when comparin to actual day
+            let todayRealDate = calendar.date(byAdding: .day, value: 1, to: todayDate)
+            let nextWeekRealDate = calendar.date(byAdding: .day, value: 1, to: nextWeekDate)
+            
+            if (todayRealDate! > nextWeekDate) {
+                let nextWeekComponent = calendar.dateComponents([.day, .month, .weekOfYear, .year], from: nextWeekDate)
                 updateSleepStatsFromDate(date: calendar.date(from: nextWeekComponent)!)
                 presenter?.sleepStatsFetched(sleepStatsWeek)
             }
