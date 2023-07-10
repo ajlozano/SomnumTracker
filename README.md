@@ -16,6 +16,7 @@
 - Day/Night modes.
 - Charts
 - Table View
+- XCTesting and UITesting
 
 ### 🚀 Platform
 - iOS
