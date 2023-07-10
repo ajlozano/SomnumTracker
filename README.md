@@ -1,4 +1,5 @@
 # SomnumTracker
+[`📲 Available on the App Store`](https://apps.apple.com/us/app/somnum-tracker/id6450696537)
 
 <p><img src="https://github.com/ajlozano/Portfolio/blob/main/media/SomnumTracker/SomnumTracker.gif?raw=true" alt="SomnumTracker GIF" align="right" width="270"/></p>
 
